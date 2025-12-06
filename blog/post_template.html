@@ -1,1 +1,80 @@
-<!-- Replace with your canvas file content -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Título del Post – Blog</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+
+  <!-- MATHJAX PARA FÓRMULAS -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["$","$"],["\\(","\\)"]] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Título del Post</h1>
+      <nav class="top-nav">
+        <a href="../index.html">Home</a>
+        <a href="../talks.html">Talks</a>
+        <a href="../outreach.html">Outreach</a>
+        <a href="index.html" style="color:var(--accent);font-weight:600;">Blog</a>
+        <a href="../cv/CV_full.pdf">CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container panel">
+    <h2>Título del Post</h2>
+    <p class="muted">Fecha — Categoría</p>
+
+    <article class="bio" style="max-width:800px;">
+      <!-- CONTENIDO PRINCIPAL DEL POST -->
+      <p>
+        Aquí escribes el contenido principal del artículo. Puedes usar párrafos largos, imágenes, listas y fórmulas como
+        $\\zeta(s)$ o expresiones más largas como:
+      </p>
+
+      <p>
+        $$
+        \int_0^1 e^{2\pi i n x} \, dx =
+        \begin{cases}
+        1, & n = 0, \\\\
+        0, & n \neq 0.
+        \end{cases}
+        $$
+      </p>
+
+      <p>
+        Añade aquí observaciones, ideas, detalles técnicos o cualquier explicación que desees.
+      </p>
+
+      <h3>Imágenes</h3>
+      <div class="gallery">
+        <!-- AGREGA TUS IMÁGENES AQUÍ -->
+        <!-- Ejemplo:
+        <div class="thumb"><img src="../assets/img/post1_img1.jpg" alt="Descripción"></div>
+        -->
+      </div>
+
+      <h3>Referencias</h3>
+      <ul>
+        <!-- AGREGA REFERENCIAS SI LAS HAY -->
+      </ul>
+
+    </article>
+
+    <p><a class="btn-ghost" href="index.html">← Volver al Blog</a></p>
+
+  </section>
+
+  <footer class="site-footer">
+    <p>© 2025 Lorenzo Alvarado — Blog</p>
+  </footer>
+</body>
+</html>

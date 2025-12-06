@@ -1,1 +1,99 @@
-<!-- Replace with your canvas file content -->
+/* styles.css — Versión profesional B+C para la página de Lorenzo Alvarado
+   Instrucciones:
+   - Guardar en css/styles.css
+   - Reemplazar variables en :root si quieres otros colores
+   - Añadir fuentes en <head> si lo deseas (ej. Google Fonts: Inter,Roboto)
+*/
+
+:root{
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --muted: #6b7280;
+  --accent: #3b4bb0; /* azul profundo */
+  --accent-2: #7b61ff; /* violeta suave */
+  --glass: rgba(255,255,255,0.8);
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(30,40,80,0.08);
+  --maxw: 1100px;
+}
+
+/* Reset ligero */
+*{box-sizing:border-box}
+html,body{height:100%;}
+body{
+  margin:0; font-family: Inter, system-ui, -apple-system, "Helvetica Neue", Arial; background:var(--bg); color:#0b1220; -webkit-font-smoothing:antialiased;
+}
+.container{max-width:var(--maxw); margin:0 auto; padding:36px 20px}
+
+/* ===== Header ===== */
+/* Active link highlight */
+.top-nav a[style*="color:var(--accent)"]{background:rgba(59,75,176,0.10);}
+.site-header{background:linear-gradient(90deg,#ffffff 0%, #f3f6ff 100%); border-bottom:1px solid rgba(15,25,45,0.04); position:sticky; top:0; z-index:50}
+.site-header .container{display:flex; align-items:center; gap:20px}
+.site-title{margin:8px 0 0 0; font-size:1.25rem; font-weight:600}
+.site-subtitle{margin:2px 0 0 0; color:var(--muted); font-size:0.88rem}
+.top-nav{margin-left:auto; display:flex; gap:14px}
+.top-nav a{color:var(--muted); text-decoration:none; font-weight:500; padding:10px 8px; border-radius:8px}
+.top-nav a:hover{background:rgba(59,75,176,0.06); color:var(--accent)}
+
+/* ===== Hero / About ===== */
+.panel{padding:48px 0}
+.panel-hero{padding-top:28px}
+.grid-two{display:grid; grid-template-columns:1fr 360px; gap:28px; align-items:center}
+@media (max-width:880px){.grid-two{grid-template-columns:1fr;}}
+.hero-photo img.profile-photo{width:100%; height:100%; max-width:420px; border-radius:14px; object-fit:cover; display:block; box-shadow:var(--shadow)}
+.bio{font-size:1.02rem; line-height:1.55; color:#111827}
+.socials{margin-top:16px; display:flex; gap:10px}
+.socials .icon{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:10px; background:linear-gradient(90deg, rgba(123,97,255,0.09), rgba(59,75,176,0.06)); color:var(--accent); text-decoration:none; font-weight:600}
+
+/* ===== Cards ===== */
+.card-row{display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:18px; margin-top:18px}
+.card{background:var(--surface); padding:18px; border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid rgba(15,25,45,0.03)}
+.card h4{margin:0 0 8px 0}
+.card p{margin:0 0 12px 0; color:var(--muted)}
+.card .btn{display:inline-block; padding:8px 12px; border-radius:10px; background:var(--accent); color:#fff; text-decoration:none; font-weight:600}
+
+/* ===== Research / Questions ===== */
+.questions{list-style:disc; margin-left:1.1rem; color:#111827}
+.questions li{margin:8px 0}
+
+/* ===== Teaching ===== */
+.courses{width:100%; border-collapse:collapse; margin-top:12px}
+.courses th{background:transparent; text-align:left; padding:10px 8px; color:var(--muted)}
+.courses td{padding:10px 8px; border-top:1px solid rgba(15,25,45,0.04); color:#0b1220}
+
+/* ===== Talks / Actions ===== */
+.card-actions{display:flex; gap:8px; flex-wrap:wrap}
+.btn-ghost{padding:8px 12px; border-radius:10px; background:transparent; color:var(--accent); border:1px solid rgba(59,75,176,0.12); text-decoration:none; font-weight:600}
+
+/* ===== Outreach gallery ===== */
+.gallery{display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:12px}
+.gallery .thumb{background:linear-gradient(180deg,#fff,#fbfdff); border-radius:10px; overflow:hidden; box-shadow:0 6px 18px rgba(10,15,40,0.06)}
+.gallery img{width:100%; height:140px; object-fit:cover; display:block}
+
+/* ===== Blog minimal ===== */
+.post-list{display:grid; gap:12px}
+.post{background:var(--surface); padding:16px; border-radius:10px; box-shadow:var(--shadow)}
+.post h3{margin:0 0 8px 0}
+.post p{margin:0; color:var(--muted)}
+
+/* ===== Contact / Form ===== */
+form{display:grid; gap:8px; max-width:640px}
+form label{display:block; font-size:0.9rem}
+input[type="text"], input[type="email"], textarea{width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(15,25,45,0.06)}
+textarea{min-height:120px}
+button[type="submit"], .btn{cursor:pointer}
+
+/* ===== Footer ===== */
+.site-footer{padding:28px 0; border-top:1px solid rgba(15,25,45,0.04); color:var(--muted); text-align:center}
+.badges{display:flex; gap:10px; justify-content:center; margin-top:10px}
+.badge{padding:6px 10px; border-radius:8px; background:linear-gradient(90deg, rgba(123,97,255,0.06), rgba(59,75,176,0.04)); color:var(--accent); font-weight:600}
+
+/* ===== Utilities ===== */
+.muted{color:var(--muted)}
+.note{color:var(--muted); font-size:0.92rem}
+
+@media (max-width:600px){
+  .container{padding:20px}
+  .site-title{font-size:1.05rem}
+}
