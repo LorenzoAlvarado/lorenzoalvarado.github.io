@@ -97,3 +97,24 @@ button[type="submit"], .btn{cursor:pointer}
   .container{padding:20px}
   .site-title{font-size:1.05rem}
 }
+
+/* ===== Animaciones y Mejoras Visuales ===== */
+
+/* Que las tarjetas floten suavemente al pasar el mouse */
+.card, .post, .gallery .thumb {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover, .post:hover, .gallery .thumb:hover {
+  transform: translateY(-5px); /* Se mueve 5px hacia arriba */
+  box-shadow: 0 12px 30px rgba(30,40,80,0.12); /* Sombra más profunda */
+}
+
+/* Mejora botones */
+.btn, .btn-ghost {
+  transition: all 0.2s ease;
+}
+.btn:hover {
+  filter: brightness(110%);
+  transform: scale(1.02);
+}
