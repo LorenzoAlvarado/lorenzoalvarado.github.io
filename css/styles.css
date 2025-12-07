@@ -28,7 +28,15 @@ body{
 /* ===== Header ===== */
 /* Active link highlight */
 .top-nav a[style*="color:var(--accent)"]{background:rgba(59,75,176,0.10);}
-.site-header{background:linear-gradient(90deg,#ffffff 0%, #f3f6ff 100%); border-bottom:1px solid rgba(15,25,45,0.04); position:sticky; top:0; z-index:50}
+.site-header {
+  position: sticky; /* Esto hace la magia de pegarse */
+  top: 0;           /* Le dice que se pegue al borde superior */
+  z-index: 1000;    /* Asegura que el menú esté SIEMPRE encima de todo lo demás */
+  background: rgba(255, 255, 255, 0.95); /* Fondo blanco casi sólido */
+  backdrop-filter: blur(10px); /* Efecto moderno de desenfoque (estilo vidrio) */
+  border-bottom: 1px solid rgba(15, 25, 45, 0.04);
+  width: 100%;
+}
 .site-header .container{display:flex; align-items:center; gap:20px}
 .site-title{margin:8px 0 0 0; font-size:1.25rem; font-weight:600}
 .site-subtitle{margin:2px 0 0 0; color:var(--muted); font-size:0.88rem}
