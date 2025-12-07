@@ -37,7 +37,6 @@ body{
   border-bottom: 1px solid rgba(15, 25, 45, 0.04);
   width: 100%;
 }
-.site-header .container{display:flex; align-items:center; gap:20px}
 .site-title{margin:8px 0 0 0; font-size:1.25rem; font-weight:600}
 .site-subtitle{margin:2px 0 0 0; color:var(--muted); font-size:0.88rem}
 .top-nav{margin-left:auto; display:flex; gap:14px}
