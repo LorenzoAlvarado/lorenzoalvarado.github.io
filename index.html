@@ -3,8 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  
+  <meta name="description" content="Página personal de Lorenzo Alvarado, matemático e investigador en Teoría Analítica de Números en la UNAM.">
+  <meta name="keywords" content="Matemáticas, UNAM, Teoría de Números, Hardy-Littlewood, Lorenzo Alvarado">
+  <meta name="author" content="Lorenzo Antonio Alvarado Cabrera">
+
   <title>Lorenzo Alvarado — Matemáticas</title>
+  
   <link rel="stylesheet" href="css/styles.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -24,11 +35,10 @@
   </header>
 
   <main>
-    <!-- ABOUT -->
     <section id="about" class="panel panel-hero">
       <div class="container grid-two">
         <div>
-          <h2>Sobre mí</h2>
+          <h2>About Me</h2>
           <p class="bio">Matemático por la Facultad de Ciencias y estudiante del Posgrado en Ciencias Matemáticas (Instituto de Matemáticas, UNAM). Mi trabajo explora la Teoría Analítica de Números. Me apasiona la enseñanza rigurosa y la creación de puentes audiovisuales para la divulgación matemática.</p>
 
           <h3>What I'm doing now</h3>
@@ -40,25 +50,32 @@
           </ul>
 
           <div class="socials">
-            <a class="icon" href="mailto:lorenzo.alvarado@ciencias.unam.mx">✉ Email</a>
-            <a class="icon" href="https://orcid.org/0009-0005-2335-7672">ORCID</a>
-            <a class="icon" href="https://www.linkedin.com/in/lorenzo-antonio-alvarado-cabrera-3914a3258/">LinkedIn</a>
-            <a class="icon" href="https://github.com/lorenzo-alvarado">GitHub</a>
+            <a class="icon" href="mailto:lorenzo.alvarado@ciencias.unam.mx" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a class="icon" href="https://orcid.org/0009-0005-2335-7672" aria-label="ORCID" target="_blank">
+              <i class="fab fa-orcid"></i>
+            </a>
+            <a class="icon" href="https://www.linkedin.com/in/lorenzo-antonio-alvarado-cabrera-3914a3258/" aria-label="LinkedIn" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a class="icon" href="https://github.com/lorenzo-alvarado" aria-label="GitHub" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
           </div>
         </div>
 
         <div class="hero-photo">
-          <img src="assets/img/photo_home.jpg" alt="Foto profesional" class="profile-photo" />
+          <img src="assets/img/photo_home.jpg" alt="Lorenzo Alvarado" class="profile-photo" />
         </div>
       </div>
     </section>
 
-    <!-- RESEARCH -->
     <section id="research" class="panel">
       <div class="container">
         <h2>Research</h2>
         <p><strong>Focus:</strong> Teoría Analítica de Números</p>
-        <p><strong>Intereses:</strong> Función Zeta de Riemann, Ecuaciones Trascendentales, Combinatoria Analítica</p>
+        <p><strong>Interests:</strong> Función Zeta de Riemann ($\zeta(s)$), Ecuaciones Trascendentales, Combinatoria Analítica</p>
 
         <h3>Questions I'm interested in</h3>
         <ul class="questions">
@@ -77,7 +94,6 @@
       </div>
     </section>
 
-    <!-- TEACHING -->
     <section id="teaching" class="panel panel-alt">
       <div class="container">
         <h2>Teaching</h2>
@@ -101,25 +117,30 @@
       </div>
     </section>
 
-    <!-- CV -->
     <section id="cv" class="panel">
       <div class="container">
         <h2>Curriculum</h2>
-        <p><a class="btn" href="cv/CV_full.pdf">Full CV</a></p>
-        <p><a class="btn" href="cv/CV_short.pdf">Short CV</a></p>
+        <p><a class="btn" href="cv/CV_full.pdf" target="_blank">Full CV</a></p>
+        <p><a class="btn" href="cv/CV_short.pdf" target="_blank">Short CV</a></p>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="panel">
       <div class="container">
-        <h2>Contacto</h2>
-        <p>Escríbeme: lorenzo.alvarado [at] ciencias.unam.mx</p>
-        <form action="https://formspree.io/f/TU_ID" method="POST">
-          <label>Nombre<input type="text" name="name" /></label>
-          <label>Email<input type="email" name="email" /></label>
-          <label>Mensaje<textarea name="message"></textarea></label>
-          <button class="btn">Enviar</button>
+        <h2>Contact</h2>
+        <p>You can verify my institutional email above or send a message directly:</p>
+        
+        <form action="https://formspree.io/f/mjknoqne" method="POST">
+          <label>Name
+            <input type="text" name="name" required />
+          </label>
+          <label>Email
+            <input type="email" name="email" required />
+          </label>
+          <label>Message
+            <textarea name="message" required></textarea>
+          </label>
+          <button class="btn" type="submit">Send</button>
         </form>
       </div>
     </section>
