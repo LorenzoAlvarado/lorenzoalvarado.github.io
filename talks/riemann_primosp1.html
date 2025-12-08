@@ -7,9 +7,16 @@
   
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+  <!-- Activar MathJax igual que en la charla de Basel/Bernoulli -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["$","$"],["\\(","\\)"]] }
+    };
+  </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
+
 <body>
 <header class="site-header">
   <div class="container">
@@ -28,11 +35,27 @@
 </header>
 
 <section class="container panel">
-  <h2>La Hipótesis de Riemann: Una ventana a la distribución de los números primos</h2>
+
+  <h2>The Riemann Hypothesis: A Window into the Distribution of Prime Numbers</h2>
+
   <p class="bio">
-    Esta charla divulgativa tiene como objetivo desmitificar el problema más famoso de las matemáticas. Introducimos la Función Zeta de Riemann $\zeta(s)$, su continuación analítica y la conexión explícita entre sus ceros no triviales y el término de error en el Teorema de los Números Primos.
+    In this introductory talk, we explore the analytic structure of the Riemann zeta function 
+    $$\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}, \qquad \Re(s) > 1,$$
+    and discuss how its meromorphic continuation captures deep information about the primes.  
+    We explain why the nontrivial zeros of $\zeta(s)$ are expected to lie on the critical line 
+    $\Re(s) = \tfrac{1}{2}$, and how this prediction is closely linked to the error term in the 
+    Prime Number Theorem.
   </p>
 
+  <p class="bio">
+    The talk emphasizes intuition over technical details.  
+    We look at the explicit formula connecting primes and zeros, the role of the functional 
+    equation,
+    $$\zeta(s) = 2^s \pi^{s-1} \sin\left(\frac{\pi s}{2}\right)\Gamma(1-s)\zeta(1-s),$$
+    and the historical reasons why the Riemann Hypothesis is viewed as a central guiding 
+    problem in modern number theory.
+  </p>
+  <!-- Event Information (en español, como pediste) -->
   <h3>Información del Evento</h3>
   <ul class="bio">
     <li><strong>Evento:</strong> Charla de Divulgación — Instituto de Matemáticas, UNAM</li>
@@ -42,27 +65,29 @@
 
   <h3>Slides</h3>
   <p>
-      <a class="btn" href="../assets/pdfs/talks/2025_riemann_primosp1_slides.pdf" target="_blank">
-          <i class="fas fa-file-pdf"></i> Descargar Slides
-      </a>
+    <a class="btn" href="../assets/pdfs/talks/riemann_primosp1_slides.pdf" target="_blank">
+        <i class="fas fa-file-pdf"></i> Descargar Slides
+    </a>
   </p>
 
   <h3>Video</h3>
-  <p class="note">Agrega un enlace o iframe si existe video de la charla.</p>
+  <p class="note">
+    <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/yuwFAkEOafI" 
+            frameborder="0" allowfullscreen>
+    </iframe>
+  </p>
+
   <h3>Galería</h3>
-  <div class="gallery"></div>
+  <div class="gallery"><!-- fotos aquí --></div>
 
-  <h3>Material Complementario</h3>
-  <ul>
-    <li><a href="../assets/pdfs/resources/notas/notas_zeta_riemann.pdf" target="_blank">Notas introductorias sobre $\zeta(s)$</a></li>
-    <li><a href="../assets/pdfs/talks/2025_riemann_referencias.pdf" target="_blank">Bibliografía recomendada</a></li>
-  </ul>
+  <p><a class="btn-ghost" href="../talks.html">← Volver a Talks</a></p>
 
-  <p><a class="btn-ghost" href="index.html">← Volver a Talks</a></p>
 </section>
 
 <footer class="site-footer">
   <p>© 2025 Lorenzo Alvarado — Talks</p>
 </footer>
+
 </body>
 </html>
