@@ -3,66 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Método del Círculo — Lorenzo Alvarado</title>
+  <title>Detalle de Charla — Lorenzo Alvarado</title>
   
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [["$","$"],["\\(","\\)"]] }
+    };
+  </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="site-title">El Método del Círculo</h1>
-      <nav class="top-nav">
-        <a href="../index.html">Home</a>
-        <a href="../research.html">Research</a>
-        <a href="../teaching.html">Teaching</a>
-        <a href="../talks.html" style="color:var(--accent);font-weight:600;">Talks</a>
-        <a href="../outreach.html">Outreach</a>
-        <a href="../resources.html">Resources</a>
-        <a href="../blog/index.html">Blog</a>
-        <a href="../cv/CV_full.pdf" target="_blank">CV</a>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="container">
+    <h1 class="site-title">Cómo contar con integrales: El método del círculo</h1>
+    <nav class="top-nav">
+      <a href="../index.html">Home</a>
+      <a href="../research.html">Research</a>
+      <a href="../teaching.html">Teaching</a>
+      <a href="../talks.html" style="color:var(--accent);font-weight:600;">Talks</a>
+      <a href="../outreach.html">Outreach</a>
+      <a href="../resources.html">Resources</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../cv/CV_full.pdf" target="_blank">CV</a>
+    </nav>
+  </div>
+</header>
 
-  <section class="container panel">
-    <h2>Cómo contar con integrales: El método del círculo de Hardy–Littlewood</h2>
-    <p class="bio">
-      En esta charla exploramos cómo problemas combinatorios de teoría de números, como el Problema de Waring o la Conjetura de Goldbach, pueden traducirse en el cálculo de integrales de contorno sobre el círculo unitario. Discutimos la disección de Farey y la distinción entre arcos mayores y menores.
-    </p>
+<section class="container panel">
+  <h2>How to Count with Integrals: The Hardy-Littlewood Circle Method</h2>
+  
+  <p class="bio">
+    This presentation serves as an introduction to <strong>Additive Number Theory</strong>, starting with the fundamental distinction between partitions and representations. We revisit the classical theory of generating functions developed by Euler and explore how <strong>Ramanujan</strong> utilized complex analysis—specifically Cauchy's integral formula—to study the asymptotic behavior of the partition function $P(n)$.
+  </p>
 
-    <h3>Información del Evento</h3>
-    <ul class="bio">
-      <li><strong>Evento:</strong> Seminario de Becarios — Instituto de Matemáticas, UNAM</li>
-      <li><strong>Fecha:</strong> Octubre 2024</li>
-    </ul>
+  <p class="bio">
+    We then transition to the <strong>Hardy-Littlewood Circle Method</strong>, explaining how it generalizes these ideas to solve major challenges like <strong>Waring's Problem</strong> ($x_1^k + \dots + x_r^k = n$).
+  </p>
 
-    <h3>Slides</h3>
-    <p>
-        <a class="btn" href="../assets/pdfs/talks/2024_metodo_circulo_handout.pdf" target="_blank">
-            <i class="fas fa-file-pdf"></i> Descargar Handout
-        </a>
-    </p>
+  <p class="bio">
+    Finally, we discuss <strong>I.M. Vinogradov's</strong> contributions, specifically his refinement using finite sums over prime numbers to approach <strong>Goldbach's Weak Conjecture</strong>, and conclude with an explicit calculation of integer representations using contour integration.
+  </p>
 
-    <h3>Video</h3>
-    <p class="note">Si existe un video en YouTube u otra plataforma, colócalo aquí.</p>
-    <h3>Galería</h3>
-    <div class="gallery">
-      </div>
+  <h3>Event Information</h3>
+  <ul class="bio">
+    <li><strong>Event:</strong> Seminario de Becarios</li>
+    <li><strong>Date:</strong> October 2024</li>
+    <li><strong>Location:</strong> Instituto de Matemáticas, UNAM</li>
+  </ul>
 
-    <h3>Material Complementario</h3>
-    <ul>
-      <li><a href="../assets/pdfs/talks/2024_metodo_circulo_notas.pdf" target="_blank">Notas extendidas de la charla</a></li>
-      <li><a href="../assets/pdfs/talks/2024_metodo_circulo_referencias.pdf" target="_blank">Lista de referencias y bibliografía</a></li>
-    </ul>
-    
-    <p><a class="btn-ghost" href="index.html">← Volver a Talks</a></p>
-  </section>
+  <h3>Slides</h3>
+  <p>
+      <a class="btn" href="../assets/pdfs/talks/circle_method_slides.pdf" target="_blank">
+          <i class="fas fa-file-pdf"></i> Download Slides (PDF)
+      </a>
+  </p>
 
-  <footer class="site-footer">
-    <p>© 2025 Lorenzo Alvarado — Talks</p>
-  </footer>
+  <h3>Video</h3>
+  <p class="note">
+     <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/IFTSqj0ong4"
+            frameborder="0" allowfullscreen>
+    </iframe>
+  </p>
+
+  <h3>Gallery</h3>
+  <div class="gallery"></div>
+
+  <p><a class="btn-ghost" href="../talks.html">← Back to Talks</a></p>
+</section>
+
+<footer class="site-footer">
+  <p>© 2025 Lorenzo Alvarado — Talks</p>
+</footer>
 </body>
 </html>
