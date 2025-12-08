@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hipótesis de Riemann (P1) — Lorenzo Alvarado</title>
+  <title>Detalle de Charla — Lorenzo Alvarado</title>
   
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -20,7 +20,7 @@
 <body>
 <header class="site-header">
   <div class="container">
-    <h1 class="site-title">Talks</h1>
+    <h1 class="site-title">Talks & Presentations</h1>
     <nav class="top-nav">
       <a href="../index.html">Home</a>
       <a href="../research.html">Research</a>
@@ -38,23 +38,33 @@
 
   <h2>The Riemann Hypothesis: A Window into the Distribution of Prime Numbers Part 1</h2>
 
-  <p class="bio">
-    In this introductory talk, we explore the analytic structure of the Riemann zeta function 
-    $$\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}, \qquad \Re(s) > 1,$$
-    and discuss how its meromorphic continuation captures deep information about the primes.  
-    We explain why the nontrivial zeros of $\zeta(s)$ are expected to lie on the critical line 
-    $\Re(s) = \tfrac{1}{2}$, and how this prediction is closely linked to the error term in the 
-    Prime Number Theorem.
-  </p>
+<p class="bio">
+  In this first part of the talk, we introduce the classical ideas that led to the study of the
+  Riemann zeta function. We begin with Euler’s approach to evaluating series such as
+  $$\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6},$$
+  and his discovery of the product representation over prime numbers. This naturally leads to
+  the question of how far the function
+  $$\zeta(s) = \sum_{n=1}^\infty n^{-s}$$
+  can be extended beyond its initial domain $\Re(s) > 1$.
+</p>
 
-  <p class="bio">
-    The talk emphasizes intuition over technical details.  
-    We look at the explicit formula connecting primes and zeros, the role of the functional 
-    equation,
-    $$\zeta(s) = 2^s \pi^{s-1} \sin\left(\frac{\pi s}{2}\right)\Gamma(1-s)\zeta(1-s),$$
-    and the historical reasons why the Riemann Hypothesis is viewed as a central guiding 
-    problem in modern number theory.
-  </p>
+<p class="bio">
+  We then discuss Riemann’s analytic continuation of $\zeta(s)$ and the functional equation,
+  which relate the values of the zeta function at $s$ and $1-s$. Using these tools, we describe the
+  structure of the trivial zeros at the negative even integers and introduce the critical strip
+  $$0 \le \Re(s) \le 1,$$
+  where all nontrivial zeros lie. Particular attention is given to the symmetry of zeros and the
+  definition of the Riemann $\xi$-function, an entire function encoding the same information as $\zeta(s)$.
+</p>
+
+<p class="bio">
+  Finally, we review key historical results: von Mangoldt’s formula for the number of nontrivial zeros
+  $$N(T) \sim \frac{T}{2\pi}\log\frac{T}{2\pi},$$
+  and Hardy’s proof that there are infinitely many zeros on the critical line. These ideas set the
+  foundation for stating the Riemann Hypothesis and understanding why it lies at the center of modern
+  analytic number theory.
+</p>
+
   <h3>Event Information</h3>
   <ul class="bio">
     <li><strong>Event:</strong> Charla de Divulgación</li>
