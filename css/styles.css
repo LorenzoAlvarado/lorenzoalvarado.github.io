@@ -204,11 +204,9 @@ button[type="submit"], .btn{cursor:pointer}
 /* ===== Outreach Cards con imagen de fondo ===== */
 
 .outreach-card{
-  position: relative;
   background-size: 60%;
   background-position: center;
   background-repeat: no-repeat;
-  overflow: hidden;
 }
 
 .outreach-card::before{
