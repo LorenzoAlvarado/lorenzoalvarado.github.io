@@ -201,3 +201,42 @@ button[type="submit"], .btn{cursor:pointer}
   }
 }
 
+/* ===== Outreach Cards con imagen de fondo ===== */
+
+.outreach-card{
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.outreach-card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(2px);
+  z-index: 0;
+}
+
+.outreach-card > *{
+  position: relative;
+  z-index: 1;
+}
+
+.outreach-card.card-festival{
+  background-image: url("../assets/img/outreach/festival.png");
+}
+
+.outreach-card.card-ludo{
+  background-image: url("../assets/img/outreach/ludociencias.png");
+}
+
+.outreach-card.card-cienpies{
+  background-image: url("../assets/img/outreach/cienpies.png");
+}
+
+.outreach-card.card-synapsia{
+  background-image: url("../assets/img/outreach/synapsia.png");
+}
