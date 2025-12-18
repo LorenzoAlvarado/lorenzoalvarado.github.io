@@ -205,20 +205,19 @@ button[type="submit"], .btn{cursor:pointer}
 
 .outreach-card{
   position: relative;
-  background-size: 180px auto;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
-  background-color: var(--surface);
 }
 
 .outreach-card::before{
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0.88);
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(2px);
   z-index: 0;
-  pointer-events: none;
 }
 
 .outreach-card > *{
