@@ -206,7 +206,7 @@ button[type="submit"], .btn{cursor:pointer}
 .outreach-card {
   position: relative;
   background-size: cover; 
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
 }
