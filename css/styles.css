@@ -235,3 +235,40 @@ button[type="submit"], .btn{cursor:pointer}
 .outreach-card.card-synapsia{
   background-image: url("../assets/img/outreach/synapsia.png");
 }
+
+/* ===== Card para Platicas ===== */
+
+.talk-card {
+  position: relative;
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.talk-card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(2px);
+  z-index: 0;
+}
+
+.talk-card > *{
+  position: relative;
+  z-index: 1;
+}
+
+.talk-card.card-basilea_bernoulli{
+  background-image: url("../assets/img/talks/basilea_bernoulli.png");
+}
+
+.talk-card.card-circle_method{
+  background-image: url("../assets/img/talks/circle_method.png");
+}
+
+.talk-card.card-riemann_primosp1{
+  background-image: url("../assets/img/talks/riemann_primosp1.png");
+}
+
