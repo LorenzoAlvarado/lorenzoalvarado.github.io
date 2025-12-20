@@ -133,6 +133,30 @@ button[type="submit"], .btn{cursor:pointer}
   .site-title{font-size:1.05rem}
 }
 
+/* Botón Principal (CV) */
+.btn-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;              /* Espacio entre icono y texto */
+  padding: 12px 24px;     /* Un poco más grande que los botones sociales */
+  background-color: var(--accent); /* Tu azul #3b4bb0 */
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(59, 75, 176, 0.25); /* Sombra difusa en azul */
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-main:hover {
+  transform: translateY(-3px); /* Se eleva un poco más */
+  box-shadow: 0 8px 25px rgba(59, 75, 176, 0.35); /* La sombra crece */
+  filter: brightness(110%);    /* Se ilumina ligeramente */
+}
+
+.btn-main i {
+  font-size: 1.1em; /* El icono un pelín más grande para balancear */
+}
 /* ===== Animaciones y Mejoras Visuales ===== */
 
 /* Que las tarjetas floten suavemente al pasar el mouse */
