@@ -354,3 +354,17 @@ mjx-container[display="true"] {
   height: 100%;
   border: 0;
 }
+
+/* Control de la foto vertical de Outreach */
+.outreach-portrait {
+  height: 550px;
+  object-fit: cover;
+  object-position: top; /* Asegura que tu cara no se corte si cambia el tamaño */
+}
+
+@media (max-width: 880px) {
+  .outreach-portrait {
+    height: 400px; /* Más bajita en tablets/móviles para no ocupar tanto espacio */
+    margin-top: 20px;
+  }
+}
