@@ -403,3 +403,48 @@ mjx-container[display="true"] {
     margin-top: 20px;
   }
 }
+
+/* ===== Resource Lists (Problem Sets) ===== */
+.file-list {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0 0;
+}
+
+.file-list li {
+  border-bottom: 1px solid rgba(15, 25, 45, 0.05); /* Línea divisoria sutil */
+}
+
+.file-list li:last-child {
+  border-bottom: none;
+}
+
+.file-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Texto a la izq, icono a la derecha */
+  padding: 10px 4px;
+  text-decoration: none;
+  color: #4b5563; /* Color gris oscuro para el texto */
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+}
+
+.file-list a:hover {
+  background-color: rgba(59, 75, 176, 0.04); /* Fondo azul muy clarito al pasar mouse */
+  color: var(--accent); /* Texto se vuelve azul */
+  padding-left: 8px; /* Pequeño desplazamiento a la derecha */
+  padding-right: 8px;
+}
+
+.file-list a .icon-type {
+  color: var(--accent-2); /* Icono de tipo de archivo en color secundario */
+  margin-right: 10px;
+  font-size: 1.1em;
+}
+
+.file-list a .icon-download {
+  font-size: 0.85em;
+  opacity: 0.5;
+}
