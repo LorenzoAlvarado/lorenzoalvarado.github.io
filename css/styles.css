@@ -131,7 +131,7 @@ body {
 }
 
 /* ===== Talks / Actions ===== */
-.card-actions{display:flex; gap:8px; flex-wrap:wrap}
+.card-actions{display: flex; gap: 8px; flex-wrap: wrap}
 .btn-ghost{padding:8px 12px; border-radius:10px; background:transparent; color:var(--accent); border:1px solid rgba(59,75,176,0.12); text-decoration:none; font-weight:600}
 
 /* ===== Outreach gallery ===== */
@@ -451,8 +451,9 @@ mjx-container[display="true"] {
 
 /* ===== Video Toggle (Details/Summary) ===== */
 details.video-toggle {
-  width: 100%;
-  margin-top: 10px;
+  /* Estado cerrado: se comporta como un botón normal al lado del otro */
+  width: auto; 
+  margin-top: 0;
 }
 
 details.video-toggle summary {
@@ -466,7 +467,13 @@ details.video-toggle summary::-webkit-details-marker {
   display: none; /* Quita triángulo en Chrome/Safari */
 }
 
-/* Cuando el video está abierto, cambiamos un poco el estilo del botón si quieres */
+/* Estado ABIERTO: Forzamos salto de línea y ancho completo */
+details.video-toggle[open] {
+  width: 100%;       /* Ocupa todo el ancho */
+  flex-basis: 100%;  /* Le dice a Flexbox que use una fila entera para esto */
+  margin-top: 15px;  /* Separa el video de los botones */
+}
+
 details.video-toggle[open] summary {
   color: var(--accent);
   margin-bottom: 10px;
