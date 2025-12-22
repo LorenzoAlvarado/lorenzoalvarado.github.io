@@ -449,6 +449,30 @@ mjx-container[display="true"] {
   opacity: 0.5;
 }
 
+/* ===== Video Toggle (Details/Summary) ===== */
+details.video-toggle {
+  width: 100%;
+  margin-top: 10px;
+}
+
+details.video-toggle summary {
+  list-style: none; /* Quita el triángulo default */
+  cursor: pointer;
+  display: inline-block; /* Se comporta como botón */
+  outline: none;
+}
+
+details.video-toggle summary::-webkit-details-marker {
+  display: none; /* Quita triángulo en Chrome/Safari */
+}
+
+/* Cuando el video está abierto, cambiamos un poco el estilo del botón si quieres */
+details.video-toggle[open] summary {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+
 /* ===== Blog Styling ===== */
 
 /* Contenedor principal del feed */
