@@ -523,6 +523,20 @@ mjx-container[display="true"] {
 .tag.history { background: rgba(123, 97, 255, 0.1); color: var(--accent-2); } /* Violeta */
 .tag.personal { background: rgba(16, 185, 129, 0.1); color: #059669; } /* Verde */
 .tag.puzzle { background: rgba(245, 158, 11, 0.1); color: #d97706; } /* Naranja */
+/* Turquesa/Cyan -> Ideal para "Code", "Python", "Software" */
+.tag.tech { background: rgba(6, 182, 212, 0.1); color: #0891b2; }
+
+/* Rojo suave -> Ideal para "Important", "Alert", "Draft" */
+.tag.alert { background: rgba(239, 68, 68, 0.1); color: #b91c1c; }
+
+/* Rosa/Magenta -> Ideal para "News", "Announcement", "Event" */
+.tag.news { background: rgba(236, 72, 153, 0.1); color: #be185d; }
+
+/* Gris azulado -> Ideal para "Meta", "Misc", "General" */
+.tag.gray { background: rgba(107, 114, 128, 0.1); color: #4b5563; }
+
+/* Índigo (más oscuro que tu accent) -> Ideal para "Theory", "Formal" */
+.tag.indigo { background: rgba(67, 56, 202, 0.1); color: #4338ca; }
 
 /* Resumen del texto */
 .blog-excerpt {
