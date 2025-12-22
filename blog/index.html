@@ -6,13 +6,10 @@
   <title>Blog – Lorenzo Alvarado</title>
   
   <link rel="stylesheet" href="../css/styles.css" />
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <script>
-    window.MathJax = {
-      tex: { inlineMath: [["$","$"],["\\(","\\)"]] }
-    };
+    window.MathJax = { tex: { inlineMath: [["$","$"],["\\(","\\)"]] } };
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
@@ -20,37 +17,87 @@
   <header class="site-header">
     <div class="container">
       <h1 class="site-title">Blog</h1>
-<nav class="top-nav">
-  <a href="../index.html">Home</a>
-  <a href="../research.html">Research</a>
-  <a href="../teaching.html">Teaching</a>
-  <a href="../talks.html">Talks</a>
-  <a href="../outreach.html">Outreach</a>
-  <a href="../resources.html">Resources</a>
-  <a href="index.html" style="color:var(--accent);font-weight:600;">Blog</a>
-  <a href="../cv/CV_full.pdf" target="_blank">CV</a>
-</nav>
+      <nav class="top-nav">
+        <a href="../index.html">Home</a>
+        <a href="../research.html">Research</a>
+        <a href="../teaching.html">Teaching</a>
+        <a href="../talks.html">Talks</a>
+        <a href="../outreach.html">Outreach</a>
+        <a href="../resources.html">Resources</a>
+        <a href="index.html" style="color:var(--accent);font-weight:600;">Blog</a>
+        <a href="../cv/CV_full.pdf" target="_blank">CV</a>
+      </nav>
     </div>
   </header>
 
-  <section class="container panel">
-    <h2>Blog Entries</h2>
-    <p class="bio">This blog consists of posts of various kinds, ranging from personal ideas to proposed problems, historical notes, etc. The blog is intended as a space where I publish a variety of things, both formal and informal.</p>
+  <main class="container panel">
+    
+    <div style="text-align:center; max-width:700px; margin: 0 auto 50px auto;">
+      <h2>Notes, Thoughts & Puzzles</h2>
+      <p class="bio">
+        Welcome to my digital garden. Here I share informal mathematical notes, historical curiosities, 
+        solutions to interesting problems, and personal reflections on academic life.
+      </p>
+    </div>
 
-    <div class="post-list">
+    <div class="blog-feed">
 
-      <article class="post">
-        <h3><a href="post_template.html">Título de Entrada</a></h3>
-        <p>Resumen breve de la entrada. Esto aparecerá en la lista principal y no debe exceder 2–3 líneas.</p>
-        <p class="muted">Fecha — Categoría</p>
+      <article class="blog-card">
+        <div class="blog-tags">
+          <span class="tag math">Number Theory</span>
+          <span class="tag puzzle">Problem Solving</span>
+        </div>
+        <h3 class="blog-title"><a href="posts/primes_pattern.html">A Curious Pattern in Prime Gaps</a></h3>
+        <div class="blog-meta">
+          <span><i class="far fa-calendar"></i> Dec 15, 2025</span>
+          <span>•</span>
+          <span><i class="far fa-clock"></i> 5 min read</span>
+        </div>
+        <p class="blog-excerpt">
+          While exploring the distribution of primes modulo 4, I stumbled upon a visual pattern that seems to appear 
+          when plotting the gaps. Is it a mere coincidence of small numbers or something deeper? Let's explore using Python and some heuristics.
+        </p>
+        <a href="posts/primes_pattern.html" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
       </article>
 
+      <article class="blog-card">
+        <div class="blog-tags">
+          <span class="tag history">History</span>
+        </div>
+        <h3 class="blog-title"><a href="posts/euler_basel.html">Euler’s Audacity: The Basel Problem</a></h3>
+        <div class="blog-meta">
+          <span><i class="far fa-calendar"></i> Nov 02, 2025</span>
+          <span>•</span>
+          <span><i class="far fa-clock"></i> 8 min read</span>
+        </div>
+        <p class="blog-excerpt">
+          Before modern rigor established the rules of analysis, Euler manipulated infinite series with a fearlessness 
+          that would make a modern undergraduate blush. Here is a look at his original "proof" that $\sum 1/n^2 = \pi^2/6$.
+        </p>
+        <a href="posts/euler_basel.html" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-tags">
+          <span class="tag personal">Reflections</span>
+        </div>
+        <h3 class="blog-title"><a href="posts/start_phd.html">Why I decided to pursue a PhD</a></h3>
+        <div class="blog-meta">
+          <span><i class="far fa-calendar"></i> Oct 10, 2025</span>
+          <span>•</span>
+          <span><i class="far fa-clock"></i> 4 min read</span>
+        </div>
+        <p class="blog-excerpt">
+          The path to research is rarely a straight line. After a gap year and working in industry, 
+          I realized that the chalkboard was calling me back. Here are my reasons for returning to the academy.
+        </p>
+        <a href="posts/start_phd.html" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+      </article>
 
     </div>
-  </section>
 
-  <footer class="site-footer">
-    <p>© 2025 Lorenzo Alvarado</p>
-  </footer>
+  </main>
+  
+  <footer class="site-footer"><p>© 2025 Lorenzo Alvarado</p></footer>
 </body>
 </html>

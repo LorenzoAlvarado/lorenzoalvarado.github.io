@@ -448,3 +448,101 @@ mjx-container[display="true"] {
   font-size: 0.85em;
   opacity: 0.5;
 }
+
+/* ===== Blog Styling ===== */
+
+/* Contenedor principal del feed */
+.blog-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 800px; /* Un poco más estrecho para facilitar la lectura */
+  margin: 0 auto;   /* Centrado */
+}
+
+/* La tarjeta de cada entrada */
+.blog-card {
+  background: var(--surface);
+  padding: 28px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(15, 25, 45, 0.04);
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.blog-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+  border-color: rgba(59, 75, 176, 0.15);
+}
+
+/* Título de la entrada */
+.blog-title {
+  margin: 10px 0;
+  font-size: 1.4rem;
+}
+
+.blog-title a {
+  text-decoration: none;
+  color: #111827;
+  transition: color 0.2s;
+}
+
+.blog-title a:hover {
+  color: var(--accent);
+}
+
+/* Metadatos (Fecha, Tiempo de lectura) */
+.blog-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Etiquetas (Tags) */
+.blog-tags {
+  margin-bottom: 14px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-right: 6px;
+}
+
+/* Colores para diferentes categorías (opcional) */
+.tag.math { background: rgba(59, 75, 176, 0.1); color: var(--accent); } /* Azul */
+.tag.history { background: rgba(123, 97, 255, 0.1); color: var(--accent-2); } /* Violeta */
+.tag.personal { background: rgba(16, 185, 129, 0.1); color: #059669; } /* Verde */
+.tag.puzzle { background: rgba(245, 158, 11, 0.1); color: #d97706; } /* Naranja */
+
+/* Resumen del texto */
+.blog-excerpt {
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Enlace "Read more" */
+.read-more {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.read-more:hover {
+  gap: 8px; /* Pequeña animación de flecha */
+  text-decoration: underline;
+}

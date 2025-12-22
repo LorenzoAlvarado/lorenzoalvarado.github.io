@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Titulo del Post – Lorenzo Alvarado</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>window.MathJax = { tex: { inlineMath: [["$","$"],["\\(","\\)"]] } };</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    .article-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #374151;
+    }
+    .article-content h3 { margin-top: 40px; color: #111827; }
+    .article-content p { margin-bottom: 24px; }
+    .article-content blockquote {
+      border-left: 4px solid var(--accent);
+      padding-left: 20px;
+      margin: 30px 0;
+      font-style: italic;
+      color: #555;
+      background: #f9fafb;
+      padding: 20px;
+      border-radius: 0 8px 8px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Blog</h1>
+      <nav class="top-nav">
+        <a href="../../index.html">Home</a>
+        <a href="../../research.html">Research</a>
+        <a href="../../teaching.html">Teaching</a>
+        <a href="../../talks.html">Talks</a>
+        <a href="../../outreach.html">Outreach</a>
+        <a href="../../resources.html">Resources</a>
+        <a href="../index.html" style="color:var(--accent);font-weight:600;">Blog</a>
+        <a href="../../cv/CV_full.pdf" target="_blank">CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container panel" style="max-width: 800px;">
+    
+    <p><a class="btn-ghost" href="../index.html">← Back to Blog</a></p>
+
+    <header style="margin: 40px 0;">
+      <div class="blog-tags">
+        <span class="tag math">Number Theory</span>
+      </div>
+      <h1 style="font-size: 2.2rem; margin-bottom: 10px;">A Curious Pattern in Prime Gaps</h1>
+      <div class="blog-meta" style="font-size: 1rem;">
+        <span><i class="far fa-calendar"></i> December 15, 2025</span>
+        <span>•</span>
+        <span>Lorenzo Alvarado</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p>
+        The distribution of prime numbers has fascinated mathematicians for centuries. 
+        While the Prime Number Theorem gives us the asymptotic behavior, the local behavior 
+        of the gaps $g_n = p_{n+1} - p_n$ remains mysterious.
+      </p>
+      
+      <h3>The Setup</h3>
+      <p>
+        Let's consider the sequence of gaps modulo 4. We can write a simple Python script to visualize this:
+      </p>
+
+      <pre style="background:#1e1e1e; color:#fff; padding:15px; border-radius:8px; overflow-x:auto;"><code>def prime_gaps(n):
+    primes = sieve(n)
+    return [primes[i+1] - primes[i] for i in range(len(primes)-1)]</code></pre>
+
+      <p>
+        Interestingly, when we observe the frequency of gaps of size 2 versus size 4, 
+        we see a bias that shouldn't exist if the distribution were purely random in the Cramer model sense.
+      </p>
+
+      <blockquote>
+        "God may not play dice with the universe, but something strange is going on with the prime numbers." — Paul Erdős (Apocryphal)
+      </blockquote>
+
+      <h3>Conclusion</h3>
+      <p>
+        This simple observation leads us to the conjecture of...
+      </p>
+    </article>
+
+    <hr style="margin: 50px 0; border:0; border-top:1px solid #eee;">
+    
+    <div style="display:flex; justify-content:space-between;">
+      <a href="#" class="btn-ghost">← Previous Post</a>
+      <a href="#" class="btn-ghost">Next Post →</a>
+    </div>
+    <p><a class="btn-ghost" href="../index.html">← Back to Blog</a></p>
+  </main>
+
+  <footer class="site-footer"><p>© 2025 Lorenzo Alvarado</p></footer>
+</body>
+</html>
