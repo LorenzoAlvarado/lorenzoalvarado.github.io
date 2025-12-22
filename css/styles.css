@@ -237,7 +237,7 @@ button[type="submit"], .btn{cursor:pointer}
   display: flex;
   /* 'stretch' fuerza a que imagen y texto tengan la misma altura visual si es necesario,
      pero aquí usamos flex para controlar el contenido interno */
-  align-items: stretch; 
+  align-items: flex-start; 
   gap: 30px; /* Aumentado de 24px para dar más aire */
   overflow: hidden;
 }
