@@ -329,3 +329,28 @@ button[type="submit"], .btn{cursor:pointer}
   background-image: url("../assets/img/talks/riemann_primosp1.png");
 }
 
+/* Espaciado extra para fórmulas matemáticas display */
+mjx-container[display="true"] {
+  margin: 1.5em 0 !important;
+}
+
+/* Contenedor responsivo para videos (YouTube/Vimeo) */
+.video-responsive {
+  position: relative;
+  padding-bottom: 56.25%; /* Proporción 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px; /* Para que coincida con tus tarjetas */
+  box-shadow: var(--shadow);
+  margin-top: 10px;
+  background: #000; /* Fondo negro mientras carga */
+}
+
+.video-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
