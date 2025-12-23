@@ -87,6 +87,11 @@ body {
 .card h4{margin:0 0 8px 0}
 .card p{margin:0 0 12px 0; color:var(--muted)}
 .card .btn{display:inline-block; padding:8px 12px; border-radius:10px; background:var(--accent); color:#fff; text-decoration:none; font-weight:600}
+/* Decoración tipo "Carpeta" para las cards de Resources */
+.card {
+  border-top: 4px solid var(--accent); /* Tu azul #3b4bb0 */
+  /* El resto de propiedades se mantienen igual */
+}
 
 /* ===== Research / Questions ===== */
 .questions{list-style:disc; margin-left:1.1rem; color:#111827}
