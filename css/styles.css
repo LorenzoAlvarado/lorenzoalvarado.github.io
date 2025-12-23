@@ -409,6 +409,20 @@ mjx-container[display="true"] {
   }
 }
 
+
+/* Resource cards */
+
+.resource-card header {
+  background: rgba(59, 75, 176, 0.05); /* Fondo azul muy muy tenue */
+  padding: 15px 18px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  margin: -18px -18px 15px -18px; /* Compensar el padding de la tarjeta */
+  border-radius: 12px 12px 0 0;
+}
+
+.resource-card h4 { margin: 0; font-size: 1.1rem; }
+.resource-card .note { margin: 4px 0 0 0; font-size: 0.85rem; }
+
 /* ===== Resource Lists (Problem Sets) ===== */
 .file-list {
   list-style: none;
