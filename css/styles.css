@@ -518,6 +518,7 @@ details.video-toggle[open] summary {
   border: 1px solid rgba(15, 25, 45, 0.04);
   transition: all 0.25s ease;
   position: relative;
+  border-left: 4px solid var(--accent);
 }
 
 .blog-card:hover {
