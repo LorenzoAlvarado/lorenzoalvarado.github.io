@@ -7,8 +7,8 @@
   
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script>
     window.MathJax = {
       tex: { inlineMath: [["$","$"],["\\(","\\)"]] }
@@ -16,69 +16,93 @@
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
+
 <body>
-<header class="site-header">
-  <div class="container">
-    <h1 class="site-title">Talks - Details</h1>
-    <nav class="top-nav">
-      <a href="../index.html">Home</a>
-      <a href="../research.html">Research</a>
-      <a href="../teaching.html">Teaching</a>
-      <a href="../talks.html" style="color:var(--accent);font-weight:600;">Talks</a>
-      <a href="../outreach.html">Outreach</a>
-      <a href="../resources.html">Resources</a>
-      <a href="../blog/index.html">Blog</a>
-      <a href="../cv/CV_full.pdf" target="_blank">CV</a>
-    </nav>
-  </div>
-</header>
 
-<section class="container panel">
-  <p><a class="btn-ghost" href="../talks.html">← Back to Talks</a></p>
-  <h2>Title of the Talk Goes Here</h2>
-  
-  <p class="bio">
-    Write here the introduction or abstract of the talk. You can use <strong>bold text</strong> for emphasis and MathJax for formulas like $\zeta(s)$ or $e^{i\pi} + 1 = 0$.
-  </p>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Talks - Details</h1>
+      <nav class="top-nav">
+        <a href="../index.html">Home</a>
+        <a href="../research.html">Research</a>
+        <a href="../teaching.html">Teaching</a>
+        <a href="../talks.html" style="color:var(--accent);font-weight:600;">Talks</a>
+        <a href="../outreach.html">Outreach</a>
+        <a href="../resources.html">Resources</a>
+        <a href="../blog/index.html">Blog</a>
+        <a href="../cv/CV_full.pdf" target="_blank">CV</a>
+      </nav>
+    </div>
+  </header>
 
-  <p class="bio">
-    Explain the main tools or theorems discussed during the presentation.
-  </p>
+  <section class="container panel">
+    
+    <p><a class="btn-ghost" href="../talks.html">← Back to Talks</a></p>
 
-  <p class="bio">
-    Finally, mention the conclusions or main results presented.
-  </p>
-
-  <h3>Event Information</h3>
-  <ul class="bio">
-    <li><strong>Event:</strong> Name of the Event / Seminar</li>
-    <li><strong>Date:</strong> Month Year</li>
-    <li><strong>Location:</strong> Place or Institution</li>
-  </ul>
-
-  <h3>Slides</h3>
-  <p>
-      <a class="btn" href="../assets/pdfs/talks/NOMBRE_DEL_ARCHIVO.pdf" target="_blank">
-          <i class="fas fa-file-pdf"></i> Download Slides
-      </a>
-  </p>
-
-<h3>Video</h3>
-<div class="video-responsive">
-  <iframe src="https://www.youtube.com/embed/yuwFAkEOafI" 
-          allowfullscreen>
-  </iframe>
-</div>
-
-  <h3>Gallery</h3>
-  <div class="gallery">
+    <h1 style="margin-bottom: 15px; margin-top: 10px; font-size: 2rem; color: #111827;">
+      Title of the Presentation Goes Here
+    </h1>
+    
+    <div class="talk-header-meta">
+      <div class="talk-meta-item">
+        <i class="far fa-calendar-alt"></i> 
+        <span>Month Year</span>
+      </div>
+      <div class="talk-meta-item">
+        <i class="fas fa-map-marker-alt"></i> 
+        <span>Institution / Location</span>
+      </div>
+      <div class="talk-meta-item">
+        <i class="fas fa-university"></i> 
+        <span>Seminar Name</span>
+      </div>
     </div>
 
-  <p><a class="btn-ghost" href="../talks.html">← Back to Talks</a></p>
-</section>
+    <div style="font-size: 1.05rem; line-height: 1.7; color: #374151;">
+      <p style="margin-bottom: 1.2em;">
+        Abstract paragraph 1. You can use LaTeX equations inline like $x^2 + y^2 = z^2$.
+      </p>
 
-<footer class="site-footer">
-  <p>© 2025 Lorenzo Alvarado</p>
-</footer>
+      <p style="margin-bottom: 1.2em;">
+        Abstract paragraph 2. Describe the main results or theorems discussed in the talk.
+      </p>
+    </div>
+
+    <div class="video-featured-container">
+      <div class="video-responsive">
+        <iframe src="https://www.youtube.com/embed/TU_ID_VIDEO" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 50px;">
+      
+      <a href="../assets/pdfs/talks/TU_ARCHIVO.pdf" target="_blank" class="card" 
+         style="display: inline-flex; align-items: center; gap: 20px; padding: 15px 30px; text-decoration: none; transition: transform 0.2s ease;">
+        
+        <i class="fas fa-file-pdf" style="font-size: 2rem; color: #e11d48;"></i>
+        
+        <div style="text-align: left;">
+          <h4 style="margin: 0; font-size: 1.1rem; color: #111827; font-weight: 600;">Download Slides</h4>
+          <span style="font-size: 0.85rem; color: var(--muted);">PDF Presentation</span>
+        </div>
+
+      </a>
+
+    </div>
+
+    <div style="margin-top: 50px;">
+      <div class="gallery"></div>
+    </div>
+
+    <p style="margin-top: 40px; margin-bottom: 20px; border-top: 1px solid #eee; padding-top: 20px;">
+      <a class="btn-ghost" href="../talks.html">← Back to Talks</a>
+    </p>
+
+  </section>
+
+  <footer class="site-footer">
+    <p>© 2025 Lorenzo Alvarado</p>
+  </footer>
+
 </body>
 </html>
