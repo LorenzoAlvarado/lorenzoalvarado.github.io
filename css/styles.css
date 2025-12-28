@@ -461,6 +461,15 @@ mjx-container[display="true"] {
   margin: 1.5em 0 !important;
 }
 
+/* Contenedor para centrar videos destacados */
+.video-featured-container {
+  max-width: 900px; /* Que no se haga excesivamente ancho en pantallas gigantes */
+  margin: 50px auto 30px auto; /* Margen amplio arriba/abajo, centrado horizontal */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Sombra elegante */
+  border-radius: 12px;
+  overflow: hidden; /* Para que la sombra respete el borde redondeado */
+}
+
 /* Contenedor responsivo para videos (YouTube/Vimeo) */
 .video-responsive {
   position: relative;
