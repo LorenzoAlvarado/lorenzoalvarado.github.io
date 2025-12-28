@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Summing Integer Square Roots – Lorenzo Alvarado</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>window.MathJax = { tex: { inlineMath: [["$","$"],["\\(","\\)"]] } };</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    .article-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #374151;
+    }
+    .article-content h3 { margin-top: 40px; color: #111827; }
+    .article-content p { margin-bottom: 24px; }
+    
+    /* Estilo para resaltar la solución final */
+    .result-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 30px 0;
+      color: #166534;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Blog</h1>
+      <nav class="top-nav">
+        <a href="../../index.html">Home</a>
+        <a href="../../research.html">Research</a>
+        <a href="../../teaching.html">Teaching</a>
+        <a href="../../talks.html">Talks</a>
+        <a href="../../outreach.html">Outreach</a>
+        <a href="../../resources.html">Resources</a>
+        <a href="../index.html" style="color:var(--accent);font-weight:600;">Blog</a>
+        <a href="../../cv/CV_full.pdf" target="_blank">CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container panel" style="max-width: 800px;">
+    
+    <p><a class="btn-ghost" href="../index.html">← Back to Blog</a></p>
+
+    <header style="margin: 40px 0;">
+      <div class="blog-tags">
+        <span class="tag math">Number Theory</span>
+        <span class="tag puzzle">Problem Solving</span>
+      </div>
+      <h1 style="font-size: 2.2rem; margin-bottom: 10px;">Summing Integer Square Roots: A Closed Formula</h1>
+      <div class="blog-meta" style="font-size: 1rem;">
+        <span><i class="far fa-calendar"></i> Dec 27, 2025</span>
+        <span>•</span>
+        <span>Lorenzo Alvarado</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p>
+        <strong>Problem:</strong> Calculate the following sum:
+        $$ S = \sum_{k=1}^{9999} \lfloor \sqrt{k} \rfloor $$
+      </p>
+      
+      <p>
+        While computing this term by term is trivial for a computer, finding a general closed formula offers a nice exercise in summation manipulation and integer properties. Let's derive the general solution for any $n$ and then apply it to our specific case.
+      </p>
+      
+      <h3>The General Approach</h3>
+      <p>
+        Let $n, m \in \mathbb{N}$ such that $m$ is the integer part of the square root of $n$, that is, $m^2 \le n < (m+1)^2$.
+      </p>
+
+      <p>
+        The key idea is to group the terms based on the values of $\lfloor \sqrt{k} \rfloor$. We can split the total summation into three distinct parts:
+        <ol>
+            <li>The intervals strictly between consecutive squares.</li>
+            <li>The "tail" from $m^2 + 1$ to $n$.</li>
+            <li>The perfect squares themselves (where the floor function is exact).</li>
+        </ol>
+      </p>
+
+      <p>
+        We can rewrite the sum as:
+      </p>
+
+      <p style="overflow-x: auto;">
+        $$ \sum_{k=1}^{n}\lfloor\sqrt{k}\rfloor = \underbrace{\sum_{j=2}^{m}\sum_{k=(j-1)^{2}+1}^{j^{2}-1}\lfloor\sqrt{k}\rfloor}_{\text{Intervals}} + \underbrace{\sum_{k=m^{2}+1}^{n}\lfloor\sqrt{k}\rfloor}_{\text{Tail}} + \underbrace{\sum_{j=1}^{m}\lfloor\sqrt{j^{2}}\rfloor}_{\text{Perfect Squares}} $$
+      </p>
+
+      <h3>Analyzing the Terms</h3>
+      
+      <p>
+        <strong>1. The Intervals:</strong><br>
+        For any $k$ in the range $(j-1)^2 + 1 \le k \le j^2 - 1$, we have strict inequalities $(j-1)^2 < k < j^2$. Taking square roots, $j-1 < \sqrt{k} < j$. Therefore, the floor function is constant:
+        $$ \lfloor \sqrt{k} \rfloor = j-1 $$
+      </p>
+
+      <p>
+        <strong>2. The Tail:</strong><br>
+        Since $m$ is the largest integer such that $m^2 \le n$, for the range $m^2 + 1 \le k \le n$, we have $\lfloor \sqrt{k} \rfloor = m$.
+      </p>
+
+      <p>
+        <strong>3. The Perfect Squares:</strong><br>
+        Simply, $\lfloor \sqrt{j^2} \rfloor = j$.
+      </p>
+
+      <p>Substituting these values back into our equation:</p>
+
+      <p style="overflow-x: auto;">
+        $$ \sum_{k=1}^{n}\lfloor\sqrt{k}\rfloor = \sum_{j=2}^{m}\left( (j-1) \sum_{k=(j-1)^{2}+1}^{j^{2}-1} 1 \right) + m\sum_{k=m^{2}+1}^{n} 1 + \sum_{j=1}^{m} j $$
+      </p>
+
+      <h3>Simplification</h3>
+      <p>
+        Let's count the number of terms in the inner sums.
+        <br>
+        The number of terms in the interval $((j-1)^2, j^2)$ is:
+        $$ (j^2 - 1) - [(j-1)^2 + 1] + 1 = j^2 - 1 - (j^2 - 2j + 1) = 2j - 2 $$
+        
+        The number of terms in the tail is simply $n - m^2$.
+        <br>
+        And the sum of integers is the standard triangular number formula $\frac{m(m+1)}{2}$.
+      </p>
+
+      <p>Thus, the expression becomes:</p>
+      
+      <p>
+        $$
+        \begin{aligned}
+        S &= \sum_{j=2}^{m} (j-1)(2j-2) + m(n - m^2) + \frac{m(m+1)}{2} \\
+          &= 2\sum_{j=2}^{m} (j-1)^2 + m(n - m^2) + \frac{m^2 + m}{2}
+        \end{aligned}
+        $$
+      </p>
+
+      <p>
+        Using the formula for the sum of the first $k$ squares, $\sum_{i=1}^k i^2 = \frac{k(k+1)(2k+1)}{6}$, and shifting the index $j-1 \to i$ (where $i$ goes from 1 to $m-1$):
+      </p>
+
+      <p>
+        $$ 2\sum_{i=1}^{m-1} i^2 = 2 \left[ \frac{(m-1)m(2(m-1)+1)}{6} \right] = \frac{m(m-1)(2m-1)}{3} $$
+      </p>
+
+      <p>Combining everything, we arrive at the closed formula:</p>
+
+      <div class="result-box">
+        <strong>Theorem:</strong> The sum is given by:
+        $$ \sum_{k=1}^{n}\lfloor\sqrt{k}\rfloor = m(n-m^2) + \frac{1}{6}m(4m^2 - 3m + 5) $$
+        where $m = \lfloor \sqrt{n} \rfloor$.
+      </div>
+
+      <h3>Solution to the Problem</h3>
+      <p>
+        For our specific case, $n = 9999$. Since $99^2 = 9801$ and $100^2 = 10000$, we have $m = 99$.
+      </p>
+
+      <p>Substituting into our formula:</p>
+      <p>
+        $$
+        \begin{aligned}
+        S &= 99(9999 - 99^2) + \frac{1}{6}(99)(4(99^2) - 3(99) + 5) \\
+          &= 99(198) + \frac{33}{2}(39204 - 297 + 5) \\
+          &= 19,602 + \frac{33}{2}(38,912) \\
+          &= 19,602 + 642,048 \\
+          &= \mathbf{661,650}
+        \end{aligned}
+        $$
+      </p>
+
+    </article>
+
+    <hr style="margin: 50px 0; border:0; border-top:1px solid #eee;">
+    
+    <div style="display:flex; justify-content:space-between;">
+      <a href="#" class="btn-ghost" style="color:var(--muted); cursor: not-allowed;">← Previous Post</a>
+      <a href="#" class="btn-ghost">Next Post →</a>
+    </div>
+    
+    <p style="margin-top: 20px;"><a class="btn-ghost" href="../index.html">← Back to Blog</a></p>
+  </main>
+
+  <footer class="site-footer"><p>© 2025 Lorenzo Alvarado</p></footer>
+</body>
+</html>
