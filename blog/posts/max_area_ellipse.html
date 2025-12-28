@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maximum Area of an Ellipse Inscribed in a Circle – Lorenzo Alvarado</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>window.MathJax = { tex: { inlineMath: [["$","$"],["\\(","\\)"]] } };</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    .article-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #374151;
+    }
+    .article-content h3 { margin-top: 40px; color: #111827; }
+    .article-content p { margin-bottom: 24px; }
+    
+    /* Estilo para resaltar la solución final */
+    .result-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 30px 0;
+      color: #166534;
+    }
+
+    /* Estilo para la imagen centrada */
+    .post-image-container {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .post-image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border: 1px solid #eee;
+    }
+    .image-caption {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Blog</h1>
+      <nav class="top-nav">
+        <a href="../../index.html">Home</a>
+        <a href="../../research.html">Research</a>
+        <a href="../../teaching.html">Teaching</a>
+        <a href="../../talks.html">Talks</a>
+        <a href="../../outreach.html">Outreach</a>
+        <a href="../../resources.html">Resources</a>
+        <a href="../index.html" style="color:var(--accent);font-weight:600;">Blog</a>
+        <a href="../../cv/CV_full.pdf" target="_blank">CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container panel" style="max-width: 800px;">
+    
+    <p><a class="btn-ghost" href="../index.html">← Back to Blog</a></p>
+
+    <header style="margin: 40px 0;">
+      <div class="blog-tags">
+        <span class="tag math">Calculus</span>
+        <span class="tag puzzle">Geometry Challenge</span>
+      </div>
+      <h1 style="font-size: 2.2rem; margin-bottom: 10px;">Maximum Area of an Ellipse Inscribed in a Circle</h1>
+      <div class="blog-meta" style="font-size: 1rem;">
+        <span><i class="far fa-calendar"></i> Dec 27, 2025</span>
+        <span>•</span>
+        <span>Lorenzo Alvarado</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p>
+        <strong>Problem:</strong> Calculate the maximum area of an ellipse inscribed in a circle of radius $r$.
+      </p>
+
+      <div class="post-image-container">
+        <img src="../../assets/img/blog/max_area_ellipse/grafica.png" alt="Ellipse inscribed in a semicircle">
+        <div class="image-caption">Geometric setup: Maximizing a semi-ellipse inscribed in a semi-circle.</div>
+      </div>
+      
+      <p>
+        This problem was proposed by Jose M. At first glance, one might guess the ellipse simply aligns with the axes, but the "inscribed" condition allows for tangency points that are not necessarily the vertices.
+      </p>
+
+      <h3>Geometric Setup</h3>
+      <p>
+        Notice that maximizing the area of the full ellipse inscribed in the circle is equivalent to maximizing the area of a semi-ellipse inscribed in a semi-circle (or even a quarter, by symmetry).
+      </p>
+      <p>
+        We place the circle centered at the origin with equation $x^2 + y^2 = r^2$.
+        Let the inscribed ellipse be centered at $(b, 0)$ with semi-major axis $a$ (vertical) and semi-minor axis $b$ (horizontal). The equation of this ellipse is:
+        $$ \frac{(x-b)^2}{b^2} + \frac{y^2}{a^2} = 1 $$
+        Note that for the ellipse to be strictly inside and tangent, we assume $b < a$ and $b < r/2$.
+      </p>
+
+      <p>
+        Our goal is to maximize the area function $A(a,b) = \pi ab$, subject to the constraint that the ellipse lies inside the circle and touches it.
+      </p>
+
+      <h3>The Tangency Condition</h3>
+      <p>
+        For the ellipse to be inscribed, the system of equations describing the intersection of the curves must have a <strong>unique solution</strong> (a point of tangency).
+      </p>
+      
+      <p>
+        From the circle equation, $y^2 = r^2 - x^2$. Substituting this into the ellipse equation:
+        $$ \frac{(x-b)^2}{b^2} + \frac{r^2 - x^2}{a^2} = 1 $$
+      </p>
+
+      <p>
+        Multiplying by $a^2 b^2$ to clear denominators:
+        $$ a^2(x-b)^2 + b^2(r^2 - x^2) = a^2 b^2 $$
+        Expanding the terms:
+        $$ a^2(x^2 - 2bx + b^2) + b^2 r^2 - b^2 x^2 = a^2 b^2 $$
+        Regrouping as a quadratic equation in $x$:
+        $$ (a^2 - b^2)x^2 - 2a^2 b x + (a^2 b^2 + b^2 r^2 - a^2 b^2) = 0 $$
+        $$ (a^2 - b^2)x^2 - 2a^2 b x + b^2 r^2 = 0 $$
+      </p>
+
+      <p>
+        For the curves to be tangent, this quadratic equation must have exactly one solution (discriminant equal to zero):
+        $$ \Delta = (-2a^2b)^2 - 4(a^2 - b^2)(b^2 r^2) = 0 $$
+      </p>
+
+      <p>
+        Simplifying:
+        $$ 4a^4 b^2 - 4b^2 r^2 (a^2 - b^2) = 0 $$
+        Dividing by $4b^2$ (since $b \neq 0$):
+        $$ a^4 - r^2(a^2 - b^2) = 0 \implies a^4 - r^2 a^2 + r^2 b^2 = 0 $$
+      </p>
+
+      <p>
+        Solving for $a^2$ using the quadratic formula (in terms of $a^2$):
+        $$ a^2 = \frac{r^2 \pm \sqrt{r^4 - 4r^2 b^2}}{2} $$
+        Since we need $a > b$, we take the positive root (and ensure the term inside the square root is non-negative, $r^2 \ge 4b^2$):
+        $$ a^2 = \frac{r^2}{2} + \frac{1}{2}\sqrt{r^4 - 4b^2 r^2} $$
+      </p>
+
+      <h3>Optimization</h3>
+      <p>
+        Maximizing $A(a,b)$ is equivalent to maximizing its square $\tilde{A}(b) = A^2 = \pi^2 a^2 b^2$. Substituting our expression for $a^2$:
+        $$ \tilde{A}(b) = \pi^2 \left( \frac{r^2}{2} + \frac{1}{2}\sqrt{r^4 - 4b^2 r^2} \right) b^2 $$
+        $$ \tilde{A}(b) = \frac{\pi^2 r^2}{2}b^2 + \frac{\pi^2}{2}b^2 \sqrt{r^4 - 4b^2 r^2} $$
+      </p>
+
+      <p>
+        To find the maximum, we take the derivative with respect to $b$ and set it to 0. After some algebraic manipulation (chain rule and simplifying), we arrive at the condition:
+        $$ 36b^4 - 8b^2 r^2 = 0 $$
+      </p>
+
+      <p>
+        Since $b \neq 0$, we have $36b^2 = 8r^2$, which gives the optimal value for $b$:
+        $$ b^2 = \frac{8r^2}{36} = \frac{2}{9}r^2 \implies b = r\frac{\sqrt{2}}{3} $$
+      </p>
+
+      <p>
+        Substituting this back to find $a$:
+        $$ a^2 = \frac{r^2}{2} + \frac{1}{2}\sqrt{r^4 - 4r^2(\frac{2}{9}r^2)} = \frac{r^2}{2} + \frac{1}{2}\sqrt{\frac{1}{9}r^4} = \frac{r^2}{2} + \frac{r^2}{6} = \frac{2}{3}r^2 $$
+        $$ a = r\sqrt{\frac{2}{3}} $$
+      </p>
+
+      <div class="result-box">
+        <strong>Result:</strong> The maximum area is:
+        $$ A_{max} = \pi a b = \pi \left( r\sqrt{\frac{2}{3}} \right) \left( r\frac{\sqrt{2}}{3} \right) = \pi r^2 \frac{2\sqrt{3}}{9} $$
+        This is approximately $38.5\%$ of the circle's area.
+      </div>
+
+      <h3>Generalization: Ellipse inscribed in an Ellipse</h3>
+      <p>
+        Interestingly, this method generalizes. If instead of a circle of radius $r$, we inscribe an ellipse inside another ellipse with semi-axes $c$ (minor) and $d$ (major), following the same procedure leads to the system:
+        $$ \begin{cases} \frac{x^2}{c^2} + \frac{y^2}{d^2} = 1 \\ \frac{(x-b)^2}{b^2} + \frac{y^2}{a^2} = 1 \end{cases} $$
+      </p>
+
+      <p>
+        The algebra yields a remarkably similar result. The optimal dimensions are scaled by the outer ellipse's axes:
+        $$ b = c\frac{\sqrt{2}}{3}, \quad a = d\sqrt{\frac{2}{3}} $$
+      </p>
+
+      <p>
+        And the maximum area becomes:
+        $$ A = \pi c d \frac{2\sqrt{3}}{9} $$
+        This means the maximum inscribed ellipse always occupies the same fraction $\frac{2\sqrt{3}}{9}$ of the container ellipse's area, regardless of its eccentricity!
+      </p>
+
+    </article>
+
+    <hr style="margin: 50px 0; border:0; border-top:1px solid #eee;">
+    
+    <div style="display:flex; justify-content:space-between;">
+      <a href="#" class="btn-ghost">← Previous Post</a>
+      <a href="#" class="btn-ghost">Next Post →</a>
+    </div>
+    
+    <p style="margin-top: 20px;"><a class="btn-ghost" href="../index.html">← Back to Blog</a></p>
+  </main>
+
+  <footer class="site-footer"><p>© 2025 Lorenzo Alvarado</p></footer>
+</body>
+</html>
