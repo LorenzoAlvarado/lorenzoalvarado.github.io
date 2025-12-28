@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Derivative equals Inverse – Lorenzo Alvarado</title>
+  
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>window.MathJax = { tex: { inlineMath: [["$","$"],["\\(","\\)"]] } };</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    .article-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #374151;
+    }
+    .article-content h3 { margin-top: 40px; color: #111827; }
+    .article-content h4 { margin-top: 30px; color: #374151; font-weight: 600; }
+    .article-content p { margin-bottom: 24px; }
+    
+    /* Estilo para resaltar teoremas/resultados */
+    .result-box {
+      background: #fdfbf7; /* Un tono crema suave */
+      border: 1px solid #fcd34d; /* Borde dorado */
+      border-radius: 8px;
+      padding: 20px;
+      margin: 30px 0;
+      color: #92400e;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Blog</h1>
+      <nav class="top-nav">
+        <a href="../../index.html">Home</a>
+        <a href="../../research.html">Research</a>
+        <a href="../../teaching.html">Teaching</a>
+        <a href="../../talks.html">Talks</a>
+        <a href="../../outreach.html">Outreach</a>
+        <a href="../../resources.html">Resources</a>
+        <a href="../index.html" style="color:var(--accent);font-weight:600;">Blog</a>
+        <a href="../../cv/CV_full.pdf" target="_blank">CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container panel" style="max-width: 800px;">
+    
+    <p><a class="btn-ghost" href="../index.html">← Back to Blog</a></p>
+
+    <header style="margin: 40px 0;">
+      <div class="blog-tags">
+        <span class="tag indigo">Analysis</span>
+        <span class="tag math">Golden Ratio</span>
+      </div>
+      <h1 style="font-size: 2.2rem; margin-bottom: 10px;">When the Derivative Equals the Inverse: A Golden Connection</h1>
+      <div class="blog-meta" style="font-size: 1rem;">
+        <span><i class="far fa-calendar"></i> Dec 27, 2025</span>
+        <span>•</span>
+        <span>Lorenzo Alvarado</span>
+      </div>
+    </header>
+
+    <article class="article-content">
+      <p>
+        We are often tasked with finding the derivative of a function or finding its inverse. But what if we ask for a function that remains invariant under these two seemingly distinct operations?
+      </p>
+      <p>
+        The goal of this post is to find a function $f$ such that:
+        $$ f'(x) = f^{-1}(x) $$
+        This inquiry will lead us to an unexpected generalization involving the <strong>Golden Ratio</strong> and the family of <strong>Metallic Means</strong>.
+      </p>
+      
+      <h3>1. The First Case: $f'(x) = f^{-1}(x)$</h3>
+      <p>
+        For $f'$ and $f^{-1}$ to be of the same class of functions, a natural candidate is a power function of the form:
+        $$ f(x) = c \cdot x^r $$
+        where $c, r \in \mathbb{R}$.
+      </p>
+
+      <p>
+        Calculating the derivative and the inverse:
+        $$ f'(x) = c r x^{r-1} $$
+        $$ f^{-1}(x) = c^{-1/r} x^{1/r} $$
+      </p>
+
+      <p>
+        Equating $f'(x) = f^{-1}(x)$, we must match the powers of $x$ and the coefficients:
+        <br>
+        1) Powers: $r - 1 = \frac{1}{r} \implies r^2 - r - 1 = 0$
+        <br>
+        2) Coefficients: $cr = c^{-1/r}$
+      </p>
+
+      <p>
+        The equation $r^2 - r - 1 = 0$ is the famous equation defining the <strong>Golden Ratio</strong> $\Phi = \frac{1+\sqrt{5}}{2}$ and its conjugate $\Psi = \frac{1-\sqrt{5}}{2}$.
+      </p>
+      
+      <p>
+        If we consider $r > 0$, then $r = \Phi$. Solving for the constant $c$:
+        $$ c\Phi = c^{\Psi} \implies c = \Phi^{\frac{1}{\Psi - 1}} $$
+        (Using the property that $-1/\Phi = \Psi$).
+      </p>
+
+      <div class="result-box">
+        <strong>Solution 1:</strong> The function satisfying $f'(x) = f^{-1}(x)$ is:
+        $$ f(x) = \Phi^{\frac{1}{\Psi-1}} x^{\Phi} $$
+        This explicitly relates the derivative/inverse problem to the Golden Ratio.
+      </div>
+
+      <h3>2. Second Order: $f''(x) = f^{-1}(x)$</h3>
+      <p>
+        Let's take it a step further. What if the second derivative equals the inverse?
+        $$ f''(x) = c r(r-1) x^{r-2} $$
+        Matching powers with the inverse $x^{1/r}$:
+        $$ r - 2 = \frac{1}{r} \implies r^2 - 2r - 1 = 0 $$
+      </p>
+      <p>
+        The positive solution to this quadratic is the <strong>Silver Ratio</strong>, often denoted as $\Phi_2 = 1 + \sqrt{2}$. This suggests a pattern related to the "Metallic Means".
+      </p>
+
+      <h3>3. Generalizing for the $n$-th Derivative</h3>
+      <p>
+        To solve the general problem $f^{(n)}(x) = f^{-1}(x)$, we need some definitions.
+      </p>
+
+      <h4>Metallic Means</h4>
+      <p>
+        The <strong>Metallic Mean</strong> associated with $n \in \mathbb{N}$, denoted $\Phi_n$, is the positive solution to:
+        $$ x^2 = nx + 1 \implies \Phi_n = \frac{n + \sqrt{n^2 + 4}}{2} $$
+        Its conjugate is $\Psi_n = \frac{n - \sqrt{n^2 + 4}}{2}$.
+        <br>
+        Properties: $\Psi_n = n - \Phi_n$ and $-1/\Phi_n = \Psi_n$.
+      </p>
+
+      <h4>Extending Factorials</h4>
+      <p>
+        Since we are dealing with derivatives of $x^r$ where $r$ is a real number (specifically, a metallic mean), we cannot use standard factorials. We use the <strong>Gamma Function</strong> $\Gamma(x)$, which satisfies $\Gamma(n+1) = n!$.
+      </p>
+      <p>
+        The $n$-th derivative of $f(x) = x^r$ is given by:
+        $$ f^{(n)}(x) = \frac{\Gamma(r+1)}{\Gamma(r-n+1)} x^{r-n} $$
+      </p>
+
+      <h3>4. The General Theorem</h3>
+      <p>
+        We are now ready to state the general solution.
+      </p>
+      
+      <p>
+        <strong>Problem:</strong> Find $f(x) = c x^r$ (with $r>0$) such that $f^{(n)}(x) = f^{-1}(x)$.
+      </p>
+      <p>
+        <strong>Step 1: Powers.</strong>
+        Matching the exponents gives $r - n = 1/r \implies r^2 - nr - 1 = 0$.
+        Since $r>0$, the solution is exactly the $n$-th metallic mean: <strong>$r = \Phi_n$</strong>.
+      </p>
+
+      <p>
+        <strong>Step 2: Coefficients.</strong>
+        $$ c \frac{\Gamma(r+1)}{\Gamma(r-n+1)} = c^{-1/r} $$
+        Substituting $r = \Phi_n$ and using the property $-1/\Phi_n = \Psi_n$:
+        $$ c \frac{\Gamma(\Phi_n+1)}{\Gamma(\Phi_n-n+1)} = c^{\Psi_n} $$
+        Solving for $c$ eventually yields (after some algebraic manipulation using $\Psi_n = n - \Phi_n$):
+        $$ c = \left[ \frac{\Gamma(1-\Psi_n)}{\Gamma(1+\Phi_n)} \right]^{1-\Psi_n} $$
+      </p>
+
+      <div class="result-box">
+        <strong>Theorem:</strong> The function satisfying $f^{(n)}(x) = f^{-1}(x)$ for any $n \in \mathbb{N}$ is:
+        $$ f_1(x) = \left[ \frac{\Gamma(1-\Psi_n)}{\Gamma(1+\Phi_n)} \right]^{1-\Psi_n} x^{\Phi_n} $$
+        where $\Phi_n$ is the $n$-th metallic mean.
+      </div>
+
+      <p>
+        There is also a second solution $f_2(x)$ considering $r < 0$ (related to $\Psi_n$), but this only yields real solutions when $n$ is even (to avoid roots of negative numbers in the coefficient calculation).
+      </p>
+
+      <p>
+        This result beautifully connects differential operators, inverse functions, and the generalized Fibonacci sequence constants known as Metallic Means.
+      </p>
+
+    </article>
+
+    <hr style="margin: 50px 0; border:0; border-top:1px solid #eee;">
+    
+    <div style="display:flex; justify-content:space-between;">
+      <a href="#" class="btn-ghost">← Previous Post</a>
+      <a href="#" class="btn-ghost">Next Post →</a>
+    </div>
+    
+    <p style="margin-top: 20px;"><a class="btn-ghost" href="../index.html">← Back to Blog</a></p>
+  </main>
+
+  <footer class="site-footer"><p>© 2025 Lorenzo Alvarado</p></footer>
+</body>
+</html>
