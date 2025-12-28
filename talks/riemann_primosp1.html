@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-  <!-- Activar MathJax igual que en la charla de Basel/Bernoulli -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script>
     window.MathJax = {
       tex: { inlineMath: [["$","$"],["\\(","\\)"]] }
@@ -18,89 +18,109 @@
 </head>
 
 <body>
-<header class="site-header">
-  <div class="container">
-    <h1 class="site-title">Talks - Details</h1>
-    <nav class="top-nav">
-      <a href="../index.html">Home</a>
-      <a href="../research.html">Research</a>
-      <a href="../teaching.html">Teaching</a>
-      <a href="../talks.html" style="color:var(--accent);font-weight:600;">Talks</a>
-      <a href="../outreach.html">Outreach</a>
-      <a href="../resources.html">Resources</a>
-      <a href="../blog/index.html">Blog</a>
-      <a href="../cv/CV_full.pdf" target="_blank">CV</a>
-    </nav>
-  </div>
-</header>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Talks - Details</h1>
+      <nav class="top-nav">
+        <a href="../index.html">Home</a>
+        <a href="../research.html">Research</a>
+        <a href="../teaching.html">Teaching</a>
+        <a href="../talks.html" style="color:var(--accent);font-weight:600;">Talks</a>
+        <a href="../outreach.html">Outreach</a>
+        <a href="../resources.html">Resources</a>
+        <a href="../blog/index.html">Blog</a>
+        <a href="../cv/CV_full.pdf" target="_blank">CV</a>
+      </nav>
+    </div>
+  </header>
 
-<section class="container panel">
-  
-  <p><a class="btn-ghost" href="../talks.html">← Back to Talks</a></p>
+  <section class="container panel">
+    
+    <p><a class="btn-ghost" href="../talks.html">← Back to Talks</a></p>
 
-  <h2>The Riemann Hypothesis: A Window into the Distribution of Prime Numbers Part 1</h2>
+    <h1 style="margin-bottom: 15px; margin-top: 10px; font-size: 2rem; color: #111827;">
+      The Riemann Hypothesis: A Window into the Distribution of Prime Numbers (Part 1)
+    </h1>
 
-<p class="bio">
-  In this first part of the talk, we introduce the classical ideas that led to the study of the
-  Riemann zeta function. We begin with Euler’s approach to evaluating series such as
-  $$\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6},$$
-  and his discovery of the product representation over prime numbers. This naturally leads to
-  the question of how far the function
-  $$\zeta(s) = \sum_{n=1}^\infty n^{-s}$$
-  can be extended beyond its initial domain $\Re(s) > 1$.
-</p>
+    <div class="talk-header-meta">
+      <div class="talk-meta-item">
+        <i class="far fa-calendar-alt"></i> 
+        <span>March 2025</span>
+      </div>
+      <div class="talk-meta-item">
+        <i class="fas fa-map-marker-alt"></i> 
+        <span>Mathematics Institute, UNAM</span>
+      </div>
+      <div class="talk-meta-item">
+        <i class="fas fa-university"></i> 
+        <span>Informative Talk</span>
+      </div>
+    </div>
 
-<p class="bio">
-  We then discuss Riemann’s analytic continuation of $\zeta(s)$ and the functional equation,
-  which relate the values of the zeta function at $s$ and $1-s$. Using these tools, we describe the
-  structure of the trivial zeros at the negative even integers and introduce the critical strip
-  $$0 \le \Re(s) \le 1,$$
-  where all nontrivial zeros lie. Particular attention is given to the symmetry of zeros and the
-  definition of the Riemann $\xi$-function, an entire function encoding the same information as $\zeta(s)$.
-</p>
+    <div style="font-size: 1.05rem; line-height: 1.7; color: #374151;">
+      <p style="margin-bottom: 1.2em;">
+        In this first part of the talk, we introduce the classical ideas that led to the study of the
+        Riemann zeta function. We begin with Euler’s approach to evaluating series such as
+        $$\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6},$$
+        and his discovery of the product representation over prime numbers. This naturally leads to
+        the question of how far the function
+        $$\zeta(s) = \sum_{n=1}^\infty n^{-s}$$
+        can be extended beyond its initial domain $\Re(s) > 1$.
+      </p>
 
-<p class="bio">
-  Finally, we review key historical results: von Mangoldt’s formula for the number of nontrivial zeros
-  $$N(T) \sim \frac{T}{2\pi}\log\frac{T}{2\pi},$$
-  and Hardy’s proof that there are infinitely many zeros on the critical line. These ideas set the
-  foundation for stating the Riemann Hypothesis and understanding why it lies at the center of modern
-  analytic number theory.
-</p>
+      <p style="margin-bottom: 1.2em;">
+        We then discuss Riemann’s analytic continuation of $\zeta(s)$ and the functional equation,
+        which relate the values of the zeta function at $s$ and $1-s$. Using these tools, we describe the
+        structure of the trivial zeros at the negative even integers and introduce the critical strip
+        $$0 \le \Re(s) \le 1,$$
+        where all nontrivial zeros lie. Particular attention is given to the symmetry of zeros and the
+        definition of the Riemann $\xi$-function, an entire function encoding the same information as $\zeta(s)$.
+      </p>
 
-  <h3>Event Information</h3>
-  <ul class="bio">
-    <li><strong>Event:</strong> Informative Talk</li>
-    <li><strong>Date:</strong> March 2025</li>
-    <li><strong>Location:</strong> Mathematics Institute, UNAM</li>
-  </ul>
+      <p style="margin-bottom: 1.2em;">
+        Finally, we review key historical results: von Mangoldt’s formula for the number of nontrivial zeros
+        $$N(T) \sim \frac{T}{2\pi}\log\frac{T}{2\pi},$$
+        and Hardy’s proof that there are infinitely many zeros on the critical line. These ideas set the
+        foundation for stating the Riemann Hypothesis and understanding why it lies at the center of modern
+        analytic number theory.
+      </p>
+    </div>
 
-  <h3>Slides</h3>
-<div class="card" style="display: inline-flex; align-items: center; gap: 15px; padding: 15px 25px;">
-  <i class="fas fa-file-pdf" style="font-size: 1.5rem; color: var(--accent);"></i>
-  <div>
-    <h4 style="margin: 0; font-size: 1rem;">Download Slides</h4>
-    <a href="../assets/pdfs/talks/riemann_primosp1_slides.pdf" target="_blank" style="text-decoration: none; color: var(--muted); font-size: 0.9rem;">
-    </a>
-  </div>
-</div>
+    <div class="video-featured-container">
+      <div class="video-responsive">
+        <iframe src="https://www.youtube.com/embed/yuwFAkEOafI" allowfullscreen></iframe>
+      </div>
+    </div>
 
-<h3>Video</h3>
-<div class="video-responsive">
-  <iframe src="https://www.youtube.com/embed/yuwFAkEOafI" 
-          allowfullscreen>
-  </iframe>
-</div>
+    <div style="text-align: center; margin-bottom: 50px;">
+      
+      <a href="../assets/pdfs/talks/riemann_primosp1_slides.pdf" target="_blank" class="card" 
+         style="display: inline-flex; align-items: center; gap: 20px; padding: 15px 30px; text-decoration: none; transition: transform 0.2s ease;">
+        
+        <i class="fas fa-file-pdf" style="font-size: 2rem; color: #e11d48;"></i>
+        
+        <div style="text-align: left;">
+          <h4 style="margin: 0; font-size: 1.1rem; color: #111827; font-weight: 600;">Download Slides</h4>
+          <span style="font-size: 0.85rem; color: var(--muted);">PDF Presentation</span>
+        </div>
 
-  <h3>Gallery</h3>
-  <div class="gallery"><!-- fotos aquí --></div>
+      </a>
 
-  <p><a class="btn-ghost" href="../talks.html">← Back to Talks</a></p>
+    </div>
 
-</section>
+    <div style="margin-top: 50px;">
+      <div class="gallery"></div>
+    </div>
 
-<footer class="site-footer">
-  <p>© 2025 Lorenzo Alvarado</p>
-</footer>
+    <p style="margin-top: 40px; margin-bottom: 20px; border-top: 1px solid #eee; padding-top: 20px;">
+      <a class="btn-ghost" href="../talks.html">← Back to Talks</a>
+    </p>
+
+  </section>
+
+  <footer class="site-footer">
+    <p>© 2025 Lorenzo Alvarado</p>
+  </footer>
 
 </body>
 </html>
