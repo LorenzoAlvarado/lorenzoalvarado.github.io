@@ -456,6 +456,10 @@ button[type="submit"], .btn{cursor:pointer}
   background-image: url("../assets/img/talks/riemann_primosp1.png");
 }
 
+.talk-card.card-riemann_cauchy_variables{
+  background-image: url("../assets/img/talks/riemann_cauchy_variables.png");
+}
+
 /* Espaciado extra para fórmulas matemáticas display */
 mjx-container[display="true"] {
   margin: 1.5em 0 !important;
