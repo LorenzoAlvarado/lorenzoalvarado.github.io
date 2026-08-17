@@ -58,21 +58,27 @@
 
     <div style="font-size: 1.05rem; line-height: 1.7; color: #374151;">
       <p style="margin-bottom: 1.2em;">
-        This talk explores the analytical history of Goldbach's Conjecture, starting from the original 1742 correspondence between Leonhard Euler and Christian Goldbach[cite: 1]. We formally define both the Strong Goldbach Conjecture for even numbers and the Weak Goldbach Conjecture for odd numbers[cite: 1].
+        This talk explores the analytical history of Goldbach's Conjecture, starting from the original 1742 correspondence between Leonhard Euler and Christian Goldbach. We formally define both the Strong Goldbach Conjecture (every even number $2n > 2$ is the sum of two primes, $2n = p_1 + p_2$) and the Weak Goldbach Conjecture (every odd number $2n+1 > 5$ is the sum of three primes, $2n+1 = p_1 + p_2 + p_3$).
       </p>
 
       <p style="margin-bottom: 1.2em;">
-        We review the early heuristic attempts to solve these additive problems, analyzing the representation functions for the sum of two and three primes[cite: 1]. The presentation discusses the combinatorial arguments proposed by James Joseph Sylvester in 1877 and Paul Stäckel in 1896, as well as Edmund Landau's rigorous 1900 refutation of Stäckel's approximation[cite: 1]. We also introduce Viggo Brun's Sieve and his 1920 theorem, which provided the first major breakthrough by proving that large even numbers can be expressed as the sum of two integers with at most 9 prime factors each[cite: 1].
+        We review the early heuristic attempts to solve these additive problems, analyzing the representation functions $r_2(n)$ and $r_3(n)$. The presentation discusses the combinatorial arguments proposed by James Joseph Sylvester in 1877 and Paul Stäckel in 1896, as well as Edmund Landau's rigorous 1900 demonstration regarding the average value $\sum_{x \leq n} r_2(x)$ that refuted Stäckel's approximation. We also introduce Viggo Brun's Sieve and his 1920 theorem, which established that sufficiently large even numbers can be expressed as the sum of two integers with at most 9 prime factors each.
       </p>
 
       <p style="margin-bottom: 1.2em;">
-        The core of the talk focuses on the Hardy-Littlewood Circle Method and its application to the conjecture via generating functions and Cauchy's Integral Formula[cite: 1]. Finally, we trace the timeline of the Weak Goldbach Conjecture's proof: from Ivan Vinogradov's unconditional asymptotic result in 1947 to the decades-long effort to reduce the theoretical bounds, culminating in Harald Helfgott's complete proof in 2013[cite: 1]. We conclude by mentioning Chen's Theorem (1966) regarding the strong conjecture and the parity problem[cite: 1].
+        The core of the talk focuses on the Hardy-Littlewood Circle Method and its application to the conjecture via the generating function $F(z) = f(z)^2$ and Cauchy's Integral Formula evaluated over the integral $\int_0^1 F(e^{2\pi i \alpha}) e^{-2\pi i n \alpha} d\alpha$. Finally, we trace the timeline of the Weak Goldbach Conjecture: from Ivan Vinogradov's unconditional asymptotic theorem in 1947 to the decades-long effort to reduce the theoretical limits, culminating in Harald Helfgott's complete proof in 2013 for $N \geq 10^{27}$ coupled with computational verifications. We conclude by mentioning Chen's Theorem (1966) regarding the strong conjecture and the parity problem.
       </p>
     </div>
 
-    <!-- Video section removed intentionally -->
+    <div class="video-featured-container" style="background-color: #f9fafb; border: 1px dashed #d1d5db; display: flex; align-items: center; justify-content: center; height: 300px; border-radius: 8px; margin-bottom: 40px; margin-top: 30px;">
+      <div style="text-align: center; color: var(--muted);">
+        <i class="fas fa-video-slash" style="font-size: 3rem; margin-bottom: 15px; color: #9ca3af;"></i>
+        <h3 style="margin: 0; font-size: 1.2rem; color: #4b5563;">Video Not Available</h3>
+        <p style="margin-top: 5px; font-size: 0.95rem;">A recording of this presentation was not captured.</p>
+      </div>
+    </div>
 
-    <div style="text-align: center; margin-top: 40px; margin-bottom: 50px;">
+    <div style="text-align: center; margin-bottom: 50px;">
       
       <a href="../assets/pdfs/talks/cinvestav_2026_goldbach.pdf" target="_blank" class="card" 
          style="display: inline-flex; align-items: center; gap: 20px; padding: 15px 30px; text-decoration: none; transition: transform 0.2s ease;">
@@ -99,7 +105,7 @@
   </section>
 
   <footer class="site-footer">
-    <p>© 2025 Lorenzo Alvarado</p>
+    <p>© 2026 Lorenzo Alvarado</p>
   </footer>
 
 </body>
