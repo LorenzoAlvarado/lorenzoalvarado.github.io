@@ -1,0 +1,11 @@
+<header class="site-header">
+  <div class="container">
+    <h1 class="site-title">{{ page.header_title | default: site.title }}</h1>
+    {% if page.header_subtitle %}<p class="site-subtitle">{{ page.header_subtitle }}</p>{% endif %}
+    <nav class="top-nav" aria-label="Primary navigation">
+      {% for item in site.data.navigation %}
+        <a href="{{ item.url | relative_url }}"{% if page.nav == item.key %} class="is-active" aria-current="page"{% endif %}{% if item.new_tab %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.label }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>

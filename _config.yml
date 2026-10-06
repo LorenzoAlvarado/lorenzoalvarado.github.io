@@ -1,0 +1,10 @@
+title: "Lorenzo Alvarado"
+author: "Lorenzo Antonio Alvarado Cabrera"
+lang: en
+url: "https://lorenzoalvarado.github.io"
+baseurl: ""
+markdown: kramdown
+exclude:
+  - README.md
+  - REFACTOR_NOTES.md
+  - _templates

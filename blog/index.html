@@ -1,126 +1,71 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog – Lorenzo Alvarado</title>
-  
-  <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+---
+layout: default
+title: Blog – Lorenzo Alvarado
+header_title: Blog
+nav: blog
+lang: en
+mathjax: true
+---
 
-  <script>
-    window.MathJax = { tex: { inlineMath: [["$","$"],["\\(","\\)"]] } };
-  </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-<body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="site-title">Blog</h1>
-      <nav class="top-nav">
-        <a href="../index.html">Home</a>
-        <a href="../research.html">Research</a>
-        <a href="../teaching.html">Teaching</a>
-        <a href="../talks.html">Talks</a>
-        <a href="../outreach.html">Outreach</a>
-        <a href="../resources.html">Resources</a>
-        <a href="index.html" style="color:var(--accent);font-weight:600;">Blog</a>
-        <a href="../cv/CV_full.pdf" target="_blank">CV</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container panel">
-    
-    <div style="text-align:center; max-width:700px; margin: 0 auto 50px auto;">
-      <h2>Notes, Thoughts & Puzzles</h2>
-      <p class="bio">
+<main class="container panel">
+<div style="text-align:center; max-width:700px; margin: 0 auto 50px auto;">
+<h2>Notes, Thoughts &amp; Puzzles</h2>
+<p class="bio">
         Welcome to my digital garden. Here I share informal mathematical notes, historical curiosities, 
         solutions to interesting problems, and personal reflections on academic life.
       </p>
-    </div>
-
-    <div class="blog-feed">
-
-
-
-	<article class="blog-card">
-        <div class="blog-tags">
-          <span class="tag indigo">Analysis</span>
-          <span class="tag math">Golden Ratio</span>
-        </div>
-        
-        <h3 class="blog-title"><a href="posts/phi_inverse_derivate.html">When the Derivative Equals the Inverse: A Golden 	Connection</a></h3>
-        
-        <div class="blog-meta">
-          <span><i class="far fa-calendar"></i> Dec 27, 2025</span>
-          <span>•</span>
-          <span><i class="far fa-clock"></i> 8 min read</span>
-        </div>
-        
-        <p class="blog-excerpt">
+</div>
+<div class="blog-feed">
+<article class="blog-card">
+<div class="blog-tags">
+<span class="tag indigo">Analysis</span>
+<span class="tag math">Golden Ratio</span>
+</div>
+<h3 class="blog-title"><a href="posts/phi_inverse_derivate.html">When the Derivative Equals the Inverse: A Golden 	Connection</a></h3>
+<div class="blog-meta">
+<span><i class="far fa-calendar"></i> Dec 27, 2025</span>
+<span>•</span>
+<span><i class="far fa-clock"></i> 8 min read</span>
+</div>
+<p class="blog-excerpt">
           We usually think of differentiation and inversion as completely different operations. 
           But what happens if we force them to be the same? The solution to $f'(x) = f^{-1}(x)$ leads us unexpectedly to 	the Golden Ratio and generalized "Metallic Means".
         </p>
-        
-        <a href="posts/phi_inverse_derivate.html" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
-      </article>
-
-
-
-	<article class="blog-card">
-        <div class="blog-tags">
-          <span class="tag math">Calculus</span>
-          <span class="tag puzzle">Geometry Challenge</span>
-        </div>
-        
-        <h3 class="blog-title"><a href="posts/max_area_ellipse.html">Maximum Area of an Ellipse Inscribed in a Circle</a>	</h3>
-        
-        <div class="blog-meta">
-          <span><i class="far fa-calendar"></i> Dec 20, 2025</span>
-          <span>•</span>
-          <span><i class="far fa-clock"></i> 6 min read</span>
-        </div>
-        
-        <p class="blog-excerpt">
+<a class="read-more" href="posts/phi_inverse_derivate.html">Read Article <i class="fas fa-arrow-right"></i></a>
+</article>
+<article class="blog-card">
+<div class="blog-tags">
+<span class="tag math">Calculus</span>
+<span class="tag puzzle">Geometry Challenge</span>
+</div>
+<h3 class="blog-title"><a href="posts/max_area_ellipse.html">Maximum Area of an Ellipse Inscribed in a Circle</a> </h3>
+<div class="blog-meta">
+<span><i class="far fa-calendar"></i> Dec 20, 2025</span>
+<span>•</span>
+<span><i class="far fa-clock"></i> 6 min read</span>
+</div>
+<p class="blog-excerpt">
           A classic optimization problem proposed by Jose M.: What is the largest ellipse that fits inside a circle of 	radius $r$? 
           By analyzing the tangency conditions of the curves, we derive the maximum area $A = \frac{2\sqrt{3}}{9}\pi r^2$.
         </p>
-        
-        <a href="posts/max_area_ellipse.html" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
-      </article>
-
-
-
-
-	<article class="blog-card">
-        <div class="blog-tags">
-          <span class="tag math">Number Theory</span>
-          <span class="tag puzzle">Problem Solving</span>
-        </div>
-        
-        <h3 class="blog-title"><a href="posts/sum_sqrt_floor.html">Summing Integer Square Roots: A Closed Formula</a></h3>
-        
-        <div class="blog-meta">
-          <span><i class="far fa-calendar"></i> Dec 10, 2025</span>
-          <span>•</span>
-          <span><i class="far fa-clock"></i> 5 min read</span>
-        </div>
-        
-        <p class="blog-excerpt">
+<a class="read-more" href="posts/max_area_ellipse.html">Read Article <i class="fas fa-arrow-right"></i></a>
+</article>
+<article class="blog-card">
+<div class="blog-tags">
+<span class="tag math">Number Theory</span>
+<span class="tag puzzle">Problem Solving</span>
+</div>
+<h3 class="blog-title"><a href="posts/sum_sqrt_floor.html">Summing Integer Square Roots: A Closed Formula</a></h3>
+<div class="blog-meta">
+<span><i class="far fa-calendar"></i> Dec 10, 2025</span>
+<span>•</span>
+<span><i class="far fa-clock"></i> 5 min read</span>
+</div>
+<p class="blog-excerpt">
           Computing the sum $\sum_{k=1}^{n} \lfloor \sqrt{k} \rfloor$ term by term is inefficient for large $n$. 
           In this post, we derive an elegant closed-form formula by regrouping the terms based on the intervals between 	consecutive perfect squares.
         </p>
-        
-        <a href="posts/sum_sqrt_floor.html" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
-      </article>
-
-
-
-    </div>
-
-  </main>
-  
-  <footer class="site-footer"><p>© 2025 Lorenzo Alvarado</p></footer>
-</body>
-</html>
+<a class="read-more" href="posts/sum_sqrt_floor.html">Read Article <i class="fas fa-arrow-right"></i></a>
+</article>
+</div>
+</main>

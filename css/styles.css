@@ -1,5 +1,3 @@
-
-
 :root{
   --bg: #f6f8fb;
   --surface: #ffffff;
@@ -22,16 +20,15 @@ body {
   color: #0b1220;
   -webkit-font-smoothing: antialiased;
   
-  /* NUEVO: Empujamos el contenido hacia abajo el equivalente a la altura del menú */
   padding-top: 100px; 
 }
 .container{max-width:var(--maxw); margin:0 auto; padding:36px 20px}
 
 /* ===== Header ===== */
-/* Active link highlight */
-.top-nav a[style*="color:var(--accent)"]{background:rgba(59,75,176,0.10);}
+/* Active navigation item */
+.top-nav a.is-active{background:rgba(59,75,176,0.10); color:var(--accent); font-weight:600;}
 .site-header {
-  position: fixed;  /* CAMBIO: Fixed en lugar de sticky */
+  position: fixed;
   top: 0;
   left: 0;          /* Asegura que empiece desde la izquierda */
   width: 100%;      /* Ocupa todo el ancho */
@@ -83,16 +80,10 @@ body {
 
 /* ===== Cards ===== */
 .card-row{display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:18px; margin-top:18px}
-.card{background:var(--surface); padding:18px; border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid rgba(15,25,45,0.03)}
+.card{background:var(--surface); padding:18px; border-radius:var(--radius); box-shadow:var(--shadow); border:1px solid rgba(15,25,45,0.03); border-top:4px solid var(--accent)}
 .card h4{margin:0 0 8px 0}
 .card p{margin:0 0 12px 0; color:var(--muted)}
 .card .btn{display:inline-block; padding:8px 12px; border-radius:10px; background:var(--accent); color:#fff; text-decoration:none; font-weight:600}
-/* Decoración tipo "Carpeta" para las cards de Resources */
-.card {
-  border-top: 4px solid var(--accent); /* Tu azul #3b4bb0 */
-  /* El resto de propiedades se mantienen igual */
-}
-
 /* ===== Research / Questions ===== */
 .questions{list-style:disc; margin-left:1.1rem; color:#111827}
 .questions li{margin:8px 0}
@@ -711,3 +702,35 @@ details.video-toggle[open] summary {
   gap: 8px; /* Pequeña animación de flecha */
   text-decoration: underline;
 }
+
+/* ===== Shared utilities ===== */
+.text-accent { color: var(--accent); }
+.section-spaced { margin-bottom: 40px; }
+.mb-20 { margin-bottom: 20px; }
+.mt-15 { margin-top: 15px; }
+
+/* ===== Blog article content ===== */
+.article-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #374151;
+}
+.article-content h3 { margin-top: 40px; color: #111827; }
+.article-content p { margin-bottom: 24px; }
+.result-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 30px 0;
+  color: #166534;
+}
+.post-image-container { text-align: center; margin: 30px 0; }
+.post-image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 1px solid #eee;
+}
+.image-caption { font-size: 0.9rem; color: #6b7280; margin-top: 10px; }

@@ -1,112 +1,62 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tres primos bastan — Lorenzo Alvarado</title>
-  
-  <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+---
+layout: default
+title: Tres primos bastan — Lorenzo Alvarado
+header_title: Talks - Details
+nav: talks
+lang: en
+mathjax: true
+---
 
-  <script>
-    window.MathJax = {
-      tex: { inlineMath: [["$","$"],["\\(","\\)"]] }
-    };
-  </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-
-<body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="site-title">Talks - Details</h1>
-      <nav class="top-nav">
-        <a href="../index.html">Home</a>
-        <a href="../research.html">Research</a>
-        <a href="../teaching.html">Teaching</a>
-        <a href="../talks.html" style="color:var(--accent);font-weight:600;">Talks</a>
-        <a href="../outreach.html">Outreach</a>
-        <a href="../resources.html">Resources</a>
-        <a href="../blog/index.html">Blog</a>
-        <a href="../cv/CV_full.pdf" target="_blank">CV</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="container panel">
-    
-    <p><a class="btn-ghost" href="../talks.html">← Back to Talks</a></p>
-
-    <h1 style="margin-bottom: 15px; margin-top: 10px; font-size: 2rem; color: #111827;">
+<section class="container panel">
+<p><a class="btn-ghost" href="../talks.html">← Back to Talks</a></p>
+<h1 style="margin-bottom: 15px; margin-top: 10px; font-size: 2rem; color: #111827;">
       Tres primos bastan (eventualmente): La historia analítica de la conjetura de Goldbach
     </h1>
-
-    <div class="talk-header-meta">
-      <div class="talk-meta-item">
-        <i class="far fa-calendar-alt"></i> 
-        <span>April 2026</span>
-      </div>
-      <div class="talk-meta-item">
-        <i class="fas fa-map-marker-alt"></i> 
-        <span>Cinvestav Zacatenco, IPN</span>
-      </div>
-      <div class="talk-meta-item">
-        <i class="fas fa-university"></i> 
-        <span>Student Seminar</span>
-      </div>
-    </div>
-
-    <div style="font-size: 1.05rem; line-height: 1.7; color: #374151;">
-      <p style="margin-bottom: 1.2em;">
-        This talk explores the analytical history of Goldbach's Conjecture, starting from the original 1742 correspondence between Leonhard Euler and Christian Goldbach. We formally define both the Strong Goldbach Conjecture (every even number $2n > 2$ is the sum of two primes, $2n = p_1 + p_2$) and the Weak Goldbach Conjecture (every odd number $2n+1 > 5$ is the sum of three primes, $2n+1 = p_1 + p_2 + p_3$).
+<div class="talk-header-meta">
+<div class="talk-meta-item">
+<i class="far fa-calendar-alt"></i>
+<span>April 2026</span>
+</div>
+<div class="talk-meta-item">
+<i class="fas fa-map-marker-alt"></i>
+<span>Cinvestav Zacatenco, IPN</span>
+</div>
+<div class="talk-meta-item">
+<i class="fas fa-university"></i>
+<span>Student Seminar</span>
+</div>
+</div>
+<div style="font-size: 1.05rem; line-height: 1.7; color: #374151;">
+<p style="margin-bottom: 1.2em;">
+        This talk explores the analytical history of Goldbach's Conjecture, starting from the original 1742 correspondence between Leonhard Euler and Christian Goldbach. We formally define both the Strong Goldbach Conjecture (every even number $2n &gt; 2$ is the sum of two primes, $2n = p_1 + p_2$) and the Weak Goldbach Conjecture (every odd number $2n+1 &gt; 5$ is the sum of three primes, $2n+1 = p_1 + p_2 + p_3$).
       </p>
-
-      <p style="margin-bottom: 1.2em;">
+<p style="margin-bottom: 1.2em;">
         We review the early heuristic attempts to solve these additive problems, analyzing the representation functions $r_2(n)$ and $r_3(n)$. The presentation discusses the combinatorial arguments proposed by James Joseph Sylvester in 1877 and Paul Stäckel in 1896, as well as Edmund Landau's rigorous 1900 demonstration regarding the average value $\sum_{x \leq n} r_2(x)$ that refuted Stäckel's approximation. We also introduce Viggo Brun's Sieve and his 1920 theorem, which established that sufficiently large even numbers can be expressed as the sum of two integers with at most 9 prime factors each.
       </p>
-
-      <p style="margin-bottom: 1.2em;">
+<p style="margin-bottom: 1.2em;">
         The core of the talk focuses on the Hardy-Littlewood Circle Method and its application to the conjecture via the generating function $F(z) = f(z)^2$ and Cauchy's Integral Formula evaluated over the integral $\int_0^1 F(e^{2\pi i \alpha}) e^{-2\pi i n \alpha} d\alpha$. Finally, we trace the timeline of the Weak Goldbach Conjecture: from Ivan Vinogradov's unconditional asymptotic theorem in 1947 to the decades-long effort to reduce the theoretical limits, culminating in Harald Helfgott's complete proof in 2013 for $N \geq 10^{27}$ coupled with computational verifications. We conclude by mentioning Chen's Theorem (1966) regarding the strong conjecture and the parity problem.
       </p>
-    </div>
-
-    <div class="video-featured-container" style="background-color: #f9fafb; border: 1px dashed #d1d5db; display: flex; align-items: center; justify-content: center; height: 300px; border-radius: 8px; margin-bottom: 40px; margin-top: 30px;">
-      <div style="text-align: center; color: var(--muted);">
-        <i class="fas fa-video-slash" style="font-size: 3rem; margin-bottom: 15px; color: #9ca3af;"></i>
-        <h3 style="margin: 0; font-size: 1.2rem; color: #4b5563;">Video Not Available</h3>
-        <p style="margin-top: 5px; font-size: 0.95rem;">A recording of this presentation was not captured.</p>
-      </div>
-    </div>
-
-    <div style="text-align: center; margin-bottom: 50px;">
-      
-      <a href="../assets/pdfs/talks/cinvestav_2026_goldbach.pdf" target="_blank" class="card" 
-         style="display: inline-flex; align-items: center; gap: 20px; padding: 15px 30px; text-decoration: none; transition: transform 0.2s ease;">
-        
-        <i class="fas fa-file-pdf" style="font-size: 2rem; color: #e11d48;"></i>
-        
-        <div style="text-align: left;">
-          <h4 style="margin: 0; font-size: 1.1rem; color: #111827; font-weight: 600;">Download Slides</h4>
-          <span style="font-size: 0.85rem; color: var(--muted);">PDF Presentation</span>
-        </div>
-
-      </a>
-
-    </div>
-
-    <div style="margin-top: 50px;">
-      <div class="gallery"></div>
-    </div>
-
-    <p style="margin-top: 40px; margin-bottom: 20px; border-top: 1px solid #eee; padding-top: 20px;">
-      <a class="btn-ghost" href="../talks.html">← Back to Talks</a>
-    </p>
-
-  </section>
-
-  <footer class="site-footer">
-    <p>© 2026 Lorenzo Alvarado</p>
-  </footer>
-
-</body>
-</html>
+</div>
+<div class="video-featured-container" style="background-color: #f9fafb; border: 1px dashed #d1d5db; display: flex; align-items: center; justify-content: center; height: 300px; border-radius: 8px; margin-bottom: 40px; margin-top: 30px;">
+<div style="text-align: center; color: var(--muted);">
+<i class="fas fa-video-slash" style="font-size: 3rem; margin-bottom: 15px; color: #9ca3af;"></i>
+<h3 style="margin: 0; font-size: 1.2rem; color: #4b5563;">Video Not Available</h3>
+<p style="margin-top: 5px; font-size: 0.95rem;">A recording of this presentation was not captured.</p>
+</div>
+</div>
+<div style="text-align: center; margin-bottom: 50px;">
+<a class="card" href="../assets/pdfs/talks/cinvestav_2026_goldbach.pdf" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 20px; padding: 15px 30px; text-decoration: none; transition: transform 0.2s ease;" target="_blank">
+<i class="fas fa-file-pdf" style="font-size: 2rem; color: #e11d48;"></i>
+<div style="text-align: left;">
+<h4 style="margin: 0; font-size: 1.1rem; color: #111827; font-weight: 600;">Download Slides</h4>
+<span style="font-size: 0.85rem; color: var(--muted);">PDF Presentation</span>
+</div>
+</a>
+</div>
+<div style="margin-top: 50px;">
+<div class="gallery"></div>
+</div>
+<p style="margin-top: 40px; margin-bottom: 20px; border-top: 1px solid #eee; padding-top: 20px;">
+<a class="btn-ghost" href="../talks.html">← Back to Talks</a>
+</p>
+</section>
