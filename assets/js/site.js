@@ -1,3 +1,24 @@
+const languagePreference = localStorage.getItem('preferredLanguage');
+const path = window.location.pathname;
+
+const isRootHome =
+  path === '/' ||
+  path === '/index.html';
+
+if (isRootHome && languagePreference !== 'en') {
+  window.location.replace('/es/');
+}
+
+document.querySelectorAll('.language-switch').forEach((link) => {
+  link.addEventListener('click', () => {
+    const targetLanguage = link.textContent.trim().toLowerCase();
+
+    if (targetLanguage === 'es' || targetLanguage === 'en') {
+      localStorage.setItem('preferredLanguage', targetLanguage);
+    }
+  });
+});
+
 (() => {
   const header = document.querySelector('.site-header');
   const toggle = document.querySelector('.nav-toggle');
