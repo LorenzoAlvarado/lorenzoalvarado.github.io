@@ -1,25 +1,53 @@
-- key: home
-  label: Home
-  url: /
-- key: research
-  label: Research
-  url: /research.html
-- key: teaching
-  label: Teaching
-  url: /teaching.html
-- key: talks
-  label: Talks
-  url: /talks.html
-- key: outreach
-  label: Outreach
-  url: /outreach.html
-- key: resources
-  label: Resources
-  url: /resources.html
-- key: blog
-  label: Blog
-  url: /blog/
-- key: cv
-  label: CV
-  url: /cv/CV_full.pdf
-  new_tab: true
+en:
+  - key: home
+    label: Home
+    url: /
+  - key: research
+    label: Research
+    url: /research.html
+  - key: teaching
+    label: Teaching
+    url: /teaching.html
+  - key: talks
+    label: Talks
+    url: /talks.html
+  - key: outreach
+    label: Outreach
+    url: /outreach.html
+  - key: resources
+    label: Resources
+    url: /resources.html
+  - key: blog
+    label: Blog
+    url: /blog/
+  - key: cv
+    label: CV
+    url: /cv/CV_full.pdf
+    new_tab: true
+
+es:
+  - key: home
+    label: Inicio
+    url: /es/
+  - key: research
+    label: Investigación
+    url: /es/research.html
+  - key: teaching
+    label: Docencia
+    url: /es/teaching.html
+  - key: talks
+    label: Charlas
+    url: /es/talks.html
+  - key: outreach
+    label: Divulgación
+    url: /es/outreach.html
+  - key: resources
+    label: Recursos
+    url: /es/resources.html
+  - key: blog
+    label: Blog
+    url: /es/blog/
+  - key: cv
+    label: CV
+    url: /cv/CV_full.pdf
+    new_tab: true

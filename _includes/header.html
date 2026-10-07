@@ -1,3 +1,20 @@
+{% if page.lang == 'es' %}
+  {% assign nav_items = site.data.navigation.es %}
+  {% assign language_url = page.url | remove_first: '/es' %}
+  {% assign language_label = 'EN' %}
+  {% assign language_title = 'View in English' %}
+  {% assign nav_label = 'Navegación principal' %}
+  {% assign open_menu_label = 'Abrir menú de navegación' %}
+  {% assign menu_text = 'Menú' %}
+{% else %}
+  {% assign nav_items = site.data.navigation.en %}
+  {% assign language_url = '/es' | append: page.url %}
+  {% assign language_label = 'ES' %}
+  {% assign language_title = 'Ver en español' %}
+  {% assign nav_label = 'Primary navigation' %}
+  {% assign open_menu_label = 'Open navigation menu' %}
+  {% assign menu_text = 'Menu' %}
+{% endif %}
 <header class="site-header">
   <div class="container header-inner">
     <div class="site-heading">
@@ -5,17 +22,18 @@
       {% if page.header_subtitle %}<p class="site-subtitle">{{ page.header_subtitle }}</p>{% endif %}
     </div>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation menu">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="{{ open_menu_label }}">
       <span class="nav-toggle-bars" aria-hidden="true">
         <span></span><span></span><span></span>
       </span>
-      <span class="sr-only">Menu</span>
+      <span class="sr-only">{{ menu_text }}</span>
     </button>
 
-    <nav class="top-nav" id="primary-navigation" aria-label="Primary navigation">
-      {% for item in site.data.navigation %}
+    <nav class="top-nav" id="primary-navigation" aria-label="{{ nav_label }}">
+      {% for item in nav_items %}
         <a href="{{ item.url | relative_url }}"{% if page.nav == item.key %} class="is-active" aria-current="page"{% endif %}{% if item.new_tab %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.label }}</a>
       {% endfor %}
+      <a class="language-switch" href="{{ language_url | relative_url }}" hreflang="{% if page.lang == 'es' %}en{% else %}es{% endif %}" lang="{% if page.lang == 'es' %}en{% else %}es{% endif %}" title="{{ language_title }}">{{ language_label }}</a>
     </nav>
   </div>
 </header>

@@ -7,6 +7,17 @@
   {% if page.keywords %}<meta name="keywords" content="{{ page.keywords | escape }}">{% endif %}
   <meta name="author" content="{{ site.author }}">
   <meta name="theme-color" content="#ffffff">
+  {% if page.lang == 'es' %}
+    {% assign english_url = page.url | remove_first: '/es' %}
+    {% assign spanish_url = page.url %}
+  {% else %}
+    {% assign english_url = page.url %}
+    {% assign spanish_url = '/es' | append: page.url %}
+  {% endif %}
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="alternate" hreflang="en" href="{{ english_url | absolute_url }}">
+  <link rel="alternate" hreflang="es" href="{{ spanish_url | absolute_url }}">
+  <link rel="alternate" hreflang="x-default" href="{{ english_url | absolute_url }}">
   <title>{{ page.title | default: site.title }}</title>
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}">

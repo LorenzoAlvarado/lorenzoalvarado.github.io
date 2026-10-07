@@ -1,0 +1,88 @@
+---
+layout: default
+title: Sumando raíces cuadradas enteras — Lorenzo Alvarado
+header_title: Blog
+nav: blog
+lang: es
+mathjax: true
+---
+
+<main class="container panel" style="max-width: 800px;">
+<div style="display:flex; justify-content:space-between;">
+<a class="btn-ghost" href="#" style="color:var(--muted); pointer-events:none; opacity:0.5;">← Entrada anterior</a>
+<a class="btn-ghost" href="/es/blog/posts/max_area_ellipse.html">Siguiente entrada →</a>
+</div>
+<p><a class="btn-ghost" href="/es/blog/index.html">← Volver al Blog</a></p>
+<header style="margin: 40px 0;">
+<div class="blog-tags">
+<span class="tag math">Teoría de Números</span>
+<span class="tag puzzle">Resolución de problemas</span>
+</div>
+<h1 style="font-size: 2.2rem; margin-bottom: 10px;">Sumando raíces cuadradas enteras: una fórmula cerrada</h1>
+<div class="blog-meta" style="font-size: 1rem;">
+<span><i class="far fa-calendar"></i> 10 dic 2025</span>
+<span>•</span>
+<span>Lorenzo Alvarado</span>
+</div>
+</header>
+<article class="article-content">
+<p><strong>Problema:</strong> Calcular la suma $$ S = \sum_{k=1}^{9999} \lfloor \sqrt{k} \rfloor $$</p>
+<p>Aunque para una computadora calcular esta suma término a término es trivial, encontrar una fórmula cerrada general ofrece un ejercicio interesante de manipulación de sumas y propiedades de los enteros. Obtengamos la solución para un $n$ cualquiera y después apliquémosla al caso particular.</p>
+<h3>El enfoque general</h3>
+<p>Sean $n,m\in\mathbb{N}$ tales que $m$ es la parte entera de la raíz cuadrada de $n$, es decir, $m^2\le n&lt;(m+1)^2$.</p>
+<p>La idea clave es agrupar los términos de acuerdo con los valores de $\lfloor\sqrt{k}\rfloor$. Podemos dividir la suma total en tres partes distintas:</p><ol>
+<li>Los intervalos estrictamente comprendidos entre cuadrados consecutivos.</li>
+<li>La “cola” desde $m^2+1$ hasta $n$.</li>
+<li>Los cuadrados perfectos, donde la función piso es exacta.</li>
+</ol>
+<p>Podemos reescribir la suma como:</p>
+<p style="overflow-x: auto;">
+        $$ \sum_{k=1}^{n}\lfloor\sqrt{k}\rfloor = \underbrace{\sum_{j=2}^{m}\sum_{k=(j-1)^{2}+1}^{j^{2}-1}\lfloor\sqrt{k}\rfloor}_{\text{Intervalos}} + \underbrace{\sum_{k=m^{2}+1}^{n}\lfloor\sqrt{k}\rfloor}_{\text{Cola}} + \underbrace{\sum_{j=1}^{m}\lfloor\sqrt{j^{2}}\rfloor}_{\text{Cuadrados perfectos}} $$
+      </p>
+<h3>Análisis de los términos</h3>
+<p><strong>1. Los intervalos:</strong><br/>Para todo $k$ en el rango $(j-1)^2+1\le k\le j^2-1$ se tienen las desigualdades estrictas $(j-1)^2&lt;k&lt;j^2$. Al tomar raíces cuadradas, $j-1&lt;\sqrt{k}&lt;j$. Por lo tanto, la función piso es constante: $$\lfloor\sqrt{k}\rfloor=j-1$$</p>
+<p><strong>2. La cola:</strong><br/>Como $m$ es el mayor entero tal que $m^2\le n$, para el rango $m^2+1\le k\le n$ se tiene $\lfloor\sqrt{k}\rfloor=m$.</p>
+<p><strong>3. Los cuadrados perfectos:</strong><br/>Simplemente, $\lfloor\sqrt{j^2}\rfloor=j$.</p>
+<p>Sustituyendo estos valores en nuestra expresión:</p>
+<p style="overflow-x: auto;">
+        $$ \sum_{k=1}^{n}\lfloor\sqrt{k}\rfloor = \sum_{j=2}^{m}\left( (j-1) \sum_{k=(j-1)^{2}+1}^{j^{2}-1} 1 \right) + m\sum_{k=m^{2}+1}^{n} 1 + \sum_{j=1}^{m} j $$
+      </p>
+<h3>Simplificación</h3>
+<p>Contemos ahora el número de términos de las sumas interiores. El número de términos en el intervalo $((j-1)^2,j^2)$ es: $$ (j^2-1)-[(j-1)^2+1]+1=j^2-1-(j^2-2j+1)=2j-2 $$ El número de términos de la cola es simplemente $n-m^2$. Además, la suma de los enteros viene dada por la fórmula triangular estándar $\frac{m(m+1)}{2}$.</p>
+<p>Así, la expresión se convierte en:</p>
+<p>
+        $$
+        \begin{aligned}
+        S &amp;= \sum_{j=2}^{m} (j-1)(2j-2) + m(n - m^2) + \frac{m(m+1)}{2} \\
+          &amp;= 2\sum_{j=2}^{m} (j-1)^2 + m(n - m^2) + \frac{m^2 + m}{2}
+        \end{aligned}
+        $$
+      </p>
+<p>Usando la fórmula para la suma de los primeros $k$ cuadrados, $\sum_{i=1}^k i^2=\frac{k(k+1)(2k+1)}{6}$, y haciendo el cambio de índice $j-1\to i$ —donde $i$ va de 1 a $m-1$—:</p>
+<p>
+        $$ 2\sum_{i=1}^{m-1} i^2 = 2 \left[ \frac{(m-1)m(2(m-1)+1)}{6} \right] = \frac{m(m-1)(2m-1)}{3} $$
+      </p>
+<p>Combinando todo, llegamos a la fórmula cerrada:</p>
+<div class="result-box"><strong>Teorema:</strong> La suma está dada por: $$\sum_{k=1}^{n}\lfloor\sqrt{k}\rfloor=m(n-m^2)+\frac{1}{6}m(4m^2-3m+5)$$ donde $m=\lfloor\sqrt{n}\rfloor$.</div>
+<h3>Solución del problema</h3>
+<p>En nuestro caso particular, $n=9999$. Como $99^2=9801$ y $100^2=10000$, tenemos $m=99$.</p>
+<p>Sustituyendo en la fórmula:</p>
+<p>
+        $$
+        \begin{aligned}
+        S &amp;= 99(9999 - 99^2) + \frac{1}{6}(99)(4(99^2) - 3(99) + 5) \\
+          &amp;= 99(198) + \frac{33}{2}(39204 - 297 + 5) \\
+          &amp;= 19,602 + \frac{33}{2}(38,912) \\
+          &amp;= 19,602 + 642,048 \\
+          &amp;= \mathbf{661,650}
+        \end{aligned}
+        $$
+      </p>
+</article>
+<hr style="margin: 50px 0; border:0; border-top:1px solid #eee;"/>
+<div style="display:flex; justify-content:space-between;">
+<a class="btn-ghost" href="#" style="color:var(--muted); pointer-events:none; opacity:0.5;">← Entrada anterior</a>
+<a class="btn-ghost" href="/es/blog/posts/max_area_ellipse.html">Siguiente entrada →</a>
+</div>
+<p style="margin-top: 20px;"><a class="btn-ghost" href="/es/blog/index.html">← Volver al Blog</a></p>
+</main>

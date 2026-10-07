@@ -19,6 +19,8 @@ body {
   background: var(--bg);
   color: #0b1220;
   -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 1.5;
   
 }
 .container{max-width:var(--maxw); margin:0 auto; padding:36px 20px}
@@ -44,7 +46,7 @@ body {
 .top-nav a:hover{background:rgba(59,75,176,0.06); color:var(--accent)}
 
 /* ===== Hero / About ===== */
-.panel{padding:48px 0}
+.panel{padding-block:48px}
 .panel-hero{padding-top:28px}
 .grid-two{display:grid; grid-template-columns:1fr 360px; gap:28px; align-items:center}
 @media (max-width:880px){.grid-two{grid-template-columns:1fr;}}
@@ -265,7 +267,7 @@ button[type="submit"], .btn{cursor:pointer}
 .note{color:var(--muted); font-size:0.92rem}
 
 @media (max-width:600px){
-  .container{padding:20px}
+  .container{padding:20px 22px}
   .site-title{font-size:1.05rem}
 }
 
@@ -735,6 +737,20 @@ details.video-toggle[open] summary {
 .image-caption { font-size: 0.9rem; color: #6b7280; margin-top: 10px; }
 
 
+/* ===== Language switch ===== */
+.language-switch {
+  margin-left: 4px;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+  border: 1px solid rgba(59,75,176,0.18);
+  color: var(--accent) !important;
+  font-weight: 700 !important;
+}
+
+.language-switch:hover {
+  border-color: rgba(59,75,176,0.35);
+}
+
 /* ===== Responsive foundation ===== */
 html {
   scroll-padding-top: 92px;
@@ -886,6 +902,13 @@ mjx-container {
     padding: 10px 12px;
   }
 
+  .language-switch {
+    margin-left: 0;
+    margin-top: 6px;
+    justify-content: center;
+    border-color: rgba(59,75,176,0.24);
+  }
+
   .js .top-nav {
     display: none;
   }
@@ -895,7 +918,7 @@ mjx-container {
   }
 
   .panel {
-    padding: 38px 0;
+    padding-block: 38px;
   }
 
   .panel-hero {
@@ -924,8 +947,13 @@ mjx-container {
 @media (max-width: 700px) {
   .container {
     width: 100%;
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  body {
+    font-size: 17px;
+    line-height: 1.55;
   }
 
   .grid-two {
@@ -1014,8 +1042,8 @@ mjx-container {
 
 @media (max-width: 520px) {
   .container {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .site-header .container {
@@ -1033,11 +1061,12 @@ mjx-container {
   }
 
   .panel {
-    padding: 30px 0;
+    padding-block: 30px;
   }
 
   .bio {
-    font-size: 1rem;
+    font-size: 1.03rem;
+    line-height: 1.62;
   }
 
   h1 {

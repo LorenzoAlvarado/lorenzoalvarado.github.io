@@ -1,0 +1,63 @@
+---
+layout: default
+title: Cuando la derivada es la inversa — Lorenzo Alvarado
+header_title: Blog
+nav: blog
+lang: es
+mathjax: true
+---
+
+<main class="container panel" style="max-width: 800px;">
+<div style="display:flex; justify-content:space-between;">
+<a class="btn-ghost" href="/es/blog/posts/max_area_ellipse.html">← Entrada anterior</a>
+<a class="btn-ghost" href="#" style="color:var(--muted); pointer-events:none; opacity:0.5;">Siguiente entrada →</a>
+</div>
+<p><a class="btn-ghost" href="/es/blog/index.html">← Volver al Blog</a></p>
+<header style="margin: 40px 0;">
+<div class="blog-tags">
+<span class="tag indigo">Análisis</span>
+<span class="tag math">Proporción áurea</span>
+</div>
+<h1 style="font-size: 2.2rem; margin-bottom: 10px;">Cuando la derivada es la inversa: una conexión áurea</h1>
+<div class="blog-meta" style="font-size: 1rem;">
+<span><i class="far fa-calendar"></i> 27 dic 2025</span>
+<span>•</span>
+<span>Lorenzo Alvarado</span>
+</div>
+</header>
+<article class="article-content">
+<p>Con frecuencia se nos pide calcular la derivada de una función o encontrar su inversa. ¿Qué ocurre si buscamos una función que permanezca invariante bajo estas dos operaciones aparentemente distintas?</p>
+<p>El objetivo de esta entrada es encontrar una función $f$ tal que: $$f'(x)=f^{-1}(x)$$ Esta pregunta nos llevará a una generalización inesperada relacionada con la proporción áurea y la familia de las medias metálicas.</p>
+<h3>1. El primer caso: $f'(x)=f^{-1}(x)$</h3>
+<p>Para que $f'$ y $f^{-1}$ pertenezcan a la misma clase de funciones, un candidato natural es una función potencia de la forma: $$f(x)=c\cdot x^r$$ donde $c,r\in\mathbb{R}$.</p>
+<p>Calculando la derivada y la inversa: $$f'(x)=crx^{r-1}$$ $$f^{-1}(x)=c^{-1/r}x^{1/r}$$</p>
+<p>Al imponer $f'(x)=f^{-1}(x)$ debemos igualar tanto las potencias de $x$ como los coeficientes: 1) Potencias: $r-1=\frac1r\implies r^2-r-1=0$. 2) Coeficientes: $cr=c^{-1/r}$.</p>
+<p>La ecuación $r^2-r-1=0$ es precisamente la ecuación que define la proporción áurea $\Phi=\frac{1+\sqrt5}{2}$ y su conjugada $\Psi=\frac{1-\sqrt5}{2}$.</p>
+<p>Si consideramos $r&gt;0$, entonces $r=\Phi$. Resolviendo para la constante $c$: $$c\Phi=c^{\Psi}\implies c=\Phi^{\frac{1}{\Psi-1}}$$ utilizando la propiedad $-1/\Phi=\Psi$.</p>
+<div class="result-box"><strong>Solución 1:</strong> La función que satisface $f'(x)=f^{-1}(x)$ es: $$f(x)=\Phi^{\frac{1}{\Psi-1}}x^{\Phi}$$ Esto relaciona explícitamente el problema derivada/inversa con la proporción áurea.</div>
+<h3>2. Segundo orden: $f''(x)=f^{-1}(x)$</h3>
+<p>Demos un paso más. ¿Qué ocurre si la segunda derivada es igual a la inversa? $$f''(x)=cr(r-1)x^{r-2}$$ Igualando potencias con la inversa $x^{1/r}$: $$r-2=\frac1r\implies r^2-2r-1=0$$</p>
+<p>La solución positiva de esta cuadrática es la proporción plateada, usualmente denotada $\Phi_2=1+\sqrt2$. Esto sugiere un patrón relacionado con las llamadas medias metálicas.</p>
+<h3>3. Generalización a la derivada $n$-ésima</h3>
+<p>Para resolver el problema general $f^{(n)}(x)=f^{-1}(x)$ necesitamos algunas definiciones.</p>
+<h4>Medias metálicas</h4>
+<p>La media metálica asociada con $n\in\mathbb{N}$, denotada $\Phi_n$, es la solución positiva de: $$x^2=nx+1\implies\Phi_n=\frac{n+\sqrt{n^2+4}}{2}$$ Su conjugada es $\Psi_n=\frac{n-\sqrt{n^2+4}}{2}$. Se cumplen $\Psi_n=n-\Phi_n$ y $-1/\Phi_n=\Psi_n$.</p>
+<h4>Extensión de los factoriales</h4>
+<p>Como estamos trabajando con derivadas de $x^r$ donde $r$ es real —en particular una media metálica—, no podemos utilizar factoriales ordinarios. Usamos la función Gamma $\Gamma(x)$, que satisface $\Gamma(n+1)=n!$.</p>
+<p>La derivada $n$-ésima de $f(x)=x^r$ está dada por: $$f^{(n)}(x)=\frac{\Gamma(r+1)}{\Gamma(r-n+1)}x^{r-n}$$</p>
+<h3>4. El teorema general</h3>
+<p>Ya estamos listos para enunciar la solución general.</p>
+<p><strong>Problema:</strong> Encontrar $f(x)=cx^r$ —con $r&gt;0$— tal que $f^{(n)}(x)=f^{-1}(x)$.</p>
+<p><strong>Paso 1: potencias.</strong> Igualar los exponentes da $r-n=1/r\implies r^2-nr-1=0$. Como $r&gt;0$, la solución es exactamente la $n$-ésima media metálica: $r=\Phi_n$.</p>
+<p><strong>Paso 2: coeficientes.</strong> $$c\frac{\Gamma(r+1)}{\Gamma(r-n+1)}=c^{-1/r}$$ Sustituyendo $r=\Phi_n$ y usando $-1/\Phi_n=\Psi_n$: $$c\frac{\Gamma(\Phi_n+1)}{\Gamma(\Phi_n-n+1)}=c^{\Psi_n}$$ Al resolver para $c$ se obtiene: $$c=\left[\frac{\Gamma(1-\Psi_n)}{\Gamma(1+\Phi_n)}\right]^{1-\Psi_n}$$</p>
+<div class="result-box"><strong>Teorema:</strong> La función que satisface $f^{(n)}(x)=f^{-1}(x)$ para cualquier $n\in\mathbb{N}$ es: $$f_1(x)=\left[\frac{\Gamma(1-\Psi_n)}{\Gamma(1+\Phi_n)}\right]^{1-\Psi_n}x^{\Phi_n}$$</div>
+<p>Existe también una segunda solución $f_2(x)$ al considerar $r&lt;0$ —relacionada con $\Psi_n$—, pero esta produce soluciones reales únicamente cuando $n$ es par, para evitar raíces de números negativos en el cálculo del coeficiente.</p>
+<p>Este resultado conecta de manera elegante operadores diferenciales, funciones inversas y las constantes de la sucesión de Fibonacci generalizada conocidas como medias metálicas.</p>
+</article>
+<hr style="margin: 50px 0; border:0; border-top:1px solid #eee;"/>
+<div style="display:flex; justify-content:space-between;">
+<a class="btn-ghost" href="/es/blog/posts/max_area_ellipse.html">← Entrada anterior</a>
+<a class="btn-ghost" href="#" style="color:var(--muted); pointer-events:none; opacity:0.5;">Siguiente entrada →</a>
+</div>
+<p style="margin-top: 20px;"><a class="btn-ghost" href="/es/blog/index.html">← Volver al Blog</a></p>
+</main>

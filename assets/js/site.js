@@ -5,12 +5,17 @@
 
   if (!header || !toggle || !nav) return;
 
+  const isSpanish = document.documentElement.lang.toLowerCase().startsWith('es');
+  const labels = isSpanish
+    ? { open: 'Abrir menú de navegación', close: 'Cerrar menú de navegación' }
+    : { open: 'Open navigation menu', close: 'Close navigation menu' };
+
   const mobileQuery = window.matchMedia('(max-width: 1100px)');
 
   const setOpen = (open) => {
     header.classList.toggle('nav-open', open);
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    toggle.setAttribute('aria-label', open ? labels.close : labels.open);
   };
 
   toggle.addEventListener('click', () => {

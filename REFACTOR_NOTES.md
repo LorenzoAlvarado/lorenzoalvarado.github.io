@@ -60,3 +60,32 @@ The refactor preserves the site's content and overall visual identity while maki
 - They were checked at 12 viewport configurations, including 320–430 px portrait phones, mobile landscape, tablets, 1024/1100 px widths, and desktop widths up to 1440 px.
 - 372 page/viewport checks completed with no accidental horizontal document overflow.
 - The hamburger menu was also opened during mobile/tablet checks and verified not to create horizontal overflow or exceed the viewport height in landscape mode.
+
+## Phase 3 — Mobile spacing/type + bilingual site (2026-10-06)
+
+### Mobile refinements
+- Fixed the horizontal-padding bug on pages that used both `.container` and `.panel`: `.panel` now uses `padding-block`, so it no longer overwrites the container's left/right gutters.
+- Increased mobile gutters to 20–22 px depending on viewport width.
+- Increased the mobile base type size to 17 px and slightly increased body-text line height for easier reading.
+- Desktop sizing and layout remain essentially unchanged.
+
+### English / Spanish architecture
+- English remains at the existing URLs (`/`, `/research.html`, etc.) so existing links do not break.
+- A complete Spanish mirror now lives under `/es/` with the same page structure.
+- Navigation labels are language-aware through `_data/navigation.yml`.
+- Every page now has an `EN` / `ES` switch in the main navigation.
+- The language switch maps a page to its counterpart, e.g. `/research.html` ↔ `/es/research.html`.
+- Added `canonical`, `hreflang="en"`, `hreflang="es"`, and `hreflang="x-default"` metadata in the shared layout.
+- Mobile navigation accessibility labels are also localized.
+- Shared PDFs and images remain in the same `/assets/` and `/cv/` directories; they are not duplicated for the Spanish site.
+
+### Content cleanup included in this phase
+- Removed stray citation-marker text from `teaching/adv_algebra_2.html`.
+- Fixed the missing space in the Cauchy-variables talk title (`AND PRODUCTS`).
+- Corrected the seminar label on that talk's English detail page.
+- Updated the English home-page title/description so the metadata matches the English version.
+
+### Validation
+- All public English pages have a Spanish counterpart: 31 English + 31 Spanish pages.
+- Internal HTML-page link validation reports 0 missing page targets.
+- The only missing local assets are the same intentional future course-note/homework placeholders already discussed; the Spanish mirror points to those same shared future files rather than duplicating them.

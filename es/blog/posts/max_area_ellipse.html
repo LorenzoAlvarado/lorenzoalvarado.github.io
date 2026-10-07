@@ -1,0 +1,67 @@
+---
+layout: default
+title: Área máxima de una elipse inscrita — Lorenzo Alvarado
+header_title: Blog
+nav: blog
+lang: es
+mathjax: true
+---
+
+<main class="container panel" style="max-width: 800px;">
+<div style="display:flex; justify-content:space-between;">
+<a class="btn-ghost" href="/es/blog/posts/sum_sqrt_floor.html">← Entrada anterior</a>
+<a class="btn-ghost" href="/es/blog/posts/phi_inverse_derivate.html">Siguiente entrada →</a>
+</div>
+<p><a class="btn-ghost" href="/es/blog/index.html">← Volver al Blog</a></p>
+<header style="margin: 40px 0;">
+<div class="blog-tags">
+<span class="tag math">Cálculo</span>
+<span class="tag puzzle">Reto de geometría</span>
+</div>
+<h1 style="font-size: 2.2rem; margin-bottom: 10px;">Área máxima de una elipse inscrita en un círculo</h1>
+<div class="blog-meta" style="font-size: 1rem;">
+<span><i class="far fa-calendar"></i> 20 dic 2025</span>
+<span>•</span>
+<span>Lorenzo Alvarado</span>
+</div>
+</header>
+<article class="article-content">
+<p><strong>Problema:</strong> Calcular el área máxima de una elipse inscrita en un círculo de radio $r$.</p>
+<div class="post-image-container">
+<img alt="Elipse inscrita en un semicírculo" decoding="async" height="222" loading="lazy" src="/assets/img/blog/max_area_ellipse/grafica1.png" width="411"/>
+<div class="image-caption">Configuración geométrica: maximizar una semielipse inscrita en un semicírculo.</div>
+</div>
+<p>Este problema fue propuesto por Jose M. A primera vista, uno podría pensar que la elipse simplemente debe alinearse con los ejes, pero la condición de estar “inscrita” permite puntos de tangencia que no necesariamente coinciden con sus vértices.</p>
+<h3>Configuración geométrica</h3>
+<p>Observa que maximizar el área de la elipse completa inscrita en el círculo es equivalente a maximizar el área de una semielipse inscrita en un semicírculo —o incluso en un cuarto de círculo, por simetría—.</p>
+<div class="post-image-container">
+<img alt="Elipse inscrita en un semicírculo" decoding="async" height="497" loading="lazy" src="/assets/img/blog/max_area_ellipse/grafica2.png" width="511"/>
+<div class="image-caption">Simetría de la elipse</div>
+</div>
+<p>Colocamos el círculo con centro en el origen y ecuación $x^2+y^2=r^2$. Sea la elipse inscrita con centro en $(b,0)$, semieje mayor $a$ —vertical— y semieje menor $b$ —horizontal—. Su ecuación es: $$\frac{(x-b)^2}{b^2}+\frac{y^2}{a^2}=1$$ Para que la elipse esté estrictamente contenida y sea tangente, suponemos $b&lt;a$ y $b&lt;r/2$.</p>
+<p>Nuestro objetivo es maximizar la función de área $A(a,b)=\pi ab$, sujeta a la restricción de que la elipse permanezca dentro del círculo y lo toque.</p>
+<h3>La condición de tangencia</h3>
+<p>Para que la elipse esté inscrita, el sistema de ecuaciones que describe la intersección de las curvas debe tener una <strong>única solución</strong>, es decir, un punto de tangencia.</p>
+<p>De la ecuación del círculo, $y^2=r^2-x^2$. Sustituyendo esto en la ecuación de la elipse: $$\frac{(x-b)^2}{b^2}+\frac{r^2-x^2}{a^2}=1$$</p>
+<p>Multiplicando por $a^2b^2$ para eliminar denominadores: $$a^2(x-b)^2+b^2(r^2-x^2)=a^2b^2$$ Al expandir: $$a^2(x^2-2bx+b^2)+b^2r^2-b^2x^2=a^2b^2$$ Reagrupando como ecuación cuadrática en $x$: $$(a^2-b^2)x^2-2a^2bx+(a^2b^2+b^2r^2-a^2b^2)=0$$ $$(a^2-b^2)x^2-2a^2bx+b^2r^2=0$$</p>
+<p>Para que las curvas sean tangentes, esta ecuación cuadrática debe tener exactamente una solución, es decir, discriminante igual a cero: $$\Delta=(-2a^2b)^2-4(a^2-b^2)(b^2r^2)=0$$</p>
+<p>Simplificando: $$4a^4b^2-4b^2r^2(a^2-b^2)=0$$ Dividiendo entre $4b^2$ —pues $b\neq0$—: $$a^4-r^2(a^2-b^2)=0\implies a^4-r^2a^2+r^2b^2=0$$</p>
+<p>Resolviendo para $a^2$ con la fórmula cuadrática: $$a^2=\frac{r^2\pm\sqrt{r^4-4r^2b^2}}{2}$$ Como necesitamos $a&gt;b$, tomamos la raíz positiva —y exigimos que $r^2\ge4b^2$—: $$a^2=\frac{r^2}{2}+\frac12\sqrt{r^4-4b^2r^2}$$</p>
+<h3>Optimización</h3>
+<p>Maximizar $A(a,b)$ es equivalente a maximizar su cuadrado $\widetilde{A}(b)=A^2=\pi^2a^2b^2$. Sustituyendo la expresión para $a^2$: $$\widetilde{A}(b)=\pi^2\left(\frac{r^2}{2}+\frac12\sqrt{r^4-4b^2r^2}\right)b^2$$ $$\widetilde{A}(b)=\frac{\pi^2r^2}{2}b^2+\frac{\pi^2}{2}b^2\sqrt{r^4-4b^2r^2}$$</p>
+<p>Para encontrar el máximo, derivamos respecto de $b$ e igualamos a cero. Después de algunas manipulaciones algebraicas —regla de la cadena y simplificación— llegamos a la condición: $$36b^4-8b^2r^2=0$$</p>
+<p>Como $b\neq0$, tenemos $36b^2=8r^2$, de donde el valor óptimo de $b$ es: $$b^2=\frac{8r^2}{36}=\frac{2}{9}r^2\implies b=r\frac{\sqrt2}{3}$$</p>
+<p>Sustituyendo este valor para encontrar $a$: $$a^2=\frac{r^2}{2}+\frac12\sqrt{r^4-4r^2(\frac29r^2)}=\frac{r^2}{2}+\frac12\sqrt{\frac19r^4}=\frac{r^2}{2}+\frac{r^2}{6}=\frac23r^2$$ $$a=r\sqrt{\frac23}$$</p>
+<div class="result-box"><strong>Resultado:</strong> El área máxima es: $$A_{\max}=\pi ab=\pi\left(r\sqrt{\frac23}\right)\left(r\frac{\sqrt2}{3}\right)=\pi r^2\frac{2\sqrt3}{9}$$ Esto corresponde aproximadamente al $38.5\%$ del área del círculo.</div>
+<h3>Generalización: una elipse inscrita en otra elipse</h3>
+<p>Curiosamente, este método se generaliza. Si en lugar de un círculo de radio $r$ inscribimos una elipse dentro de otra elipse con semiejes $c$ —menor— y $d$ —mayor—, el mismo procedimiento conduce al sistema: $$\begin{cases}\frac{x^2}{c^2}+\frac{y^2}{d^2}=1\\ \frac{(x-b)^2}{b^2}+\frac{y^2}{a^2}=1\end{cases}$$</p>
+<p>El álgebra produce un resultado sorprendentemente similar. Las dimensiones óptimas quedan escaladas por los ejes de la elipse exterior: $$b=c\frac{\sqrt2}{3},\qquad a=d\sqrt{\frac23}$$</p>
+<p>Y el área máxima es: $$A=\pi cd\frac{2\sqrt3}{9}$$ Esto significa que la elipse inscrita de área máxima siempre ocupa la misma fracción $\frac{2\sqrt3}{9}$ del área de la elipse exterior, independientemente de su excentricidad.</p>
+</article>
+<hr style="margin: 50px 0; border:0; border-top:1px solid #eee;"/>
+<div style="display:flex; justify-content:space-between;">
+<a class="btn-ghost" href="/es/blog/posts/sum_sqrt_floor.html">← Entrada anterior</a>
+<a class="btn-ghost" href="/es/blog/posts/phi_inverse_derivate.html">Siguiente entrada →</a>
+</div>
+<p style="margin-top: 20px;"><a class="btn-ghost" href="/es/blog/index.html">← Volver al Blog</a></p>
+</main>

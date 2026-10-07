@@ -23,3 +23,15 @@ GitHub Pages processes the site automatically when pushed to the repository.
 - Course tables, cards, galleries, videos, forms, mathematical displays, and long text adapt to narrow screens.
 - The header is `sticky`, so no fixed body offset is required.
 - The navigation remains usable as a progressive-enhancement fallback if JavaScript is unavailable.
+
+## Bilingual URLs
+
+The existing root URLs are the English version. The Spanish version mirrors the same structure under `/es/`:
+
+- `/research.html` ↔ `/es/research.html`
+- `/teaching/calculus_1.html` ↔ `/es/teaching/calculus_1.html`
+- `/blog/` ↔ `/es/blog/`
+
+Navigation labels live in `_data/navigation.yml`. The shared header automatically displays the correct navigation and generates the EN/ES counterpart link based on `page.lang` and `page.url`.
+
+When adding a new public page, create both the English page and its counterpart under `/es/` using the same relative path, and set `lang: en` / `lang: es` in their front matter.
