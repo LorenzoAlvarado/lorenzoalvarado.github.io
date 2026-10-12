@@ -9,27 +9,61 @@ mathjax: true
 
 <main class="container panel">
 <section class="section-spaced">
-<h2>Filosofía docente</h2>
-<div class="grid-two">
-<div>
-<p class="bio">Desde 2021 me he desempeñado como <strong>ayudante de docencia</strong> en la Facultad de Ciencias (UNAM), donde he adquirido amplia experiencia frente a grupo (en promedio 6 horas por semana). Mi labor va más allá de calificar: diseño activamente materiales didácticos en $\LaTeX$ (guías, listas de problemas y exámenes) y brindo acompañamiento personalizado para favorecer el aprendizaje de los estudiantes.</p>
-<p class="bio">Mi enfoque docente prioriza la intuición antes del formalismo. Procuro presentar las ideas abstractas mediante ejemplos concretos y diseñar evaluaciones que fomenten el pensamiento crítico en lugar de limitarse a medir la memoria.</p>
-<p class="bio">Una motivación central de mi carrera es <strong>ampliar el estudio y la investigación de la Teoría de Números en México</strong>. Dado que esta área se encuentra actualmente menos representada en el país que otras ramas de las matemáticas, me entusiasma contribuir a la formación de nuevas generaciones de estudiantes. Mi objetivo es desarrollarme como investigador y profesor de alto nivel para fortalecer esta línea de investigación a escala nacional.</p>
-</div>
-<div class="hero-photo">
-<img alt="Lorenzo en clase" class="profile-photo" decoding="async" height="1600" loading="lazy" src="/assets/img/teaching_photo.jpg" style="height: 350px;" width="1200"/>
-</div>
-</div>
+  <div class="section-heading">
+    <p class="eyebrow">Docencia</p>
+    <h2>Enfoque y experiencia</h2>
+  </div>
+  <div class="grid-two teaching-intro-grid">
+    <div class="reading-width">
+      <div class="prose-block">
+        <h3>Experiencia</h3>
+        <p class="bio">Desde 2021 me he desempeñado como <strong>ayudante de docencia</strong> en la Facultad de Ciencias (UNAM), con responsabilidades regulares frente a grupo y experiencia preparando guías, listas de problemas y exámenes en $LaTeX$.</p>
+      </div>
+      <div class="prose-block">
+        <h3>Enfoque docente</h3>
+        <p class="bio">Priorizo la intuición antes del formalismo: las definiciones abstractas se introducen junto con ejemplos concretos e interpretaciones geométricas, buscando desarrollar comprensión conceptual además de soltura técnica.</p>
+      </div>
+      <div class="prose-block">
+        <h3>Objetivo a largo plazo</h3>
+        <p class="bio">Una motivación central de mi carrera académica es contribuir a fortalecer el estudio y la investigación de la <strong>Teoría de Números en México</strong> mediante docencia, acompañamiento y desarrollo de materiales matemáticos accesibles.</p>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img alt="Lorenzo impartiendo clase" class="profile-photo teaching-photo" decoding="async" height="1600" loading="lazy" src="/assets/img/teaching_photo.jpg" width="1200"/>
+    </div>
+  </div>
 </section>
+
+<section class="section-spaced current-courses-section">
+  <div class="section-heading">
+    <p class="eyebrow">Semestre {{ site.data.courses.current_semester }}</p>
+    <h2>Cursos actuales</h2>
+    <p class="section-intro">Acceso directo a los cursos que estoy impartiendo este semestre.</p>
+  </div>
+  <div class="current-courses-grid">
+    {% for course in site.data.courses.current_courses %}
+    <article class="current-course-card">
+      <span class="feature-icon"><i class="fas fa-chalkboard-teacher"></i></span>
+      <h3>{{ course.es }}</h3>
+      <p>{{ course.description_es }}</p>
+      <a class="feature-link" href="{{ course.url_es | relative_url }}">Ver curso <i class="fas fa-arrow-right"></i></a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
 <section>
-<h3>Cursos impartidos (UNAM)</h3>
-<p class="note">Cursos que he impartido en la Facultad de Ciencias de la UNAM desde 2021.</p>
-{% for category in site.data.courses.categories %}
-<h4 class="teaching-category-title">{{ category.es }}</h4>
-<table class="courses">
-<tr><th>Curso</th><th>Semestres</th></tr>
-{% for course in category.courses %}<tr><td>{{ course.es }}</td><td>{{ course.semesters }}</td></tr>{% endfor %}
-</table>
-{% endfor %}
+  <div class="section-heading">
+    <p class="eyebrow">Desde 2021</p>
+    <h2>Cursos impartidos en la UNAM</h2>
+    <p class="section-intro">Registro completo de los cursos en los que he participado como ayudante de docencia.</p>
+  </div>
+  {% for category in site.data.courses.categories %}
+    <h3 class="teaching-category-title">{{ category.es }}</h3>
+    <table class="courses">
+      <tr><th>Curso</th><th>Semestres</th></tr>
+      {% for course in category.courses %}<tr><td>{{ course.es }}</td><td>{{ course.semesters }}</td></tr>{% endfor %}
+    </table>
+  {% endfor %}
 </section>
 </main>
