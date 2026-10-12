@@ -5,8 +5,10 @@ on:
     branches-ignore:
       - main
       - 'preview-*'
-  pull_request:
-    types: [opened, reopened, synchronize]
+
+concurrency:
+  group: branch-preview-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -31,15 +33,18 @@ jobs:
         run: |
           set -euo pipefail
           sudo chown -R "${USER}:${USER}" _site
+
           SAFE_BRANCH="${GITHUB_REF_NAME//\//-}"
           PREVIEW_BRANCH="preview-${SAFE_BRANCH}"
           PREVIEW_BASE="https://raw.githack.com/${GITHUB_REPOSITORY}/${PREVIEW_BRANCH}"
-          SOURCE_BASE="https://raw.githack.com/${GITHUB_REPOSITORY}/${GITHUB_REF_NAME}"
+          SOURCE_BASE="https://rawcdn.githack.com/${GITHUB_REPOSITORY}/${GITHUB_SHA}"
 
-          # Large assets stay on the source branch; preview pages/CSS/JS live on
-          # the generated preview branch.
+          # Keep preview builds out of search engines and rewrite root-relative
+          # links so the static build can be browsed from raw.githack.
           find _site -type f -name '*.html' -print0 | while IFS= read -r -d '' file; do
-            sed -i               -e "s|href=\"/assets/|href=\"${SOURCE_BASE}/assets/|g"               -e "s|src=\"/assets/|src=\"${SOURCE_BASE}/assets/|g"               -e "s|href=\"/cv/|href=\"${SOURCE_BASE}/cv/|g"               -e "s|href=\"/|href=\"${PREVIEW_BASE}/|g"               -e "s|src=\"/|src=\"${PREVIEW_BASE}/|g"               "${file}"
+            sed -i               -e "s|<head>|<head><meta name=\"robots\" content=\"noindex,nofollow\">|g"               -e "s|href=\"/assets/|href=\"${SOURCE_BASE}/assets/|g"               -e "s|src=\"/assets/|src=\"${SOURCE_BASE}/assets/|g"               -e "s|href=\"/cv/|href=\"${SOURCE_BASE}/cv/|g"               -e "s|href=\"/|href=\"${PREVIEW_BASE}/|g"               -e "s|src=\"/|src=\"${PREVIEW_BASE}/|g"               "${file}"
+
+            sed -i               -e "s|${PREVIEW_BASE}/es/blog/\"|${PREVIEW_BASE}/es/blog/index.html\"|g"               -e "s|${PREVIEW_BASE}/blog/\"|${PREVIEW_BASE}/blog/index.html\"|g"               -e "s|${PREVIEW_BASE}/es/\"|${PREVIEW_BASE}/es/index.html\"|g"               -e "s|${PREVIEW_BASE}/\"|${PREVIEW_BASE}/index.html\"|g"               "${file}"
           done
 
           if [ -f _site/css/styles.css ]; then
@@ -54,16 +59,17 @@ jobs:
           s = p.read_text()
           safe = os.environ["GITHUB_REF_NAME"].replace("/", "-")
           base = f"https://raw.githack.com/{os.environ['GITHUB_REPOSITORY']}/preview-{safe}"
-          s = s.replace("window.location.replace('/es/');", f"window.location.replace('{base}/es/');")
+          s = s.replace("window.location.replace('/es/');", f"window.location.replace('{base}/es/index.html');")
           p.write_text(s)
           PY
           fi
 
-          # Avoid duplicating large media in generated preview branches.
+          # Media are loaded from the immutable source commit instead of being
+          # copied into every generated preview branch.
           rm -rf _site/assets/img _site/assets/pdfs _site/cv
 
           echo "PREVIEW_BRANCH=${PREVIEW_BRANCH}" >> "${GITHUB_ENV}"
-          echo "PREVIEW_URL=${PREVIEW_BASE}/" >> "${GITHUB_ENV}"
+          echo "PREVIEW_URL=${PREVIEW_BASE}/index.html" >> "${GITHUB_ENV}"
 
       - name: Publish generated preview branch
         shell: bash
