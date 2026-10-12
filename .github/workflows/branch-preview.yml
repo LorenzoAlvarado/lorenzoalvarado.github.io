@@ -1,0 +1,137 @@
+name: Build branch preview
+
+on:
+  push:
+    branches-ignore:
+      - main
+      - 'preview-*'
+
+concurrency:
+  group: branch-preview-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source branch
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Build with GitHub Pages Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Prepare browser preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo chown -R "${USER}:${USER}" _site
+
+          SAFE_BRANCH="${GITHUB_REF_NAME//\//-}"
+          PREVIEW_BRANCH="preview-${SAFE_BRANCH}"
+          PREVIEW_BASE="https://raw.githack.com/${GITHUB_REPOSITORY}/${PREVIEW_BRANCH}"
+          SOURCE_BASE="https://rawcdn.githack.com/${GITHUB_REPOSITORY}/${GITHUB_SHA}"
+
+          export PREVIEW_BASE SOURCE_BASE
+
+          python3 - <<'PY'
+          from pathlib import Path
+          import os, posixpath, re
+
+          root = Path("_site")
+          preview = os.environ["PREVIEW_BASE"].rstrip("/")
+          source = os.environ["SOURCE_BASE"].rstrip("/")
+
+          attr_re = re.compile(r'(?P<prefix>(?:href|src)=["\'])(?P<url>[^"\']+)(?P<suffix>["\'])')
+
+          def rewrite_url(url, html_rel):
+              if not url or url.startswith(("#", "http://", "https://", "mailto:", "tel:", "data:", "javascript:")):
+                  return url
+
+              # Root-relative paths.
+              if url.startswith("/"):
+                  clean = url.lstrip("/")
+                  if clean.startswith(("assets/", "cv/")):
+                      return f"{source}/{clean}"
+                  if clean == "":
+                      clean = "index.html"
+                  elif clean.endswith("/"):
+                      clean += "index.html"
+                  return f"{preview}/{clean}"
+
+              # Relative assets/PDFs/CV files. Resolve them against the HTML
+              # file location and serve them from the immutable source commit.
+              base_dir = posixpath.dirname(html_rel)
+              resolved = posixpath.normpath(posixpath.join(base_dir, url))
+              if resolved.startswith(("assets/", "cv/")):
+                  return f"{source}/{resolved}"
+
+              return url
+
+          for html in root.rglob("*.html"):
+              rel = html.relative_to(root).as_posix()
+              text = html.read_text(encoding="utf-8")
+              text = text.replace("<head>", '<head><meta name="robots" content="noindex,nofollow">', 1)
+
+              def repl(match):
+                  url = rewrite_url(match.group("url"), rel)
+                  return match.group("prefix") + url + match.group("suffix")
+
+              html.write_text(attr_re.sub(repl, text), encoding="utf-8")
+
+          css = root / "css" / "styles.css"
+          if css.exists():
+              text = css.read_text(encoding="utf-8")
+              text = re.sub(
+                  r"url\((['\"]?)(?:\.\./)+assets/",
+                  lambda m: f"url({m.group(1)}{source}/assets/",
+                  text,
+              )
+              css.write_text(text, encoding="utf-8")
+
+          js = root / "assets" / "js" / "site.js"
+          if js.exists():
+              text = js.read_text(encoding="utf-8")
+              text = text.replace(
+                  "window.location.replace('/es/');",
+                  f"window.location.replace('{preview}/es/index.html');"
+              )
+              js.write_text(text, encoding="utf-8")
+          PY
+
+          # Media are loaded from the immutable source commit instead of being
+          # copied into every generated preview branch.
+          rm -rf _site/assets/img _site/assets/pdfs _site/cv
+
+          echo "PREVIEW_BRANCH=${PREVIEW_BRANCH}" >> "${GITHUB_ENV}"
+          echo "PREVIEW_URL=${PREVIEW_BASE}/index.html" >> "${GITHUB_ENV}"
+
+      - name: Publish generated preview branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/site-preview
+          mkdir -p /tmp/site-preview
+          cp -a _site/. /tmp/site-preview/
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan "${PREVIEW_BRANCH}"
+          git rm -rf . >/dev/null 2>&1 || true
+          cp -a /tmp/site-preview/. .
+          touch .nojekyll
+          git add -A
+          git commit -m "Preview for ${GITHUB_REF_NAME} at ${GITHUB_SHA}"
+          git push origin "HEAD:${PREVIEW_BRANCH}" --force
+
+      - name: Preview URL
+        run: |
+          echo "### Browser preview" >> "${GITHUB_STEP_SUMMARY}"
+          echo "${PREVIEW_URL}" >> "${GITHUB_STEP_SUMMARY}"

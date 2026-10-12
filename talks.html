@@ -6,29 +6,35 @@ nav: talks
 lang: en
 ---
 
-<main>
-<section class="panel">
-<div class="container">
-<h2>Presentations</h2>
-<p class="bio" style="margin-bottom: 30px;">
-            One of my central objectives, both in teaching and research, is to consolidate <strong>Number Theory</strong> as a vibrant field of study in <strong>Mexico</strong>. I aim to spark the interest of new generations and colleagues to strengthen this discipline, positioning it alongside other long-standing areas of research in the country.
-        </p>
-<p class="bio" style="margin-bottom: 30px;">
-          To achieve this, my talks focus on disseminating key tools from <strong>Number Theory</strong> and <strong>Complex Analysis</strong>, ranging from introductory foundations to research frontier topics.
-        </p>
-<p class="bio" style="margin-bottom: 30px;">
-           Below is a list of the talks I have delivered. You can select each title to view the corresponding details, slides, and links.
-        </p>
-{% assign talks = site.talks | where: "lang", "en" | sort: "talk_date" | reverse %}
-{% for talk in talks %}
-<article class="card talk-card card-{{ talk.slug }} mb-20">
-<h3>{{ talk.talk_title }}</h3>
-<p><strong>Event:</strong> {{ talk.event }}</p>
-<p><strong>Date:</strong> {{ talk.date_display }}</p>
-{% if talk.presented_language == 'es' %}<p class="note talk-language-note">(In Spanish)</p>{% endif %}
-<a class="btn" href="{{ talk.url | relative_url }}">View details</a>
-</article>
-{% endfor %}
-</div>
+<main class="container panel">
+<section class="section-spaced">
+  <div class="section-heading">
+    <p class="eyebrow">Talks</p>
+    <h2>Presentations and seminars</h2>
+    <p class="bio reading-width">My talks range from introductory expositions to topics close to current research, with a recurring emphasis on Number Theory, Complex Analysis, and the ideas that connect them.</p>
+  </div>
 </section>
+
+{% assign talks = site.talks | where: "lang", "en" | sort: "talk_date" | reverse %}
+{% assign current_year = "" %}
+{% for talk in talks %}
+  {% assign talk_year = talk.talk_date | date: "%Y" %}
+  {% if talk_year != current_year %}
+    {% unless forloop.first %}</div></section>{% endunless %}
+    <section class="talk-year-section">
+      <h2 class="year-heading">{{ talk_year }}</h2>
+      <div class="talk-list">
+    {% assign current_year = talk_year %}
+  {% endif %}
+  <a class="talk-list-card card-{{ talk.slug }}" href="{{ talk.url | relative_url }}">
+    <div>
+      <p class="talk-date">{{ talk.date_display }}</p>
+      <h3>{{ talk.talk_title }}</h3>
+      <p class="talk-event">{{ talk.event }}</p>
+      {% if talk.location %}<p class="talk-location"><i class="fas fa-map-marker-alt"></i> {{ talk.location }}</p>{% endif %}
+    </div>
+    <span class="talk-arrow"><i class="fas fa-arrow-right"></i></span>
+  </a>
+  {% if forloop.last %}</div></section>{% endif %}
+{% endfor %}
 </main>

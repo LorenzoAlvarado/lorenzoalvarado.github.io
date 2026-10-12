@@ -1,3 +1,20 @@
+current_semester: "2027-1"
+current_courses:
+  - key: calculus_1
+    en: Calculus I
+    es: Cálculo I
+    description_en: Single-variable differential calculus, with emphasis on rigorous reasoning, intuition, and geometric interpretation.
+    description_es: Cálculo diferencial de una variable, con énfasis en el razonamiento riguroso, la intuición y la interpretación geométrica.
+    url_en: /teaching/calculus_1.html
+    url_es: /es/teaching/calculus_1.html
+  - key: number_theory_1
+    en: Number Theory I
+    es: Teoría de Números I
+    description_en: Divisibility, congruences, arithmetic functions, quadratic reciprocity, and classical Diophantine problems.
+    description_es: Divisibilidad, congruencias, funciones aritméticas, reciprocidad cuadrática y problemas diofánticos clásicos.
+    url_en: /teaching/number_theory_1.html
+    url_es: /es/teaching/number_theory_1.html
+
 categories:
 - key: calculus_analysis
   en: Calculus and Analysis
