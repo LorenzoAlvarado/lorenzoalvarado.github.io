@@ -8,13 +8,13 @@ mathjax: true
 ---
 
 <main class="container panel">
-<div style="text-align:center; max-width:700px; margin: 0 auto 50px auto;">
-<h2>Notes, Thoughts &amp; Puzzles</h2>
-<p class="bio">
-        Welcome to my digital garden. Here I share informal mathematical notes, historical curiosities, 
-        solutions to interesting problems, and personal reflections on academic life.
-      </p>
-</div>
+<section class="section-spaced blog-intro">
+  <div class="section-heading centered-heading">
+    <p class="eyebrow">Digital garden</p>
+    <h2>Notes, thoughts & puzzles</h2>
+    <p class="bio reading-width">Informal mathematical notes, historical curiosities, solutions to interesting problems, and occasional reflections on academic life.</p>
+  </div>
+</section>
 <div class="blog-feed">
 {% assign posts = site.posts | where: "lang", "en" %}
 {% for post in posts %}
@@ -23,7 +23,7 @@ mathjax: true
 <h3 class="blog-title"><a href="{{ post.url | relative_url }}">{{ post.post_title }}</a></h3>
 <div class="blog-meta"><span><i class="far fa-calendar"></i> {{ post.date_display }}</span><span>•</span><span><i class="far fa-clock"></i> {{ post.read_time }} min read</span></div>
 <p class="blog-excerpt">{{ post.excerpt_text }}</p>
-<a class="read-more" href="{{ post.url | relative_url }}">Read Article <i class="fas fa-arrow-right"></i></a>
+<a class="read-more" href="{{ post.url | relative_url }}">Read article <i class="fas fa-arrow-right"></i></a>
 </article>
 {% endfor %}
 </div>
