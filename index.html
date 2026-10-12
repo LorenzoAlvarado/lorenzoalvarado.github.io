@@ -14,7 +14,6 @@ keywords: Matemáticas, UNAM, Teoría de Números, Hardy-Littlewood, Lorenzo Alv
   <div class="container home-hero">
     <div class="home-intro">
       <p class="eyebrow">Graduate student in Mathematics · UNAM</p>
-      <h2 class="home-lead">Analytic Number Theory, Complex Analysis, teaching, and mathematical outreach.</h2>
       <p class="bio reading-width">
         Hi! I'm Lorenzo, a mathematician from the School of Sciences at UNAM and currently a graduate student at the Institute of Mathematics. My research lies mainly in <strong>Analytic Number Theory</strong>, with a particular interest in the interaction between analytic and probabilistic methods.
       </p>
@@ -22,7 +21,6 @@ keywords: Matemáticas, UNAM, Teoría de Números, Hardy-Littlewood, Lorenzo Alv
         I also teach at the School of Sciences and participate actively in mathematical outreach through the <strong>Festival Matemático</strong> and the <strong>Seminario de Becarios</strong>.
       </p>
       <div class="hero-actions">
-        <a class="btn-main" href="{{ '/research.html' | relative_url }}"><i class="fas fa-square-root-variable"></i> Research</a>
         <a class="btn-ghost" href="{{ '/cv/CV_full.pdf' | relative_url }}" rel="noopener noreferrer" target="_blank"><i class="fas fa-file-pdf"></i> Full CV</a>
       </div>
       <div class="socials socials-inline">
@@ -45,16 +43,15 @@ keywords: Matemáticas, UNAM, Teoría de Números, Hardy-Littlewood, Lorenzo Alv
       <h2>Current work</h2>
     </div>
     <div class="featured-grid">
-      <article class="feature-card feature-primary">
+      <article class="feature-card feature-accent-blue">
         <span class="feature-icon"><i class="fas fa-flask"></i></span>
         <p class="feature-kicker">Current research</p>
         <h3>A probabilistic approach to the Bateman–Horn conjecture</h3>
         <p>I am exploring how ideas related to the Zeta distribution can be used to study Bateman–Horn and related questions.</p>
-        <a class="feature-link" href="{{ '/research.html' | relative_url }}">Research details <i class="fas fa-arrow-right"></i></a>
       </article>
 
       {% assign latest_talk = site.talks | where: "lang", "en" | sort: "talk_date" | reverse | first %}
-      <article class="feature-card">
+      <article class="feature-card feature-accent-violet">
         <span class="feature-icon"><i class="fas fa-chalkboard"></i></span>
         <p class="feature-kicker">Latest talk</p>
         {% if latest_talk %}
@@ -69,7 +66,7 @@ keywords: Matemáticas, UNAM, Teoría de Números, Hardy-Littlewood, Lorenzo Alv
       </article>
 
       {% assign latest_post = site.posts | where: "lang", "en" | first %}
-      <article class="feature-card">
+      <article class="feature-card feature-accent-teal">
         <span class="feature-icon"><i class="fas fa-pen-nib"></i></span>
         <p class="feature-kicker">Latest post</p>
         {% if latest_post %}
