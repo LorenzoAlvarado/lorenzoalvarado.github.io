@@ -8,10 +8,13 @@ mathjax: true
 ---
 
 <main class="container panel">
-<div style="text-align:center; max-width:700px; margin: 0 auto 50px auto;">
-<h2>Notas, ideas y acertijos</h2>
-<p class="bio">Bienvenido a mi jardín digital. Aquí comparto notas matemáticas informales, curiosidades históricas, soluciones a problemas interesantes y reflexiones personales sobre la vida académica.</p>
-</div>
+<section class="section-spaced blog-intro">
+  <div class="section-heading centered-heading">
+    <p class="eyebrow">Jardín digital</p>
+    <h2>Notas, ideas y acertijos</h2>
+    <p class="bio reading-width">Notas matemáticas informales, curiosidades históricas, soluciones a problemas interesantes y algunas reflexiones sobre la vida académica.</p>
+  </div>
+</section>
 <div class="blog-feed">
 {% assign posts = site.posts | where: "lang", "es" %}
 {% for post in posts %}
