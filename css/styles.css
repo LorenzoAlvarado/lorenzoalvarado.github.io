@@ -412,46 +412,6 @@ button[type="submit"], .btn{cursor:pointer}
   background-image: url("../assets/img/outreach/synapsia.png");
 }
 
-/* ===== Card para Platicas ===== */
-
-.talk-card {
-  position: relative;
-  background-size: cover; 
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-}
-
-.talk-card::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0.65);
-  backdrop-filter: blur(2px);
-  z-index: 0;
-}
-
-.talk-card > *{
-  position: relative;
-  z-index: 1;
-}
-
-.talk-card.card-basilea_bernoulli{
-  background-image: url("../assets/img/talks/basilea_bernoulli.png");
-}
-
-.talk-card.card-circle_method{
-  background-image: url("../assets/img/talks/circle_method.png");
-}
-
-.talk-card.card-riemann_primosp1{
-  background-image: url("../assets/img/talks/riemann_primosp1.png");
-}
-
-.talk-card.card-riemann_cauchy_variables{
-  background-image: url("../assets/img/talks/riemann_cauchy_variables.png");
-}
-
 /* Espaciado extra para fórmulas matemáticas display */
 mjx-container[display="true"] {
   margin: 1.5em 0 !important;
@@ -1332,8 +1292,16 @@ h3 {
   flex-direction: column;
 }
 
-.feature-card.feature-primary {
+.feature-card.feature-accent-blue {
   border-top: 4px solid var(--accent);
+}
+
+.feature-card.feature-accent-violet {
+  border-top: 4px solid var(--accent-2);
+}
+
+.feature-card.feature-accent-teal {
+  border-top: 4px solid #0f8f83;
 }
 
 .feature-card h3 {
@@ -1500,6 +1468,16 @@ h3 {
   background: linear-gradient(135deg, rgba(59,75,176,.045), #fff 55%);
 }
 
+.publication-card.thesis-card {
+  border-left: 4px solid var(--accent-2);
+}
+
+.publication-card .card-actions .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
 .research-feature-card h3,
 .publication-card h3 {
   margin: 10px 0 12px;
@@ -1563,11 +1541,24 @@ h3 {
   padding: 22px 24px;
   background: var(--surface);
   border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
   border-radius: 14px;
   text-decoration: none;
   color: var(--text);
   box-shadow: 0 4px 14px rgba(30,40,80,.04);
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.talk-list-card:nth-child(3n + 1) {
+  border-top-color: var(--accent);
+}
+
+.talk-list-card:nth-child(3n + 2) {
+  border-top-color: var(--accent-2);
+}
+
+.talk-list-card:nth-child(3n) {
+  border-top-color: #0f8f83;
 }
 
 .talk-list-card:hover {
