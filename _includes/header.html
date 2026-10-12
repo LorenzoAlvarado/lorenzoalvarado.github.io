@@ -31,7 +31,7 @@
 
     <nav class="top-nav" id="primary-navigation" aria-label="{{ nav_label }}">
       {% for item in nav_items %}
-        <a href="{{ item.url | relative_url }}"{% if page.nav == item.key %} class="is-active" aria-current="page"{% endif %}{% if item.new_tab %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.label }}</a>
+        <a class="nav-link{% if page.nav == item.key %} is-active{% endif %}{% if item.secondary %} nav-secondary{% endif %}" href="{{ item.url | relative_url }}"{% if page.nav == item.key %} aria-current="page"{% endif %}{% if item.new_tab %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.label }}</a>
       {% endfor %}
       <a class="language-switch" href="{{ language_url | relative_url }}" hreflang="{% if page.lang == 'es' %}en{% else %}es{% endif %}" lang="{% if page.lang == 'es' %}en{% else %}es{% endif %}" title="{{ language_title }}">{{ language_label }}</a>
     </nav>
