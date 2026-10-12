@@ -1,0 +1,86 @@
+name: Build branch preview
+
+on:
+  push:
+    branches-ignore:
+      - main
+      - 'preview-*'
+
+permissions:
+  contents: write
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build with GitHub Pages Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Prepare browser preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          SAFE_BRANCH="${GITHUB_REF_NAME//\//-}"
+          PREVIEW_BRANCH="preview-${SAFE_BRANCH}"
+          PREVIEW_BASE="https://raw.githack.com/${GITHUB_REPOSITORY}/${PREVIEW_BRANCH}"
+          SOURCE_BASE="https://raw.githack.com/${GITHUB_REPOSITORY}/${GITHUB_REF_NAME}"
+
+          # Large assets stay on the source branch; preview pages/CSS/JS live on
+          # the generated preview branch.
+          find _site -type f -name '*.html' -print0 | while IFS= read -r -d '' file; do
+            sed -i               -e "s|href=\"/assets/|href=\"${SOURCE_BASE}/assets/|g"               -e "s|src=\"/assets/|src=\"${SOURCE_BASE}/assets/|g"               -e "s|href=\"/cv/|href=\"${SOURCE_BASE}/cv/|g"               -e "s|href=\"/|href=\"${PREVIEW_BASE}/|g"               -e "s|src=\"/|src=\"${PREVIEW_BASE}/|g"               "${file}"
+          done
+
+          if [ -f _site/css/styles.css ]; then
+            sed -i               -e "s|url(\"../assets/|url(\"${SOURCE_BASE}/assets/|g"               -e "s|url('../assets/|url('${SOURCE_BASE}/assets/|g"               -e "s|url(../assets/|url(${SOURCE_BASE}/assets/|g"               _site/css/styles.css
+          fi
+
+          if [ -f _site/assets/js/site.js ]; then
+            python3 - <<'PY'
+          from pathlib import Path
+          import os
+          p = Path("_site/assets/js/site.js")
+          s = p.read_text()
+          safe = os.environ["GITHUB_REF_NAME"].replace("/", "-")
+          base = f"https://raw.githack.com/{os.environ['GITHUB_REPOSITORY']}/preview-{safe}"
+          s = s.replace("window.location.replace('/es/');", f"window.location.replace('{base}/es/');")
+          p.write_text(s)
+          PY
+          fi
+
+          # Avoid duplicating large media in generated preview branches.
+          rm -rf _site/assets/img _site/assets/pdfs _site/cv
+
+          echo "PREVIEW_BRANCH=${PREVIEW_BRANCH}" >> "${GITHUB_ENV}"
+          echo "PREVIEW_URL=${PREVIEW_BASE}/" >> "${GITHUB_ENV}"
+
+      - name: Publish generated preview branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/site-preview
+          mkdir -p /tmp/site-preview
+          cp -a _site/. /tmp/site-preview/
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan "${PREVIEW_BRANCH}"
+          git rm -rf . >/dev/null 2>&1 || true
+          cp -a /tmp/site-preview/. .
+          touch .nojekyll
+          git add -A
+          git commit -m "Preview for ${GITHUB_REF_NAME} at ${GITHUB_SHA}"
+          git push origin "HEAD:${PREVIEW_BRANCH}" --force
+
+      - name: Preview URL
+        run: |
+          echo "### Browser preview" >> "${GITHUB_STEP_SUMMARY}"
+          echo "${PREVIEW_URL}" >> "${GITHUB_STEP_SUMMARY}"
