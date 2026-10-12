@@ -5,6 +5,8 @@ on:
     branches-ignore:
       - main
       - 'preview-*'
+  pull_request:
+    types: [opened, reopened, synchronize]
 
 concurrency:
   group: branch-preview-${{ github.ref }}
