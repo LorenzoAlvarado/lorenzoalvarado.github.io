@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta name="robots" content="noindex,nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <meta name="author" content="Lorenzo Antonio Alvarado Cabrera">
+  <meta name="theme-color" content="#ffffff">
+  
+  <link rel="canonical" href="https://lorenzoalvarado.github.io/es/blog/posts/sum_sqrt_floor.html">
+  <link rel="alternate" hreflang="en" href="https://lorenzoalvarado.github.io/blog/posts/sum_sqrt_floor.html">
+  <link rel="alternate" hreflang="es" href="https://lorenzoalvarado.github.io/es/blog/posts/sum_sqrt_floor.html">
+  <link rel="alternate" hreflang="x-default" href="https://lorenzoalvarado.github.io/es/blog/posts/sum_sqrt_floor.html">
+  <title>Sumando raíces cuadradas enteras: una fórmula cerrada – Lorenzo Alvarado</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="https://raw.githack.com/LorenzoAlvarado/lorenzoalvarado.github.io/preview-design-refresh-v5/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <script>
+    window.MathJax = { tex: { inlineMath: [["$","$"],["\\(","\\)"]] } };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+</head>
+<body>
+  
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="site-heading">
+      <h1 class="site-title">Blog</h1>
+      
+    </div>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Abrir menú de navegación">
+      <span class="nav-toggle-bars" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+      <span class="sr-only">Menú</span>
+    </button>
+
+    <nav class="top-nav" id="primary-navigation" aria-label="Navegación principal">
+      
+        <a class="nav-link" href="https://raw.githack.com/LorenzoAlvarado/lorenzoalvarado.github.io/preview-design-refresh-v5/es/index.html">Inicio</a>
+      
+        <a class="nav-link" href="https://raw.githack.com/LorenzoAlvarado/lorenzoalvarado.github.io/preview-design-refresh-v5/es/research.html">Investigación</a>
+      
+        <a class="nav-link" href="https://raw.githack.com/LorenzoAlvarado/lorenzoalvarado.github.io/preview-design-refresh-v5/es/teaching.html">Docencia</a>
+      
+        <a class="nav-link" href="https://raw.githack.com/LorenzoAlvarado/lorenzoalvarado.github.io/preview-design-refresh-v5/es/talks.html">Charlas</a>
+      
+        <a class="nav-link" href="https://raw.githack.com/LorenzoAlvarado/lorenzoalvarado.github.io/preview-design-refresh-v5/es/outreach.html">Divulgación</a>
+      
+        <a class="nav-link nav-secondary" href="https://raw.githack.com/LorenzoAlvarado/lorenzoalvarado.github.io/preview-design-refresh-v5/es/resources.html">Recursos</a>
+      
+        <a class="nav-link is-active nav-secondary" href="https://raw.githack.com/LorenzoAlvarado/lorenzoalvarado.github.io/preview-design-refresh-v5/es/blog/index.html" aria-current="page">Blog</a>
+      
+        <a class="nav-link nav-secondary" href="https://rawcdn.githack.com/LorenzoAlvarado/lorenzoalvarado.github.io/2534e5f939d852b92f4c2288c8fc038c4b08f7db/cv/CV_full.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+      
+      <a class="language-switch" href="https://raw.githack.com/LorenzoAlvarado/lorenzoalvarado.github.io/preview-design-refresh-v5/blog/posts/sum_sqrt_floor.html" hreflang="en" lang="en" title="View in English">EN</a>
+    </nav>
+  </div>
+</header>
+
+  
+
+
+
+<main class="container panel blog-post-container">
+  <div class="blog-post-nav">
+    <span class="btn-ghost is-disabled">← Entrada anterior</span>
+    <a class="btn-ghost" href="https://raw.githack.com/LorenzoAlvarado/lorenzoalvarado.github.io/preview-design-refresh-v5/es/blog/posts/max_area_ellipse.html">Entrada siguiente →</a>
+  </div>
+  <p><a class="btn-ghost" href="https://raw.githack.com/LorenzoAlvarado/lorenzoalvarado.github.io/preview-design-refresh-v5/es/blog/index.html">← Volver al Blog</a></p>
+  <header class="blog-post-header">
+    <div class="blog-tags"><span class="tag math">Teoría de Números</span><span class="tag puzzle">Resolución de problemas</span></div>
+    <h1>Sumando raíces cuadradas enteras: una fórmula cerrada</h1>
+    <div class="blog-meta blog-post-meta"><span><i class="far fa-calendar"></i> 10 dic 2025</span><span>•</span><span>Lorenzo Alvarado</span></div>
+  </header>
+  <article class="article-content"><p><strong>Problema:</strong> Calcular la suma $$ S = \sum_{k=1}^{9999} \lfloor \sqrt{k} \rfloor $$</p>
+<p>Aunque para una computadora calcular esta suma término a término es trivial, encontrar una fórmula cerrada general ofrece un ejercicio interesante de manipulación de sumas y propiedades de los enteros. Obtengamos la solución para un $n$ cualquiera y después apliquémosla al caso particular.</p>
+<h3>El enfoque general</h3>
+<p>Sean $n,m\in\mathbb{N}$ tales que $m$ es la parte entera de la raíz cuadrada de $n$, es decir, $m^2\le n&lt;(m+1)^2$.</p>
+<p>La idea clave es agrupar los términos de acuerdo con los valores de $\lfloor\sqrt{k}\rfloor$. Podemos dividir la suma total en tres partes distintas:</p><ol>
+<li>Los intervalos estrictamente comprendidos entre cuadrados consecutivos.</li>
+<li>La “cola” desde $m^2+1$ hasta $n$.</li>
+<li>Los cuadrados perfectos, donde la función piso es exacta.</li>
+</ol>
+<p>Podemos reescribir la suma como:</p>
+<p style="overflow-x: auto;">
+        $$ \sum_{k=1}^{n}\lfloor\sqrt{k}\rfloor = \underbrace{\sum_{j=2}^{m}\sum_{k=(j-1)^{2}+1}^{j^{2}-1}\lfloor\sqrt{k}\rfloor}_{\text{Intervalos}} + \underbrace{\sum_{k=m^{2}+1}^{n}\lfloor\sqrt{k}\rfloor}_{\text{Cola}} + \underbrace{\sum_{j=1}^{m}\lfloor\sqrt{j^{2}}\rfloor}_{\text{Cuadrados perfectos}} $$
+      </p>
+<h3>Análisis de los términos</h3>
+<p><strong>1. Los intervalos:</strong><br/>Para todo $k$ en el rango $(j-1)^2+1\le k\le j^2-1$ se tienen las desigualdades estrictas $(j-1)^2&lt;k&lt;j^2$. Al tomar raíces cuadradas, $j-1&lt;\sqrt{k}&lt;j$. Por lo tanto, la función piso es constante: $$\lfloor\sqrt{k}\rfloor=j-1$$</p>
+<p><strong>2. La cola:</strong><br/>Como $m$ es el mayor entero tal que $m^2\le n$, para el rango $m^2+1\le k\le n$ se tiene $\lfloor\sqrt{k}\rfloor=m$.</p>
+<p><strong>3. Los cuadrados perfectos:</strong><br/>Simplemente, $\lfloor\sqrt{j^2}\rfloor=j$.</p>
+<p>Sustituyendo estos valores en nuestra expresión:</p>
+<p style="overflow-x: auto;">
+        $$ \sum_{k=1}^{n}\lfloor\sqrt{k}\rfloor = \sum_{j=2}^{m}\left( (j-1) \sum_{k=(j-1)^{2}+1}^{j^{2}-1} 1 \right) + m\sum_{k=m^{2}+1}^{n} 1 + \sum_{j=1}^{m} j $$
+      </p>
+<h3>Simplificación</h3>
+<p>Contemos ahora el número de términos de las sumas interiores. El número de términos en el intervalo $((j-1)^2,j^2)$ es: $$ (j^2-1)-[(j-1)^2+1]+1=j^2-1-(j^2-2j+1)=2j-2 $$ El número de términos de la cola es simplemente $n-m^2$. Además, la suma de los enteros viene dada por la fórmula triangular estándar $\frac{m(m+1)}{2}$.</p>
+<p>Así, la expresión se convierte en:</p>
+<p>
+        $$
+        \begin{aligned}
+        S &amp;= \sum_{j=2}^{m} (j-1)(2j-2) + m(n - m^2) + \frac{m(m+1)}{2} \\
+          &amp;= 2\sum_{j=2}^{m} (j-1)^2 + m(n - m^2) + \frac{m^2 + m}{2}
+        \end{aligned}
+        $$
+      </p>
+<p>Usando la fórmula para la suma de los primeros $k$ cuadrados, $\sum_{i=1}^k i^2=\frac{k(k+1)(2k+1)}{6}$, y haciendo el cambio de índice $j-1\to i$ —donde $i$ va de 1 a $m-1$—:</p>
+<p>
+        $$ 2\sum_{i=1}^{m-1} i^2 = 2 \left[ \frac{(m-1)m(2(m-1)+1)}{6} \right] = \frac{m(m-1)(2m-1)}{3} $$
+      </p>
+<p>Combinando todo, llegamos a la fórmula cerrada:</p>
+<div class="result-box"><strong>Teorema:</strong> La suma está dada por: $$\sum_{k=1}^{n}\lfloor\sqrt{k}\rfloor=m(n-m^2)+\frac{1}{6}m(4m^2-3m+5)$$ donde $m=\lfloor\sqrt{n}\rfloor$.</div>
+<h3>Solución del problema</h3>
+<p>En nuestro caso particular, $n=9999$. Como $99^2=9801$ y $100^2=10000$, tenemos $m=99$.</p>
+<p>Sustituyendo en la fórmula:</p>
+<p>
+        $$
+        \begin{aligned}
+        S &amp;= 99(9999 - 99^2) + \frac{1}{6}(99)(4(99^2) - 3(99) + 5) \\
+          &amp;= 99(198) + \frac{33}{2}(39204 - 297 + 5) \\
+          &amp;= 19,602 + \frac{33}{2}(38,912) \\
+          &amp;= 19,602 + 642,048 \\
+          &amp;= \mathbf{661,650}
+        \end{aligned}
+        $$
+      </p>
+</article>
+  <hr class="blog-post-separator">
+  <div class="blog-post-nav">
+    <span class="btn-ghost is-disabled">← Entrada anterior</span>
+    <a class="btn-ghost" href="https://raw.githack.com/LorenzoAlvarado/lorenzoalvarado.github.io/preview-design-refresh-v5/es/blog/posts/max_area_ellipse.html">Entrada siguiente →</a>
+  </div>
+  <p class="blog-back-bottom"><a class="btn-ghost" href="https://raw.githack.com/LorenzoAlvarado/lorenzoalvarado.github.io/preview-design-refresh-v5/es/blog/index.html">← Volver al Blog</a></p>
+</main>
+
+  <footer class="site-footer">
+  <p>© 2026 Lorenzo Alvarado</p>
+</footer>
+
+  <script defer src="https://rawcdn.githack.com/LorenzoAlvarado/lorenzoalvarado.github.io/2534e5f939d852b92f4c2288c8fc038c4b08f7db/assets/js/site.js"></script>
+</body>
+</html>
