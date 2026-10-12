@@ -14,7 +14,6 @@ keywords: Matemáticas, UNAM, Teoría de Números, Hardy-Littlewood, Lorenzo Alv
   <div class="container home-hero">
     <div class="home-intro">
       <p class="eyebrow">Estudiante de posgrado en Matemáticas · UNAM</p>
-      <h2 class="home-lead">Teoría Analítica de Números, Variable Compleja, docencia y divulgación matemática.</h2>
       <p class="bio reading-width">
         ¡Hola! Soy Lorenzo, matemático egresado de la Facultad de Ciencias de la UNAM y actualmente estudiante de posgrado en el Instituto de Matemáticas. Mi investigación se desarrolla principalmente en <strong>Teoría Analítica de Números</strong>, con especial interés en la interacción entre métodos analíticos y probabilísticos.
       </p>
@@ -22,7 +21,6 @@ keywords: Matemáticas, UNAM, Teoría de Números, Hardy-Littlewood, Lorenzo Alv
         También imparto clases en la Facultad de Ciencias y participo activamente en divulgación matemática mediante el <strong>Festival Matemático</strong> y el <strong>Seminario de Becarios</strong>.
       </p>
       <div class="hero-actions">
-        <a class="btn-main" href="{{ '/es/research.html' | relative_url }}"><i class="fas fa-square-root-variable"></i> Investigación</a>
         <a class="btn-ghost" href="{{ '/cv/CV_full.pdf' | relative_url }}" rel="noopener noreferrer" target="_blank"><i class="fas fa-file-pdf"></i> CV completo</a>
       </div>
       <div class="socials socials-inline">
@@ -45,16 +43,15 @@ keywords: Matemáticas, UNAM, Teoría de Números, Hardy-Littlewood, Lorenzo Alv
       <h2>Trabajo actual</h2>
     </div>
     <div class="featured-grid">
-      <article class="feature-card feature-primary">
+      <article class="feature-card feature-accent-blue">
         <span class="feature-icon"><i class="fas fa-flask"></i></span>
         <p class="feature-kicker">Investigación actual</p>
         <h3>Un enfoque probabilístico a la conjetura de Bateman–Horn</h3>
         <p>Exploro cómo ideas relacionadas con la distribución Zeta pueden aplicarse al estudio de Bateman–Horn y problemas afines.</p>
-        <a class="feature-link" href="{{ '/es/research.html' | relative_url }}">Ver investigación <i class="fas fa-arrow-right"></i></a>
       </article>
 
       {% assign latest_talk = site.talks | where: "lang", "es" | sort: "talk_date" | reverse | first %}
-      <article class="feature-card">
+      <article class="feature-card feature-accent-violet">
         <span class="feature-icon"><i class="fas fa-chalkboard"></i></span>
         <p class="feature-kicker">Última charla</p>
         {% if latest_talk %}
@@ -69,7 +66,7 @@ keywords: Matemáticas, UNAM, Teoría de Números, Hardy-Littlewood, Lorenzo Alv
       </article>
 
       {% assign latest_post = site.posts | where: "lang", "es" | first %}
-      <article class="feature-card">
+      <article class="feature-card feature-accent-teal">
         <span class="feature-icon"><i class="fas fa-pen-nib"></i></span>
         <p class="feature-kicker">Última entrada</p>
         {% if latest_post %}
