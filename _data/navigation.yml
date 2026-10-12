@@ -17,13 +17,16 @@ en:
   - key: resources
     label: Resources
     url: /resources.html
+    secondary: true
   - key: blog
     label: Blog
     url: /blog/
+    secondary: true
   - key: cv
     label: CV
     url: /cv/CV_full.pdf
     new_tab: true
+    secondary: true
 
 es:
   - key: home
@@ -44,10 +47,13 @@ es:
   - key: resources
     label: Recursos
     url: /es/resources.html
+    secondary: true
   - key: blog
     label: Blog
     url: /es/blog/
+    secondary: true
   - key: cv
     label: CV
     url: /cv/CV_full.pdf
     new_tab: true
+    secondary: true
