@@ -1564,7 +1564,9 @@ h3 {
 .talk-list-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow);
-  border-color: rgba(59,75,176,.22);
+  border-left-color: rgba(59,75,176,.22);
+  border-right-color: rgba(59,75,176,.22);
+  border-bottom-color: rgba(59,75,176,.22);
 }
 
 .talk-list-card h3 {
