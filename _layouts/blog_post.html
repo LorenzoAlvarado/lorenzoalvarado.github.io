@@ -1,0 +1,38 @@
+---
+layout: default
+---
+{% assign language_posts = site.posts | where: "lang", page.lang | sort: "date" %}
+{% assign prev_post = nil %}{% assign next_post = nil %}
+{% for post in language_posts %}
+  {% if post.url == page.url %}
+    {% assign idx = forloop.index0 %}
+    {% assign prev_idx = idx | minus: 1 %}
+    {% assign next_idx = idx | plus: 1 %}
+    {% if idx > 0 %}{% assign prev_post = language_posts[prev_idx] %}{% endif %}
+    {% if next_idx < language_posts.size %}{% assign next_post = language_posts[next_idx] %}{% endif %}
+  {% endif %}
+{% endfor %}
+{% if page.lang == 'es' %}
+  {% assign back_label = '← Volver al Blog' %}{% assign prev_label = '← Entrada anterior' %}{% assign next_label = 'Entrada siguiente →' %}{% assign blog_url = '/es/blog/' %}
+{% else %}
+  {% assign back_label = '← Back to Blog' %}{% assign prev_label = '← Previous Post' %}{% assign next_label = 'Next Post →' %}{% assign blog_url = '/blog/' %}
+{% endif %}
+<main class="container panel blog-post-container">
+  <div class="blog-post-nav">
+    {% if prev_post %}<a class="btn-ghost" href="{{ prev_post.url | relative_url }}">{{ prev_label }}</a>{% else %}<span class="btn-ghost is-disabled">{{ prev_label }}</span>{% endif %}
+    {% if next_post %}<a class="btn-ghost" href="{{ next_post.url | relative_url }}">{{ next_label }}</a>{% else %}<span class="btn-ghost is-disabled">{{ next_label }}</span>{% endif %}
+  </div>
+  <p><a class="btn-ghost" href="{{ blog_url | relative_url }}">{{ back_label }}</a></p>
+  <header class="blog-post-header">
+    <div class="blog-tags">{% for tag in page.tags %}<span class="tag {{ tag.class }}">{{ tag.label }}</span>{% endfor %}</div>
+    <h1>{{ page.post_title }}</h1>
+    <div class="blog-meta blog-post-meta"><span><i class="far fa-calendar"></i> {{ page.date_display }}</span><span>•</span><span>{{ page.author }}</span></div>
+  </header>
+  <article class="article-content">{{ content }}</article>
+  <hr class="blog-post-separator">
+  <div class="blog-post-nav">
+    {% if prev_post %}<a class="btn-ghost" href="{{ prev_post.url | relative_url }}">{{ prev_label }}</a>{% else %}<span class="btn-ghost is-disabled">{{ prev_label }}</span>{% endif %}
+    {% if next_post %}<a class="btn-ghost" href="{{ next_post.url | relative_url }}">{{ next_label }}</a>{% else %}<span class="btn-ghost is-disabled">{{ next_label }}</span>{% endif %}
+  </div>
+  <p class="blog-back-bottom"><a class="btn-ghost" href="{{ blog_url | relative_url }}">{{ back_label }}</a></p>
+</main>

@@ -30,57 +30,12 @@ mathjax: true
 <section>
 <h3>Courses Taught (UNAM)</h3>
 <p class="note">The courses I have taught at the School of Sciences, UNAM since 2021.</p>
-<h4 style="margin-top:20px; color:var(--accent);">Calculus and Analysis</h4>
+{% for category in site.data.courses.categories %}
+<h4 class="teaching-category-title">{{ category.en }}</h4>
 <table class="courses">
-<tr><th>course</th><th>Semesters</th></tr>
-<tr>
-<td>Calculus I (Single-variable differential calculus)</td>
-<td>2021-1, 2024-1, 2025-1, 2026-1, 2027-1</td>
-</tr>
-<tr>
-<td>Calculus II (Single-variable integral calculus)</td>
-<td>2021-2, 2022-1, 2024-2, 2026-2</td>
-</tr>
-<tr>
-<td>Calculus III (Multivariable differential calculus)</td>
-<td>2022-2, 2025-1</td>
-</tr>
-<tr>
-<td>Calculus IV (Multivariable integral calculus)</td>
-<td>2022-2, 2023-1, 2025-1, 2025-2</td>
-</tr>
+<tr><th>Course</th><th>Semesters</th></tr>
+{% for course in category.courses %}<tr><td>{{ course.en }}</td><td>{{ course.semesters }}</td></tr>{% endfor %}
 </table>
-<h4 style="margin-top:20px; color:var(--accent);">Algebra and Number Theory</h4>
-<table class="courses">
-<tr><th>course</th><th>Semesters</th></tr>
-<tr>
-<td>Advanced Algebra I</td>
-<td>2023-1, 2024-1</td>
-</tr>
-<tr>
-<td>Advanced Algebra II</td>
-<td>2024-2</td>
-</tr>
-<tr>
-<td>Number Theory I</td>
-<td>2023-2, 2026-1, 2027-1</td>
-</tr>
-<tr>
-<td>Probabilistic Number Theory</td>
-<td>2026-2</td>
-</tr>
-</table>
-<h4 style="margin-top:20px; color:var(--accent);">Complex Analysis</h4>
-<table class="courses">
-<tr><th>course</th><th>Semesters</th></tr>
-<tr>
-<td>Complex Analysis I</td>
-<td>2024-4, 2025-1</td>
-</tr>
-<tr>
-<td>Complex Analysis II</td>
-<td>2023-2</td>
-</tr>
-</table>
+{% endfor %}
 </section>
 </main>

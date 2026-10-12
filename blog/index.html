@@ -16,56 +16,15 @@ mathjax: true
       </p>
 </div>
 <div class="blog-feed">
+{% assign posts = site.posts | where: "lang", "en" %}
+{% for post in posts %}
 <article class="blog-card">
-<div class="blog-tags">
-<span class="tag indigo">Analysis</span>
-<span class="tag math">Golden Ratio</span>
-</div>
-<h3 class="blog-title"><a href="posts/phi_inverse_derivate.html">When the Derivative Equals the Inverse: A Golden 	Connection</a></h3>
-<div class="blog-meta">
-<span><i class="far fa-calendar"></i> Dec 27, 2025</span>
-<span>•</span>
-<span><i class="far fa-clock"></i> 8 min read</span>
-</div>
-<p class="blog-excerpt">
-          We usually think of differentiation and inversion as completely different operations. 
-          But what happens if we force them to be the same? The solution to $f'(x) = f^{-1}(x)$ leads us unexpectedly to 	the Golden Ratio and generalized "Metallic Means".
-        </p>
-<a class="read-more" href="posts/phi_inverse_derivate.html">Read Article <i class="fas fa-arrow-right"></i></a>
+<div class="blog-tags">{% for tag in post.tags %}<span class="tag {{ tag.class }}">{{ tag.label }}</span>{% endfor %}</div>
+<h3 class="blog-title"><a href="{{ post.url | relative_url }}">{{ post.post_title }}</a></h3>
+<div class="blog-meta"><span><i class="far fa-calendar"></i> {{ post.date_display }}</span><span>•</span><span><i class="far fa-clock"></i> {{ post.read_time }} min read</span></div>
+<p class="blog-excerpt">{{ post.excerpt_text }}</p>
+<a class="read-more" href="{{ post.url | relative_url }}">Read Article <i class="fas fa-arrow-right"></i></a>
 </article>
-<article class="blog-card">
-<div class="blog-tags">
-<span class="tag math">Calculus</span>
-<span class="tag puzzle">Geometry Challenge</span>
-</div>
-<h3 class="blog-title"><a href="posts/max_area_ellipse.html">Maximum Area of an Ellipse Inscribed in a Circle</a> </h3>
-<div class="blog-meta">
-<span><i class="far fa-calendar"></i> Dec 20, 2025</span>
-<span>•</span>
-<span><i class="far fa-clock"></i> 6 min read</span>
-</div>
-<p class="blog-excerpt">
-          A classic optimization problem proposed by Jose M.: What is the largest ellipse that fits inside a circle of 	radius $r$? 
-          By analyzing the tangency conditions of the curves, we derive the maximum area $A = \frac{2\sqrt{3}}{9}\pi r^2$.
-        </p>
-<a class="read-more" href="posts/max_area_ellipse.html">Read Article <i class="fas fa-arrow-right"></i></a>
-</article>
-<article class="blog-card">
-<div class="blog-tags">
-<span class="tag math">Number Theory</span>
-<span class="tag puzzle">Problem Solving</span>
-</div>
-<h3 class="blog-title"><a href="posts/sum_sqrt_floor.html">Summing Integer Square Roots: A Closed Formula</a></h3>
-<div class="blog-meta">
-<span><i class="far fa-calendar"></i> Dec 10, 2025</span>
-<span>•</span>
-<span><i class="far fa-clock"></i> 5 min read</span>
-</div>
-<p class="blog-excerpt">
-          Computing the sum $\sum_{k=1}^{n} \lfloor \sqrt{k} \rfloor$ term by term is inefficient for large $n$. 
-          In this post, we derive an elegant closed-form formula by regrouping the terms based on the intervals between 	consecutive perfect squares.
-        </p>
-<a class="read-more" href="posts/sum_sqrt_floor.html">Read Article <i class="fas fa-arrow-right"></i></a>
-</article>
+{% endfor %}
 </div>
 </main>

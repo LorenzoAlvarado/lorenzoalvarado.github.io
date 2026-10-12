@@ -89,3 +89,15 @@ The refactor preserves the site's content and overall visual identity while maki
 - All public English pages have a Spanish counterpart: 31 English + 31 Spanish pages.
 - Internal HTML-page link validation reports 0 missing page targets.
 - The only missing local assets are the same intentional future course-note/homework placeholders already discussed; the Spanish mirror points to those same shared future files rather than duplicating them.
+
+
+## Phase 4 — Maintainability (Talks, Blog, Teaching)
+
+- Talks are now a Jekyll collection in `_talks/`; the talks index is generated automatically.
+- Talk detail pages use `_layouts/talk.html`; adding a talk no longer requires editing `talks.html` manually.
+- Blog posts now live in `_posts/` and both blog indexes are generated automatically.
+- Blog detail pages use `_layouts/blog_post.html`, including automatic previous/next navigation within each language.
+- Teaching course tables are generated from `_data/courses.yml`; semesters and course names are edited in one place.
+- The Spanish-by-default browser preference behavior is included in `assets/js/site.js`.
+
+See `MAINTENANCE_GUIDE.md` for concrete examples of adding a talk, a blog post, or updating Teaching.

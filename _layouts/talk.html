@@ -1,0 +1,50 @@
+---
+layout: default
+---
+{% if page.lang == 'es' %}
+  {% assign back_label = '← Volver a Charlas' %}
+  {% assign talks_url = '/es/talks.html' %}
+  {% assign slides_label = 'Descargar diapositivas' %}
+  {% assign slides_note = 'Presentación PDF' %}
+  {% assign video_missing = 'Video no disponible' %}
+  {% assign video_missing_note = 'No se realizó una grabación de esta presentación.' %}
+{% else %}
+  {% assign back_label = '← Back to Talks' %}
+  {% assign talks_url = '/talks.html' %}
+  {% assign slides_label = 'Download Slides' %}
+  {% assign slides_note = 'PDF Presentation' %}
+  {% assign video_missing = 'Video Not Available' %}
+  {% assign video_missing_note = 'A recording of this presentation was not captured.' %}
+{% endif %}
+<section class="container panel">
+  <p><a class="btn-ghost" href="{{ talks_url | relative_url }}">{{ back_label }}</a></p>
+  <h1 class="talk-detail-title">{{ page.talk_title }}</h1>
+  <div class="talk-header-meta">
+    <div class="talk-meta-item"><i class="far fa-calendar-alt"></i><span>{{ page.date_display }}</span></div>
+    <div class="talk-meta-item"><i class="fas fa-map-marker-alt"></i><span>{{ page.location }}</span></div>
+    <div class="talk-meta-item"><i class="fas fa-university"></i><span>{{ page.event }}</span></div>
+  </div>
+  <div class="talk-description">{{ content }}</div>
+
+  {% if page.video %}
+  <div class="video-featured-container">
+    <div class="video-responsive"><iframe allowfullscreen loading="lazy" src="{{ page.video }}" title="Embedded video"></iframe></div>
+  </div>
+  {% else %}
+  <div class="video-featured-container video-placeholder">
+    <div><i class="fas fa-video-slash"></i><h3>{{ video_missing }}</h3><p>{{ video_missing_note }}</p></div>
+  </div>
+  {% endif %}
+
+  {% if page.slides %}
+  <div class="talk-slides-wrap">
+    <a class="card talk-slides-link" href="{{ page.slides | relative_url }}" target="_blank" rel="noopener noreferrer">
+      <i class="fas fa-file-pdf"></i>
+      <div><h4>{{ slides_label }}</h4><span>{{ slides_note }}</span></div>
+    </a>
+  </div>
+  {% endif %}
+
+  {% if page.gallery_html %}<div class="talk-gallery-wrap"><div class="gallery">{{ page.gallery_html }}</div></div>{% endif %}
+  <p class="talk-back-bottom"><a class="btn-ghost" href="{{ talks_url | relative_url }}">{{ back_label }}</a></p>
+</section>

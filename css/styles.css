@@ -1153,3 +1153,34 @@ mjx-container {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* ===== Maintainability refactor: generated Talks/Blog/Teaching ===== */
+.talk-detail-title { margin-bottom: 15px; margin-top: 10px; font-size: 2rem; color: #111827; }
+.talk-description { font-size: 1.05rem; line-height: 1.7; color: #374151; }
+.talk-description > p { margin-bottom: 1.2em; }
+.talk-language-note { font-size: .85rem; margin-top: -10px; }
+.video-placeholder { background:#f9fafb; border:1px dashed #d1d5db; display:flex; align-items:center; justify-content:center; min-height:300px; border-radius:8px; margin-bottom:40px; margin-top:30px; text-align:center; color:var(--muted); }
+.video-placeholder i { font-size:3rem; margin-bottom:15px; color:#9ca3af; }
+.video-placeholder h3 { margin:0; font-size:1.2rem; color:#4b5563; }
+.video-placeholder p { margin-top:5px; font-size:.95rem; }
+.talk-slides-wrap { text-align:center; margin-bottom:50px; }
+.talk-slides-link { display:inline-flex; align-items:center; gap:20px; padding:15px 30px; text-decoration:none; transition:transform .2s ease; }
+.talk-slides-link > i { font-size:2rem; color:#e11d48; }
+.talk-slides-link h4 { margin:0; font-size:1.1rem; color:#111827; font-weight:600; }
+.talk-slides-link span { font-size:.85rem; color:var(--muted); }
+.talk-gallery-wrap { margin-top:50px; }
+.talk-back-bottom { margin-top:40px; margin-bottom:20px; border-top:1px solid #eee; padding-top:20px; }
+.blog-post-container { max-width:800px; }
+.blog-post-nav { display:flex; justify-content:space-between; gap:12px; }
+.blog-post-header { margin:40px 0; }
+.blog-post-header h1 { font-size:2.2rem; margin-bottom:10px; }
+.blog-post-meta { font-size:1rem; }
+.blog-post-separator { margin:50px 0; border:0; border-top:1px solid #eee; }
+.blog-back-bottom { margin-top:20px; }
+.btn-ghost.is-disabled { color:var(--muted); pointer-events:none; opacity:.5; }
+.teaching-category-title { margin-top:20px; color:var(--accent); }
+@media (max-width: 600px) {
+  .talk-detail-title, .blog-post-header h1 { font-size:1.7rem; }
+  .talk-slides-link { padding:13px 18px; gap:14px; }
+  .blog-post-nav { align-items:flex-start; }
+}

@@ -1,10 +1,22 @@
-title: "Lorenzo Alvarado"
-author: "Lorenzo Antonio Alvarado Cabrera"
+title: Lorenzo Alvarado
+author: Lorenzo Antonio Alvarado Cabrera
 lang: en
-url: "https://lorenzoalvarado.github.io"
-baseurl: ""
+url: https://lorenzoalvarado.github.io
+baseurl: ''
 markdown: kramdown
 exclude:
-  - README.md
-  - REFACTOR_NOTES.md
-  - _templates
+- README.md
+- REFACTOR_NOTES.md
+- _templates
+- MAINTENANCE_GUIDE.md
+collections:
+  talks:
+    output: true
+defaults:
+- scope:
+    path: ''
+    type: talks
+  values:
+    layout: talk
+    nav: talks
+    mathjax: true

@@ -35,3 +35,14 @@ The existing root URLs are the English version. The Spanish version mirrors the 
 Navigation labels live in `_data/navigation.yml`. The shared header automatically displays the correct navigation and generates the EN/ES counterpart link based on `page.lang` and `page.url`.
 
 When adding a new public page, create both the English page and its counterpart under `/es/` using the same relative path, and set `lang: en` / `lang: es` in their front matter.
+
+## Routine maintenance
+
+Routine content is now data-driven/generated:
+
+- Talks: `_talks/`
+- Blog posts: `_posts/`
+- Teaching course list: `_data/courses.yml`
+- Copy-ready examples: `_templates/`
+
+See `MAINTENANCE_GUIDE.md` for step-by-step instructions.

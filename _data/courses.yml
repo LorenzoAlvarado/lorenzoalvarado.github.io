@@ -1,0 +1,43 @@
+categories:
+- key: calculus_analysis
+  en: Calculus and Analysis
+  es: Cálculo y Análisis
+  courses:
+  - en: Calculus I (Single-variable differential calculus)
+    es: Cálculo I (Cálculo diferencial de una variable)
+    semesters: 2021-1, 2024-1, 2025-1, 2026-1, 2027-1
+  - en: Calculus II (Single-variable integral calculus)
+    es: Cálculo II (Cálculo integral de una variable)
+    semesters: 2021-2, 2022-1, 2024-2, 2026-2
+  - en: Calculus III (Multivariable differential calculus)
+    es: Cálculo III (Cálculo diferencial de varias variables)
+    semesters: 2022-2, 2025-1
+  - en: Calculus IV (Multivariable integral calculus)
+    es: Cálculo IV (Cálculo integral de varias variables)
+    semesters: 2022-2, 2023-1, 2025-1, 2025-2
+- key: algebra_number_theory
+  en: Algebra and Number Theory
+  es: Álgebra y Teoría de Números
+  courses:
+  - en: Advanced Algebra I
+    es: Álgebra Superior I
+    semesters: 2023-1, 2024-1
+  - en: Advanced Algebra II
+    es: Álgebra Superior II
+    semesters: 2024-2
+  - en: Number Theory I
+    es: Teoría de Números I
+    semesters: 2023-2, 2026-1, 2027-1
+  - en: Probabilistic Number Theory
+    es: Teoría Probabilística de Números
+    semesters: 2026-2
+- key: complex_analysis
+  en: Complex Analysis
+  es: Variable Compleja
+  courses:
+  - en: Complex Analysis I
+    es: Variable Compleja I
+    semesters: 2024-4, 2025-1
+  - en: Complex Analysis II
+    es: Variable Compleja II
+    semesters: 2023-2

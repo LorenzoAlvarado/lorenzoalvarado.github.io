@@ -19,41 +19,16 @@ lang: en
 <p class="bio" style="margin-bottom: 30px;">
            Below is a list of the talks I have delivered. You can select each title to view the corresponding details, slides, and links.
         </p>
-<article class="card talk-card card-cinvestav_2026_goldbach mb-20">
-<h3>Tres primos bastan (eventualmente): La historia analítica de la conjetura de Goldbach</h3>
-<p><strong>Event:</strong> Student Seminar — Cinvestav Zacatenco, IPN</p>
-<p><strong>Date:</strong> April 2026</p>
-<p class="note" style="font-size: 0.85rem; margin-top: -10px;">(In Spanish)</p>
-<a class="btn" href="talks/cinvestav_2026_goldbach.html">View details</a>
+{% assign talks = site.talks | where: "lang", "en" | sort: "talk_date" | reverse %}
+{% for talk in talks %}
+<article class="card talk-card card-{{ talk.slug }} mb-20">
+<h3>{{ talk.talk_title }}</h3>
+<p><strong>Event:</strong> {{ talk.event }}</p>
+<p><strong>Date:</strong> {{ talk.date_display }}</p>
+{% if talk.presented_language == 'es' %}<p class="note talk-language-note">(In Spanish)</p>{% endif %}
+<a class="btn" href="{{ talk.url | relative_url }}">View details</a>
 </article>
-<article class="card talk-card card-riemann_cauchy_variables mb-20">
-<h3>EULER’S FORMULAE FOR ζ(2n) AND PRODUCTS OF CAUCHY VARIABLES</h3>
-<p><strong>Event:</strong> Seminar — Mathematics Institute, UNAM</p>
-<p><strong>Date:</strong> February 2026</p>
-<p class="note" style="font-size: 0.85rem; margin-top: -10px;">(In Spanish)</p>
-<a class="btn" href="talks/riemann_cauchy_variables.html">View details</a>
-</article>
-<article class="card talk-card card-riemann_primosp1 mb-20">
-<h3>La Hipótesis de Riemann: Una ventana a la distribución de los números primos (Parte 1)</h3>
-<p><strong>Event:</strong> Informative Talk — Mathematics Institute, UNAM</p>
-<p><strong>Date:</strong> March 2025</p>
-<p class="note" style="font-size: 0.85rem; margin-top: -10px;">(In Spanish)</p>
-<a class="btn" href="talks/riemann_primosp1.html">View details</a>
-</article>
-<article class="card talk-card card-circle_method mb-20">
-<h3>Cómo contar con integrales: El método del círculo de Hardy-Littlewood</h3>
-<p><strong>Event:</strong> Seminario de Becarios — Mathematics Institute, UNAM</p>
-<p><strong>Date:</strong> October 2024</p>
-<p class="note" style="font-size: 0.85rem; margin-top: -10px;">(In Spanish)</p>
-<a class="btn" href="talks/circle_method.html">View details</a>
-</article>
-<article class="card talk-card card-basilea_bernoulli mb-20">
-<h3>Del problema de Basilea a los números de Bernoulli: Valores exactos de la función Zeta</h3>
-<p><strong>Event:</strong> Seminario Junior — Mathematics Institute, UNAM</p>
-<p><strong>Date:</strong> November 2022</p>
-<p class="note" style="font-size: 0.85rem; margin-top: -10px;">(In Spanish)</p>
-<a class="btn" href="talks/basilea_bernoulli.html">View details</a>
-</article>
+{% endfor %}
 </div>
 </section>
 </main>

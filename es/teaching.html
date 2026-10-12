@@ -24,57 +24,12 @@ mathjax: true
 <section>
 <h3>Cursos impartidos (UNAM)</h3>
 <p class="note">Cursos que he impartido en la Facultad de Ciencias de la UNAM desde 2021.</p>
-<h4 style="margin-top:20px; color:var(--accent);">Cálculo y Análisis</h4>
+{% for category in site.data.courses.categories %}
+<h4 class="teaching-category-title">{{ category.es }}</h4>
 <table class="courses">
-<tr><th>curso</th><th>Semestres</th></tr>
-<tr>
-<td>Cálculo I (Cálculo diferencial de una variable)</td>
-<td>2021-1, 2024-1, 2025-1, 2026-1, 2027-1</td>
-</tr>
-<tr>
-<td>Cálculo II (Cálculo integral de una variable)</td>
-<td>2021-2, 2022-1, 2024-2, 2026-2</td>
-</tr>
-<tr>
-<td>Cálculo III (Cálculo diferencial de varias variables)</td>
-<td>2022-2, 2025-1</td>
-</tr>
-<tr>
-<td>Cálculo IV (Cálculo integral de varias variables)</td>
-<td>2022-2, 2023-1, 2025-1, 2025-2</td>
-</tr>
+<tr><th>Curso</th><th>Semestres</th></tr>
+{% for course in category.courses %}<tr><td>{{ course.es }}</td><td>{{ course.semesters }}</td></tr>{% endfor %}
 </table>
-<h4 style="margin-top:20px; color:var(--accent);">Álgebra y Teoría de Números</h4>
-<table class="courses">
-<tr><th>curso</th><th>Semestres</th></tr>
-<tr>
-<td>Álgebra Superior I</td>
-<td>2023-1, 2024-1</td>
-</tr>
-<tr>
-<td>Álgebra Superior II</td>
-<td>2024-2</td>
-</tr>
-<tr>
-<td>Teoría de Números I</td>
-<td>2023-2, 2026-1, 2027-1</td>
-</tr>
-<tr>
-<td>Teoría Probabilística de Números</td>
-<td>2026-2</td>
-</tr>
-</table>
-<h4 style="margin-top:20px; color:var(--accent);">Variable Compleja</h4>
-<table class="courses">
-<tr><th>curso</th><th>Semestres</th></tr>
-<tr>
-<td>Variable Compleja I</td>
-<td>2024-4, 2025-1</td>
-</tr>
-<tr>
-<td>Variable Compleja II</td>
-<td>2023-2</td>
-</tr>
-</table>
+{% endfor %}
 </section>
 </main>
