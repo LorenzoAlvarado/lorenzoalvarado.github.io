@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -30,6 +30,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          sudo chown -R "${USER}:${USER}" _site
           SAFE_BRANCH="${GITHUB_REF_NAME//\//-}"
           PREVIEW_BRANCH="preview-${SAFE_BRANCH}"
           PREVIEW_BASE="https://raw.githack.com/${GITHUB_REPOSITORY}/${PREVIEW_BRANCH}"
