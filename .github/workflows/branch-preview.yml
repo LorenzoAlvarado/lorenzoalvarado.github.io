@@ -39,30 +39,72 @@ jobs:
           PREVIEW_BASE="https://raw.githack.com/${GITHUB_REPOSITORY}/${PREVIEW_BRANCH}"
           SOURCE_BASE="https://rawcdn.githack.com/${GITHUB_REPOSITORY}/${GITHUB_SHA}"
 
-          # Keep preview builds out of search engines and rewrite root-relative
-          # links so the static build can be browsed from raw.githack.
-          find _site -type f -name '*.html' -print0 | while IFS= read -r -d '' file; do
-            sed -i               -e "s|<head>|<head><meta name=\"robots\" content=\"noindex,nofollow\">|g"               -e "s|href=\"/assets/|href=\"${SOURCE_BASE}/assets/|g"               -e "s|src=\"/assets/|src=\"${SOURCE_BASE}/assets/|g"               -e "s|href=\"/cv/|href=\"${SOURCE_BASE}/cv/|g"               -e "s|href=\"/|href=\"${PREVIEW_BASE}/|g"               -e "s|src=\"/|src=\"${PREVIEW_BASE}/|g"               "${file}"
+          export PREVIEW_BASE SOURCE_BASE
 
-            sed -i               -e "s|${PREVIEW_BASE}/es/blog/\"|${PREVIEW_BASE}/es/blog/index.html\"|g"               -e "s|${PREVIEW_BASE}/blog/\"|${PREVIEW_BASE}/blog/index.html\"|g"               -e "s|${PREVIEW_BASE}/es/\"|${PREVIEW_BASE}/es/index.html\"|g"               -e "s|${PREVIEW_BASE}/\"|${PREVIEW_BASE}/index.html\"|g"               "${file}"
-          done
-
-          if [ -f _site/css/styles.css ]; then
-            sed -i               -e "s|url(\"../assets/|url(\"${SOURCE_BASE}/assets/|g"               -e "s|url('../assets/|url('${SOURCE_BASE}/assets/|g"               -e "s|url(../assets/|url(${SOURCE_BASE}/assets/|g"               _site/css/styles.css
-          fi
-
-          if [ -f _site/assets/js/site.js ]; then
-            python3 - <<'PY'
+          python3 - <<'PY'
           from pathlib import Path
-          import os
-          p = Path("_site/assets/js/site.js")
-          s = p.read_text()
-          safe = os.environ["GITHUB_REF_NAME"].replace("/", "-")
-          base = f"https://raw.githack.com/{os.environ['GITHUB_REPOSITORY']}/preview-{safe}"
-          s = s.replace("window.location.replace('/es/');", f"window.location.replace('{base}/es/index.html');")
-          p.write_text(s)
+          import os, posixpath, re
+
+          root = Path("_site")
+          preview = os.environ["PREVIEW_BASE"].rstrip("/")
+          source = os.environ["SOURCE_BASE"].rstrip("/")
+
+          attr_re = re.compile(r'(?P<prefix>(?:href|src)=["\'])(?P<url>[^"\']+)(?P<suffix>["\'])')
+
+          def rewrite_url(url, html_rel):
+              if not url or url.startswith(("#", "http://", "https://", "mailto:", "tel:", "data:", "javascript:")):
+                  return url
+
+              # Root-relative paths.
+              if url.startswith("/"):
+                  clean = url.lstrip("/")
+                  if clean.startswith(("assets/", "cv/")):
+                      return f"{source}/{clean}"
+                  if clean == "":
+                      clean = "index.html"
+                  elif clean.endswith("/"):
+                      clean += "index.html"
+                  return f"{preview}/{clean}"
+
+              # Relative assets/PDFs/CV files. Resolve them against the HTML
+              # file location and serve them from the immutable source commit.
+              base_dir = posixpath.dirname(html_rel)
+              resolved = posixpath.normpath(posixpath.join(base_dir, url))
+              if resolved.startswith(("assets/", "cv/")):
+                  return f"{source}/{resolved}"
+
+              return url
+
+          for html in root.rglob("*.html"):
+              rel = html.relative_to(root).as_posix()
+              text = html.read_text(encoding="utf-8")
+              text = text.replace("<head>", '<head><meta name="robots" content="noindex,nofollow">', 1)
+
+              def repl(match):
+                  url = rewrite_url(match.group("url"), rel)
+                  return match.group("prefix") + url + match.group("suffix")
+
+              html.write_text(attr_re.sub(repl, text), encoding="utf-8")
+
+          css = root / "css" / "styles.css"
+          if css.exists():
+              text = css.read_text(encoding="utf-8")
+              text = re.sub(
+                  r"url\((['\"]?)(?:\.\./)+assets/",
+                  lambda m: f"url({m.group(1)}{source}/assets/",
+                  text,
+              )
+              css.write_text(text, encoding="utf-8")
+
+          js = root / "assets" / "js" / "site.js"
+          if js.exists():
+              text = js.read_text(encoding="utf-8")
+              text = text.replace(
+                  "window.location.replace('/es/');",
+                  f"window.location.replace('{preview}/es/index.html');"
+              )
+              js.write_text(text, encoding="utf-8")
           PY
-          fi
 
           # Media are loaded from the immutable source commit instead of being
           # copied into every generated preview branch.
